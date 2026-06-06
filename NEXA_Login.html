@@ -3,193 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Ký Hồ Sơ Năng Lực Số | NEXA Platform</title>
+    <title>Đăng Nhập Hệ Thống | NEXA Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        iuhBlue: { DEFAULT: '#003366', light: '#004aa6', dark: '#002244' },
-                        iuhGold: { DEFAULT: '#D4AF37', light: '#e6c353', dark: '#b39025' },
-                        richBlack: '#111827'
+                        nexaBlue: { DEFAULT: '#1b365d', light: '#2a4c7e', dark: '#0f2444' },
+                        nexaPurple: { DEFAULT: '#4f46e5', light: '#6366f1', dark: '#3730a3' },
+                        slateBg: '#f8fafc',
+                        iuhGold: { DEFAULT: '#D4AF37' }
                     },
                     fontFamily: { sans: ['Montserrat', 'sans-serif'] }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 font-sans text-richBlack min-h-screen flex">
+<body class="bg-slateBg font-sans text-slate-800 min-h-screen flex items-center justify-center p-4">
 
-    <div class="hidden lg:flex w-[45%] bg-[#003366] relative items-center justify-center overflow-hidden order-2">
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500 blur-3xl opacity-30"></div>
-        
-        <div class="relative z-10 px-12 text-white space-y-6">
-            <h2 class="text-3xl font-bold border-l-4 border-[#D4AF37] pl-4 leading-snug">Bước đệm kiến tạo <br/>tư duy và năng lực số</h2>
-            <ul class="space-y-5 text-sm text-blue-100">
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 flex-shrink-0"></i>
-                    <span>Tích lũy tiến trình rèn luyện kỹ năng thực chứng (E-Portfolio) được bảo chứng minh bạch qua công nghệ.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 flex-shrink-0"></i>
-                    <span>Tiếp cận kho tàng bài tập tình huống thực tế giúp nâng cao phản xạ và tư duy thích nghi AI.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 flex-shrink-0"></i>
-                    <span>Đo lường chi tiết điểm mạnh, điểm yếu theo 6 miền tiêu chí của Khung năng lực số Châu Âu DigComp 2.2.</span>
-                </li>
-            </ul>
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden transition-all duration-300 hover:shadow-2xl">
+        <div class="bg-gradient-to-r from-nexaBlue to-nexaBlue-light p-6 text-center relative">
+            <div class="absolute top-3 right-4 flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-full border border-white/20">
+                <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+                <span class="text-[9px] text-white font-bold tracking-widest uppercase">V2.4 Stable</span>
+            </div>
+            <div class="w-12 h-12 bg-white/10 rounded-xl mx-auto flex items-center justify-center border border-white/20 backdrop-blur-sm mb-3">
+                <i class="fa-solid fa-shield-halved text-white text-xl"></i>
+            </div>
+            <h1 class="text-xl font-black text-white tracking-tight">NEXA</h1>
+            <p class="text-[11px] text-slate-300 font-medium mt-1">Hệ thống Đăng nhập Khảo thí & Đánh giá Năng lực</p>
         </div>
-    </div>
 
-    <div class="w-full lg:w-[55%] flex items-center justify-center p-6 sm:p-12 overflow-y-auto order-1">
-        <div class="w-full max-w-lg space-y-6">
-            
-            <div class="flex items-center justify-between mb-4">
-                <div onclick="window.location.href='index.html'" class="w-12 h-12 bg-[#003366] rounded-lg flex items-center justify-center overflow-hidden shadow-md border-b-2 border-iuhGold cursor-pointer">
-                    <img src="https://i.postimg.cc/Vv0HrbfK/anh-logo-nexa.png" alt="NX" class="w-full h-full object-contain p-1" onerror="this.style.display='none';">
-                </div>
-                <a href="index.html" class="inline-flex items-center text-xs font-bold text-slate-400 hover:text-[#003366] transition">
-                    Trang chủ <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-            </div>
+        <div class="p-6 space-y-4">
+            <div id="error-box" class="bg-rose-50 border border-rose-100 text-rose-600 text-xs p-3.5 rounded-xl hidden"></div>
 
-            <div>
-                <h2 class="text-3xl font-extrabold text-richBlack tracking-tight">Tạo tài khoản NEXA</h2>
-                <p class="text-sm text-slate-500 mt-2">Thiết lập không gian học tập và định vị năng lực số chuyên biệt.</p>
-            </div>
-
-            <div class="bg-slate-100 p-1.5 rounded-lg flex mt-6">
-                <button type="button" onclick="selectRole('learner')" id="tab-learner" class="flex-1 py-2.5 text-sm font-bold bg-white text-[#003366] shadow-sm rounded-md transition-all cursor-pointer">Cá nhân / Sinh viên</button>
-                <button type="button" onclick="selectRole('admin')" id="tab-admin" class="flex-1 py-2.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-all cursor-pointer">Giảng viên / Nhà trường</button>
-            </div>
-
-            <form id="registerForm" onsubmit="handleRegister(event)" class="space-y-5 pt-2">
-                <input type="hidden" id="reg-role" value="learner">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2" id="lbl-name">Họ và tên người học</label>
-                        <input type="text" id="reg-name" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003366] text-sm shadow-sm" placeholder="VD: Nguyễn Văn A">
-                    </div>
-                    <div id="dynamic-field">
-                        <label class="block text-xs font-bold text-slate-700 mb-2">Mã số sinh viên (SSO)</label>
-                        <input type="text" id="reg-extra" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003366] text-sm shadow-sm" placeholder="Nhập MSSV định danh...">
+            <div class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Tài khoản định danh</label>
+                    <div class="relative">
+                        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"><i class="fa-solid fa-user"></i></span>
+                        <input id="login-id" type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-9 pr-4 text-xs font-semibold focus:outline-none focus:border-nexaBlue focus:bg-white transition-all" placeholder="Nhập mã số định danh hoặc email...">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-2">Tên tài khoản đăng nhập / Email / Mã định danh</label>
-                    <input type="text" id="reg-identifier" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003366] text-sm shadow-sm" placeholder="Nhập mã số sinh viên, mã định danh hoặc Email của bạn">
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">Mật khẩu</label>
-                        <input type="password" id="reg-pass" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003366] text-sm shadow-sm" placeholder="Tối thiểu 8 ký tự">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">Xác nhận mật khẩu</label>
-                        <input type="password" id="reg-pass-confirm" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003366] text-sm shadow-sm" placeholder="Nhập lại mật khẩu">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Mật khẩu bảo vệ</label>
+                    <div class="relative">
+                        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"><i class="fa-solid fa-lock"></i></span>
+                        <input id="login-pass" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-9 pr-4 text-xs font-semibold focus:outline-none focus:border-nexaBlue focus:bg-white transition-all" placeholder="••••••••">
                     </div>
                 </div>
+            </div>
 
-                <div class="flex items-start mt-4">
-                    <div class="flex items-center h-5">
-                        <input id="terms" type="checkbox" required class="w-4 h-4 text-[#003366] border-slate-300 rounded focus:ring-[#003366] cursor-pointer">
-                    </div>
-                    <div class="ml-2 text-xs text-slate-500">
-                        <label for="terms" class="font-medium cursor-pointer">Tôi đồng ý tuân thủ các quy định <a href="#" class="text-[#003366] font-bold hover:underline">Khảo thí công bằng</a> và <a href="#" class="text-[#003366] font-bold hover:underline">Chính sách bảo mật thông tin</a> của NEXA Core.</label>
-                    </div>
-                </div>
+            <button onclick="handleNexaLogin()" class="w-full bg-nexaBlue hover:bg-nexaBlue-dark text-white font-bold py-2.5 rounded-xl border-none transition-all cursor-pointer shadow-md text-xs tracking-wide active:scale-[0.99] mt-2">
+                XÁC THỰC TRUY CẬP <i class="fa-solid fa-arrow-right ml-1"></i>
+            </button>
 
-                <button type="submit" class="w-full bg-[#003366] hover:bg-iuhBlue-light text-white font-black py-4 rounded-xl shadow-lg hover:-translate-y-0.5 transition-all text-sm mt-4 flex items-center justify-center gap-2 cursor-pointer border-b-4 border-blue-950">
-                    <span>KÍCH HOẠT KHÔNG GIAN SỐ</span> 
-                    <i class="fa-solid fa-bolt text-[#D4AF37]"></i>
-                </button>
-            </form>
-
-            <div class="pt-5 text-center text-sm text-slate-500 font-medium border-t border-slate-100">
-                Đã có tài khoản khảo thí? 
-                <a href="NEXA_Login.html" class="font-bold text-[#003366] hover:text-[#D4AF37] transition ml-1 underline underline-offset-2">Đăng nhập tại đây</a>
+            <div class="pt-4 border-t border-slate-100 text-center">
+                <p class="text-xs text-slate-400 font-medium">Chưa kích hoạt không gian số cá nhân?</p>
+                <a href="NEXA_Register.html" class="inline-block text-nexaPurple hover:text-nexaPurple-dark font-bold text-xs mt-1.5 transition-colors underline decoration-2">Đăng ký tài khoản mới ngay</a>
             </div>
         </div>
     </div>
 
+    <script src="storage.js"></script>
     <script>
-        // Hàm bổ sung giải quyết triệt để lỗi không click di chuyển qua lại giữa các vai trò được
-        function selectRole(role) {
-            document.getElementById('reg-role').value = role;
-            const tLearner = document.getElementById('tab-learner');
-            const tAdmin = document.getElementById('tab-admin');
-            const dynamicFieldLabel = document.querySelector('#dynamic-field label');
-            const dynamicFieldInput = document.querySelector('#dynamic-field input');
-            const nameLabel = document.getElementById('lbl-name');
+        function handleNexaLogin() {
+            const inputId = document.getElementById('login-id').value.trim();
+            const pass = document.getElementById('login-pass').value.trim();
+            const errorBox = document.getElementById('error-box');
 
-            if (role === 'learner') {
-                tLearner.className = "flex-1 py-2.5 text-sm font-bold bg-white text-[#003366] shadow-sm rounded-md transition-all cursor-pointer";
-                tAdmin.className = "flex-1 py-2.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-all cursor-pointer";
-                nameLabel.innerText = "Họ và tên người học";
-                dynamicFieldLabel.innerText = "Mã số sinh viên (SSO)";
-                dynamicFieldInput.placeholder = "Nhập MSSV định danh...";
-            } else {
-                tAdmin.className = "flex-1 py-2.5 text-sm font-bold bg-white text-[#003366] shadow-sm rounded-md transition-all cursor-pointer";
-                tLearner.className = "flex-1 py-2.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-all cursor-pointer";
-                nameLabel.innerText = "Họ và tên Giảng viên / Quản lý";
-                dynamicFieldLabel.innerText = "Tên Cơ sở đào tạo / Nhà trường";
-                dynamicFieldInput.placeholder = "Tên đơn vị, khoa, trường học...";
-            }
-        }
-
-        function handleRegister(e) {
-            e.preventDefault();
-            const pass = document.getElementById('reg-pass').value;
-            const passConfirm = document.getElementById('reg-pass-confirm').value;
-
-            if (pass !== passConfirm) {
-                alert("Mật khẩu xác nhận không khớp!");
+            if (!inputId || !pass) {
+                errorBox.innerHTML = 'Vui lòng cung cấp đầy đủ thông tin tài khoản và mật khẩu.';
+                errorBox.classList.remove('hidden');
                 return;
             }
 
-            const inputId = document.getElementById('reg-identifier').value.trim();
+            let finalRole = null;
 
-            // Lưu đồng thời giá trị vào email và username để file Login đối chiếu kiểu gì cũng khớp
-            const user = {
-                name: document.getElementById('reg-name').value.trim(),
-                email: inputId,
-                username: inputId,
-                password: pass,
-                role: document.getElementById('reg-role').value,
-                extraInfo: document.getElementById('reg-extra').value.trim()
-            };
+            // 1. Kiểm tra tài khoản cứng (Mock static testing)
+            if (pass === '123456') {
+                if (inputId === 'student') finalRole = 'learner';
+                else if (inputId === 'teacher') finalRole = 'teacher';
+                else if (inputId === 'employer') finalRole = 'employer';
+                else if (inputId === 'admin') finalRole = 'admin';
+            }
 
-            // GỌI KHO STORAGE TRUNG TÂM ĐỂ LƯU TRỮ
-            if (typeof NexaStorage !== 'undefined') {
-                const isSaved = NexaStorage.saveUserAccount(user);
-                if (isSaved) {
-                    alert('Khởi tạo hồ sơ kiểm chuẩn thành công! Hệ thống đang chuyển hướng tới phân luồng học tập...');
-                    if (user.role === 'learner') {
-                        window.location.href = 'dashboard_learner.html';
-                    } else {
-                        window.location.href = 'dashboard_admin.html';
-                    }
-                } else {
-                    alert('Lỗi hệ thống: Không thể ghi nhớ hồ sơ năng lực số!');
+            // 2. Nếu không trùng tài khoản cứng, kiểm tra tài khoản đăng ký trong LocalStorage qua file storage.js
+            if (!finalRole && typeof NexaStorage !== 'undefined') {
+                const savedUser = NexaStorage.getUserAccount();
+                if (savedUser && (savedUser.username === inputId || savedUser.email === inputId) && savedUser.password === pass) {
+                    finalRole = savedUser.role;
                 }
+            }
+
+            // 3. Lưu phiên đăng nhập và chuyển hướng dashboard
+            if (finalRole) {
+                errorBox.classList.add('hidden');
+
+                const mockProfiles = {
+                    student:  { username: 'student',  email: 'student',  role: 'learner',  name: 'Sinh viên Demo' },
+                    teacher:  { username: 'teacher',  email: 'teacher',  role: 'teacher',  name: 'Giảng viên Demo' },
+                    employer: { username: 'employer', email: 'employer', role: 'employer', name: 'Doanh nghiệp Demo' },
+                    admin:    { username: 'admin',    email: 'admin',    role: 'admin',    name: 'Quản trị viên' }
+                };
+
+                if (typeof NexaStorage !== 'undefined') {
+                    const savedUser = NexaStorage.getUserAccount();
+                    const isRegisteredLogin = savedUser &&
+                        (savedUser.username === inputId || savedUser.email === inputId) &&
+                        savedUser.password === pass;
+                    const profileToSave = isRegisteredLogin ? savedUser : (mockProfiles[inputId] || {
+                        username: inputId, email: inputId, role: finalRole, name: inputId
+                    });
+                    NexaStorage.saveUserAccount(profileToSave);
+                }
+
+                const dashboardPaths = {
+                    learner:  'dashboard_learner/dashboard_learner.html',
+                    teacher:  'dashboard_teacher/dashboard_teacher.html',
+                    employer: 'dashboard_employer/dashboard_employer.html',
+                    admin:    'dashboard_admin/dashboard_admin.html'
+                };
+                window.location.href = dashboardPaths[finalRole];
             } else {
-                alert('Lỗi: Chưa liên kết được file storage.js hoặc thư mục đường dẫn sai!');
+                errorBox.innerHTML = `Thông tin đăng nhập hoặc mật khẩu bảo vệ không chính xác.<br/>
+                <span class="text-[10px] font-medium opacity-80 mt-1 block">💡 Gợi ý kiểm thử nhanh 4 luồng hệ thống (Mật khẩu: <b>123456</b>):<br/>
+                - Sinh viên: <b class="text-nexaPurple">student</b> | Giảng viên: <b class="text-nexaPurple">teacher</b><br/>
+                - Doanh nghiệp: <b class="text-nexaPurple">employer</b> | Admin tối cao: <b class="text-nexaPurple">admin</b></span>`;
+                errorBox.classList.remove('hidden');
             }
         }
     </script>
-
-    <script src="js/storage.js"></script>
-    <script src="js/Questions.js"></script>
-    <script src="js/nexa-scale.js"></script>
-    <script src="js/app-logic.js"></script>
 </body>
 </html>

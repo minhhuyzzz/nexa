@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Báo cáo &amp; Phân tích - NEXA Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {error: "#ba1a1a", "on-primary-fixed": "#00164e", "tertiary-container": "#6e2c00", tertiary: "#4b1c00", "employer-accent": "#10B981", "on-secondary": "#ffffff", "admin-accent": "#F43F5E", "primary-fixed-dim": "#b6c4ff", "on-background": "#1a1b21", "primary-container": "#1e3a8a", "error-container": "#ffdad6", "outline-variant": "#c5c5d3", "teacher-accent": "#8B5CF6", "secondary-fixed": "#dce1ff", "secondary-container": "#8fa7fe", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#ffb691", "on-surface": "#1a1b21", "on-surface-variant": "#444651", "surface-tint": "#4059aa", "surface-container-highest": "#e3e1e9", outline: "#757682", "on-primary-container": "#90a8ff", "on-error-container": "#93000a", "inverse-on-surface": "#f1f0f7", "on-secondary-container": "#1d3989", "surface-dim": "#dad9e1", primary: "#00236f", "surface-container-low": "#f4f3fa", secondary: "#4059aa", background: "#faf8ff", "inverse-surface": "#2f3036", "surface-muted": "#F8FAFC", "on-primary": "#ffffff", "on-secondary-fixed": "#00164e", "primary-fixed": "#dce1ff", "on-tertiary-container": "#f39461", "surface-container-high": "#e9e7ef", surface: "#faf8ff", "surface-container": "#eeedf4", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#264191", "on-error": "#ffffff", "border-subtle": "#E2E8F0", "on-primary-fixed-variant": "#264191", "on-tertiary-fixed-variant": "#773205", "surface-bright": "#faf8ff", "surface-variant": "#e3e1e9", "student-accent": "#3B82F6", "secondary-fixed-dim": "#b6c4ff", "on-tertiary-fixed": "#341100", "inverse-primary": "#b6c4ff", "tertiary-fixed": "#ffdbcb"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-padding": "24px", "base-unit": "4px", "section-margin": "48px", gutter: "16px", "card-gap": "20px"}, fontFamily: {"headline-lg-mobile": ["Geist"], "headline-lg": ["Geist"], "display-lg": ["Geist"], "body-md": ["Inter"], "label-sm": ["Geist"], "headline-xl": ["Geist"], "body-lg": ["Inter"], "label-md": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Inter"], label: ["Geist"]}, fontSize: {"headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}]}}}};</script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ai-insight-glass {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface-muted text-on-surface font-body-md antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<script src="../js/sidebar_teacher.js"></script>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md fixed top-0 right-0 w-[calc(100%-16rem)] z-40 border-b border-border-subtle flex items-center justify-between px-8 h-16">
+<!-- Left Side: Breadcrumb / Title Context -->
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-md text-label-md">NEXA</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-md text-label-md text-primary font-bold">Báo cáo &amp; Phân tích</span>
+</div>
+<!-- Right Side: Search & Actions -->
+<div class="flex items-center gap-6">
+<!-- Search -->
+<div class="relative hidden lg:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border border-border-subtle rounded-full py-2 pl-10 pr-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-teacher-accent focus:ring-1 focus:ring-teacher-accent transition-all" placeholder="Tìm kiếm sinh viên, lớp học..." type="text"/>
+</div>
+<!-- Icons -->
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-teacher-accent transition-colors rounded-full hover:bg-surface-container-low relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-admin-accent rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-teacher-accent transition-colors rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-teacher-accent transition-colors rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-24 px-container-padding pb-12 flex-1 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-section-margin">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Phân tích chuyên sâu</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Theo dõi tiến độ, hiệu suất và các điểm mù kiến thức của sinh viên.</p>
+</div>
+<div class="flex gap-3">
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-border-subtle rounded-lg py-2 pl-4 pr-10 font-label-md text-label-md text-on-surface focus:outline-none focus:border-teacher-accent focus:ring-1 focus:ring-teacher-accent cursor-pointer shadow-sm">
+<option>CS101 - Nhập môn Lập trình</option>
+<option>CS202 - Cấu trúc Dữ liệu</option>
+<option>CS303 - Trí tuệ Nhân tạo</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface font-label-md text-label-md py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Xuất báo cáo
+                    </button>
+</div>
+</div>
+<!-- Key Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap mb-8">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-border-subtle shadow-[0_2px_8px_-2px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<span class="inline-flex items-center gap-1 text-employer-accent font-label-sm text-label-sm bg-employer-accent/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+                            4.2%
+                        </span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1">Điểm trung bình</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface">7.8<span class="font-body-lg text-body-lg text-on-surface-variant">/10</span></p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-border-subtle shadow-[0_2px_8px_-2px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-low rounded-lg text-teacher-accent">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<span class="inline-flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-high px-2 py-1 rounded-full">
+                            Tuần này
+                        </span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1">Tỷ lệ hoàn thành bài tập</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface">86%</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-3">
+<div class="bg-teacher-accent h-1.5 rounded-full" style="width: 86%"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-border-subtle shadow-[0_2px_8px_-2px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error-container rounded-lg text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1">SV cần hỗ trợ khẩn cấp</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface">12<span class="font-body-lg text-body-lg text-on-surface-variant"> sinh viên</span></p>
+<p class="font-label-sm text-label-sm text-error mt-2">Dưới ngưỡng 5.0 ở 2+ bài kiểm tra</p>
+</div>
+<!-- Metric 4 -->
+<div class="ai-insight-glass rounded-xl p-5 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-teacher-accent/10 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-white/50 rounded-lg text-secondary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<span class="inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm bg-white/50 px-2 py-1 rounded-full border border-secondary/20">
+                            AI Insight
+                        </span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1 relative z-10">Dự báo nguy cơ trượt</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface relative z-10">8%</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 relative z-10">Dựa trên mô hình học tập lịch sử</p>
+</div>
+</div>
+<!-- Bento Grid Layout for Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap mb-section-margin">
+<!-- Chart 1: Phổ điểm (Span 2) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-border-subtle shadow-[0_2px_8px_-2px_rgba(0,0,0,0.02)] p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Phổ điểm bài thi Giữa kỳ</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Phân bố điểm số của 142 sinh viên</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Placeholder for Bar Chart -->
+<div class="flex-1 min-h-[250px] relative w-full flex items-end justify-between gap-1 mt-4 px-2">
+<!-- Y-axis labels -->
+<div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-on-surface-variant font-label-sm text-label-sm text-right pr-2 w-8">
+<span>40</span>
+<span>30</span>
+<span>20</span>
+<span>10</span>
+<span>0</span>
+</div>
+<!-- Grid lines -->
+<div class="absolute left-8 right-0 top-0 bottom-6 flex flex-col justify-between">
+<div class="border-b border-border-subtle/50 w-full"></div>
+<div class="border-b border-border-subtle/50 w-full"></div>
+<div class="border-b border-border-subtle/50 w-full"></div>
+<div class="border-b border-border-subtle/50 w-full"></div>
+<div class="border-b border-border-subtle/50 w-full"></div>
+</div>
+<!-- Bars -->
+<div class="ml-8 w-full flex items-end justify-around h-[calc(100%-24px)] pb-1 relative z-10">
+<!-- 0-1 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-surface-variant rounded-t-sm h-[2%] group-hover:bg-primary-fixed-dim transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">1</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">&lt;1</span>
+</div>
+<!-- 1-2 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-surface-variant rounded-t-sm h-[5%] group-hover:bg-primary-fixed-dim transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">2</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">1-2</span>
+</div>
+<!-- 2-3 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-error-container rounded-t-sm h-[12%] group-hover:bg-error/80 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">5</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">2-3</span>
+</div>
+<!-- 3-4 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-error-container rounded-t-sm h-[20%] group-hover:bg-error/80 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">8</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">3-4</span>
+</div>
+<!-- 4-5 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-tertiary-fixed-dim rounded-t-sm h-[35%] group-hover:bg-tertiary-container/80 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">14</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">4-5</span>
+</div>
+<!-- 5-6 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-primary/40 rounded-t-sm h-[55%] group-hover:bg-primary/60 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">22</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">5-6</span>
+</div>
+<!-- 6-7 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-primary/60 rounded-t-sm h-[80%] group-hover:bg-primary/80 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">32</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">6-7</span>
+</div>
+<!-- 7-8 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-primary rounded-t-sm h-[95%] group-hover:bg-primary-fixed-variant transition-colors relative shadow-[0_-4px_10px_rgba(0,35,111,0.2)]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">38</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold mt-2">7-8</span>
+</div>
+<!-- 8-9 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-employer-accent/60 rounded-t-sm h-[45%] group-hover:bg-employer-accent/80 transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">18</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">8-9</span>
+</div>
+<!-- 9-10 -->
+<div class="w-[8%] flex flex-col items-center group cursor-pointer">
+<div class="w-full bg-employer-accent/80 rounded-t-sm h-[10%] group-hover:bg-employer-accent transition-colors relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">9-10</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Chart 2: Miền năng lực yếu (Radar style conceptually) -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-xl border border-border-subtle shadow-[0_2px_8px_-2px_rgba(0,0,0,0.02)] p-6 flex flex-col relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teacher-accent to-secondary"></div>
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Vùng kiến thức yếu</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Top các chủ đề cần ôn tập</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center space-y-5">
+<!-- Skill 1 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-label-md text-label-md text-on-surface">Đệ quy &amp; Quay lui</span>
+<span class="font-label-sm text-label-sm text-error font-bold">Thấp (42%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<!-- Skill 2 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-label-md text-label-md text-on-surface">Cây nhị phân</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">Trung bình thấp (55%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full rounded-full" style="width: 55%"></div>
+</div>
+</div>
+<!-- Skill 3 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-label-md text-label-md text-on-surface">Quản lý bộ nhớ động</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Trung bình (68%)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary/60 h-full rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<!-- AI Suggestion Area -->
+<div class="mt-4 p-4 bg-surface-container-low rounded-lg border border-primary/10">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-teacher-accent text-[20px]">lightbulb</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Gợi ý từ hệ thống</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Nên tổ chức một buổi phụ đạo tập trung vào "Đệ quy" trước bài kiểm tra thực hành tuần tới.</p>
+<button class="mt-2 text-teacher-accent font-label-sm text-label-sm hover:underline">Tạo nhiệm vụ luyện tập tự động</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- List: Học sinh cần chú ý -->
+<div class="bg-surface-container-lowest rounded-xl border border-border-subtle shadow-[0_2px_8px_-2px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="p-6 border-b border-border-subtle flex justify-between items-center bg-surface-muted/50">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Danh sách sinh viên cần chú ý</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Dựa trên kết quả 3 bài kiểm tra gần nhất</p>
+</div>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface font-label-md text-label-md py-2 px-4 rounded-lg hover:bg-surface-container-low transition-colors shadow-sm">
+                        Xem tất cả
+                    </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-border-subtle">
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-6 uppercase tracking-wider">Sinh viên</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-6 uppercase tracking-wider">MSSV</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-6 uppercase tracking-wider">Điểm TB hiện tại</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-6 uppercase tracking-wider">Xu hướng</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-6 uppercase tracking-wider text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="border-b border-border-subtle/50 hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-sm text-label-sm">
+                                        N
+                                    </div>
+<span class="text-on-surface font-medium">Nguyễn Văn A</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">20210001</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center text-error font-bold bg-error-container px-2 py-1 rounded">4.2</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center text-error gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="text-sm">-1.5đ</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-teacher-accent font-label-md text-label-md hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Gửi tin nhắn</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-border-subtle/50 hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-label-sm">
+                                        T
+                                    </div>
+<span class="text-on-surface font-medium">Trần Thị B</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">20210045</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center text-tertiary-container font-bold bg-tertiary-fixed px-2 py-1 rounded">4.8</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center text-on-surface-variant gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_flat</span>
+<span class="text-sm">0đ</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-teacher-accent font-label-md text-label-md hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Gửi tin nhắn</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-dim text-on-surface flex items-center justify-center font-label-sm text-label-sm">
+                                        L
+                                    </div>
+<span class="text-on-surface font-medium">Lê Minh C</span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">20210102</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center text-tertiary-container font-bold bg-tertiary-fixed px-2 py-1 rounded">5.1</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center text-error gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="text-sm">-0.5đ</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-teacher-accent font-label-md text-label-md hover:underline opacity-0 group-hover:opacity-100 transition-opacity">Gửi tin nhắn</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</body></html>

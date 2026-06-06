@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Danh sách lớp - NEXA Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class", 
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#ffffff", "primary-fixed": "#dce1ff", "on-tertiary-container": "#f39461", "surface-variant": "#e3e1e9", "teacher-accent": "#8B5CF6", "secondary-fixed-dim": "#b6c4ff", secondary: "#4059aa", "tertiary-container": "#6e2c00", "on-surface": "#1a1b21", "surface-tint": "#4059aa", "surface-container": "#eeedf4", "on-primary": "#ffffff", "secondary-fixed": "#dce1ff", "outline-variant": "#c5c5d3", "surface-container-low": "#f4f3fa", "employer-accent": "#10B981", "surface-container-highest": "#e3e1e9", "on-primary-fixed-variant": "#264191", "surface-dim": "#dad9e1", "on-primary-fixed": "#00164e", background: "#faf8ff", "inverse-on-surface": "#f1f0f7", "surface-container-high": "#e9e7ef", "on-error": "#ffffff", "inverse-primary": "#b6c4ff", "surface-container-lowest": "#ffffff", "border-subtle": "#E2E8F0", "student-accent": "#3B82F6", "primary-fixed-dim": "#b6c4ff", "on-surface-variant": "#444651", surface: "#faf8ff", "on-error-container": "#93000a", "on-secondary-fixed": "#00164e", "on-secondary-container": "#1d3989", error: "#ba1a1a", "tertiary-fixed": "#ffdbcb", "on-primary-container": "#90a8ff", "on-tertiary-fixed-variant": "#773205", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#341100", primary: "#00236f", "tertiary-fixed-dim": "#ffb691", "admin-accent": "#F43F5E", "surface-muted": "#F8FAFC", "surface-bright": "#faf8ff", "primary-container": "#1e3a8a", "on-background": "#1a1b21", "error-container": "#ffdad6", tertiary: "#4b1c00", outline: "#757682", "inverse-surface": "#2f3036", "on-secondary-fixed-variant": "#264191", "secondary-container": "#8fa7fe"
+                    }, 
+                    borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, 
+                    spacing: {gutter: "16px", "card-gap": "20px", "section-margin": "48px", "container-padding": "24px", "base-unit": "4px"}, 
+                    fontFamily: {display-lg: ["Geist"], "headline-lg-mobile": ["Geist"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-sm": ["Geist"], "label-md": ["Geist"], "headline-xl": ["Geist"], "headline-lg": ["Geist"]}, 
+                    fontSize: {"display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}]}
+                }
+            }
+        };
+    </script>
+    <style>
+        body { background-color: #F8FAFC; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ai-glow { box-shadow: 0 0 20px rgba(139, 92, 246, 0.15); }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-on-surface font-body-md bg-surface-muted antialiased min-h-screen flex flex-col md:flex-row">
+
+    <header class="md:hidden bg-surface/80 backdrop-blur-md border-b border-border-subtle shadow-sm flex justify-between items-center w-full px-8 py-3 z-40 sticky top-0">
+        <div class="flex items-center gap-4">
+            <button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-lowest transition-all" id="mobile-menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <span class="font-headline-xl text-headline-xl font-black text-primary">NEXA</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-lowest transition-all focus:ring-2 ring-teacher-accent ring-offset-2">
+                <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm ml-2">GV</div>
+        </div>
+    </header>
+
+    <script src="../js/sidebar_teacher.js"></script>
+
+    <div class="fixed inset-0 bg-on-surface/20 backdrop-blur-sm z-20 hidden md:hidden" id="sidebar-overlay"></div>
+
+    <div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+        
+        <div class="hidden md:flex justify-between items-center px-8 py-4 bg-white border-b border-border-subtle z-10 sticky top-0 shadow-sm">
+            <div class="flex flex-col">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Lớp học / Danh sách</span>
+                <h1 class="font-headline-xl text-2xl text-primary font-black tracking-tight">Quản lý Lớp học</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                    <input class="pl-10 pr-4 py-1.5 rounded-full border border-border-subtle bg-slate-50 focus:ring-1 focus:ring-teacher-accent font-medium text-xs w-64 transition-shadow" placeholder="Tìm kiếm lớp học..." type="text"/>
+                </div>
+                <button class="bg-primary text-on-primary px-4 py-1.5 rounded-xl font-bold text-xs hover:bg-primary-container transition-colors shadow-sm active:scale-95 flex items-center gap-1.5 cursor-pointer">
+                    <span class="material-symbols-outlined text-sm">add</span> Tạo lớp mới
+                </button>
+            </div>
+        </div>
+
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 max-w-[1280px] w-full mx-auto">
+            <section>
+                <div class="flex justify-between items-end mb-4">
+                    <h2 class="text-xl font-black text-on-surface tracking-tight">Lớp học giảng dạy (Kỳ 1, 2024)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="bg-white rounded-2xl border border-teacher-accent shadow-sm p-5 cursor-pointer relative overflow-hidden ai-glow ring-1 ring-teacher-accent/20">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teacher-accent/10 to-transparent rounded-bl-full -z-0"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label-sm bg-student-accent/10 text-student-accent mb-2">CS401</span>
+                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">CSDL Nâng cao</h3>
+                                </div>
+                                <button class="text-on-surface-variant hover:text-teacher-accent"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">schedule</span> Thứ 2, 08:00 - 11:30</div>
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">location_on</span> Phòng A3-201</div>
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">group</span> 45 Sinh viên</div>
+                            </div>
+                            <div class="pt-4 border-t border-border-subtle">
+                                <div class="flex justify-between text-sm font-label-md mb-1">
+                                    <span class="text-on-surface-variant">Tiến độ giáo trình</span>
+                                    <span class="text-teacher-accent font-bold">65%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-teacher-accent to-secondary h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-border-subtle shadow-sm p-5 hover:shadow-md hover:border-outline-variant transition-all cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-student-accent/5 to-transparent rounded-bl-full -z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label-sm bg-student-accent/10 text-student-accent mb-2">AI202</span>
+                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Trí tuệ Nhân tạo Cơ bản</h3>
+                                </div>
+                                <button class="text-on-surface-variant hover:text-teacher-accent"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">schedule</span> Thứ 4, 13:00 - 16:30</div>
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">location_on</span> Phòng B1-105</div>
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">group</span> 60 Sinh viên</div>
+                            </div>
+                            <div class="pt-4 border-t border-border-subtle">
+                                <div class="flex justify-between text-sm font-label-md mb-1">
+                                    <span class="text-on-surface-variant">Tiến độ giáo trình</span>
+                                    <span class="text-on-surface font-semibold">40%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2">
+                                    <div class="bg-student-accent h-2 rounded-full" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-border-subtle shadow-sm p-5 hover:shadow-md hover:border-outline-variant transition-all cursor-pointer relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-employer-accent/5 to-transparent rounded-bl-full -z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-label-sm bg-student-accent/10 text-student-accent mb-2">SE305</span>
+                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Công nghệ Phần mềm</h3>
+                                </div>
+                                <button class="text-on-surface-variant hover:text-teacher-accent"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">schedule</span> Thứ 6, 08:00 - 11:30</div>
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">location_on</span> Phòng Lab 3</div>
+                                <div class="flex items-center gap-2 text-on-surface-variant text-sm"><span class="material-symbols-outlined text-[18px]">group</span> 35 Sinh viên</div>
+                            </div>
+                            <div class="pt-4 border-t border-border-subtle">
+                                <div class="flex justify-between text-sm font-label-md mb-1">
+                                    <span class="text-on-surface-variant">Tiến độ giáo trình</span>
+                                    <span class="text-on-surface font-semibold">80%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-2">
+                                    <div class="bg-student-accent h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-8 bg-white rounded-2xl border border-border-subtle shadow-sm overflow-hidden flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/3 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 p-6 flex flex-col">
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-teacher-accent">folder_open</span>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Đang chọn</span>
+                        </div>
+                        <h2 class="text-xl font-black text-primary tracking-tight">CSDL Nâng cao (CS401)</h2>
+                        <p class="text-xs text-slate-500 mt-2 font-medium">Tổng quan về năng lực số của sinh viên trong học phần học phần chuyên sâu.</p>
+                    </div>
+                    <div class="glass-panel rounded-xl p-5 mb-6 relative overflow-hidden bg-purple-50/20 border-purple-100">
+                        <div class="absolute -right-4 -top-4 text-purple-600/10"><span class="material-symbols-outlined text-6xl">robot_2</span></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-teacher-accent text-sm">auto_awesome</span>
+                                <span class="text-xs font-black text-teacher-accent uppercase tracking-wider">AI Insight</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed font-medium">
+                                Lớp học có <span class="font-bold text-slate-700">12%</span> sinh viên cần hỗ trợ thêm về <span class="italic font-semibold text-indigo-600">Thiết kế Schema</span>. Khuyến nghị mở bài tập phụ đạo tuần 6.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-auto space-y-3">
+                        <button class="w-full py-2.5 px-4 bg-primary text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2 hover:opacity-90 transition-all border-b-2 border-slate-950 shadow-sm cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">download</span> Xuất báo cáo lớp học
+                        </button>
+                        <button class="w-full py-2.5 px-4 bg-transparent border border-teacher-accent text-teacher-accent rounded-xl font-bold text-xs flex items-center justify-center gap-2 hover:bg-purple-50/30 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">mail</span> Gửi thông báo lớp
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/3 p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-base font-black text-slate-700 tracking-tight">Danh sách Sinh viên tích lũy (45)</h3>
+                        <div class="flex gap-2">
+                            <div class="relative">
+                                <span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-sm">filter_list</span>
+                                <select class="pl-8 pr-8 py-1.5 rounded-xl border border-slate-300 bg-white text-xs font-bold text-slate-600 focus:ring-1 focus:ring-teacher-accent cursor-pointer shadow-sm">
+                                    <option>Tất cả mức độ</option>
+                                    <option>Xuất sắc</option>
+                                    <option>Khá</option>
+                                    <option>Cần cải thiện</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto border border-slate-200 rounded-xl overflow-hidden">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                    <th class="p-3 w-12 text-center">#</th>
+                                    <th class="p-3">Họ và Tên</th>
+                                    <th class="p-3">Mã SV</th>
+                                    <th class="p-3 text-center">Tiến độ HT</th>
+                                    <th class="p-3">Năng lực Số</th>
+                                    <th class="p-3 w-10"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs font-semibold text-slate-600 divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50 transition-colors group cursor-pointer">
+                                    <td class="p-3 text-center text-slate-400">1</td>
+                                    <td class="p-3 font-bold text-slate-800 flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px]">NA</div>
+                                        Nguyễn Văn An
+                                    </td>
+                                    <td class="p-3 text-slate-400">SV2021001</td>
+                                    <td class="p-3 text-center"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-2 border-emerald-500 text-emerald-600 text-[10px] font-bold">95%</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 border border-emerald-100 font-bold text-[10px]">Nâng cao</span></td>
+                                    <td class="p-3 text-right"><span class="material-symbols-outlined text-slate-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors group cursor-pointer">
+                                    <td class="p-3 text-center text-slate-400">2</td>
+                                    <td class="p-3 font-bold text-slate-800 flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center text-[10px]">TB</div>
+                                        Trần Thị Bình
+                                    </td>
+                                    <td class="p-3 text-slate-400">SV2021045</td>
+                                    <td class="p-3 text-center"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-2 border-indigo-500 text-indigo-600 text-[10px] font-bold">78%</span></td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 border border-indigo-100 font-bold text-[10px]">Trung bình Khá</span></td>
+                                    <td class="p-3 text-right"><span class="material-symbols-outlined text-slate-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

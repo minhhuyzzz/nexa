@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi" class="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nộp minh chứng năng lực - NEXA Intelligence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Geist', sans-serif;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+<script src="../js/sidebar_learner.js"></script>
+    <main class="min-h-screen md:pl-64 pt-4 pb-12 transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-6">
+                <a href="hosonangluc.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-[#00236f] transition-colors group">
+                    <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+                    <span>HỦY VÀ QUAY LẠI E-PORTFOLIO</span>
+                </a>
+            </div>
+
+            <div class="mb-8">
+                <h1 class="text-2xl font-black text-[#00236f] tracking-tight">Thêm minh chứng năng lực mới</h1>
+                <p class="text-sm text-slate-500 mt-1">Tải lên các sản phẩm dự án, chứng nhận hoặc bài nghiên cứu để AI kiểm định và mapping vào bản đồ năng lực số cá nhân.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault();">
+                
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+                    <h3 class="font-black text-sm text-slate-800 uppercase tracking-wider text-purple-600 border-b border-slate-100 pb-2">Thông tin minh chứng</h3>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-2" for="artifact-title">Tiêu đề sản phẩm / Minh chứng *</label>
+                        <input class="w-full rounded-xl border-slate-200 text-sm focus:border-purple-500 focus:ring-purple-500 placeholder:text-slate-400 p-3" id="artifact-title" placeholder="Ví dụ: Hệ thống phân tích hành vi người dùng bằng AI..." required="" type="text"/>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-2" for="artifact-category">Loại hình minh chứng *</label>
+                            <select class="w-full rounded-xl border-slate-200 text-sm focus:border-purple-500 focus:ring-purple-500 p-3" id="artifact-category">
+                                <option value="san-pham-so">Sản phẩm số (Ứng dụng/Mã nguồn)</option>
+                                <option value="nghien-cuu">Bài nghiên cứu khoa học / Báo cáo</option>
+                                <option value="giao-dien">Bản thiết kế giao diện (UI/UX)</option>
+                                <option value="chung-chi">Chứng chỉ / Giải thưởng công nghệ</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-2" for="artifact-date">Thời gian hoàn thành *</label>
+                            <input class="w-full rounded-xl border-slate-200 text-sm focus:border-purple-500 focus:ring-purple-500 p-3" id="artifact-date" required="" type="date"/>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-2" for="artifact-desc">Mô tả tóm tắt nội dung và công nghệ *</label>
+                        <textarea class="w-full rounded-xl border-slate-200 text-sm focus:border-purple-500 focus:ring-purple-500 placeholder:text-slate-400 p-3" id="artifact-desc" placeholder="Mô tả ngắn gọn về sản phẩm, vai trò của bạn trong dự án và các công cụ, ngôn ngữ lập trình được áp dụng..." rows="4" required=""></textarea>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+                    <h3 class="font-black text-sm text-slate-800 uppercase tracking-wider text-blue-600 border-b border-slate-100 pb-2">Tệp đính kèm & Đường dẫn minh chứng</h3>
+                    
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-2">Tải lên tệp tài liệu (Báo cáo PDF, Mã nguồn nén ZIP, Hình ảnh) *</label>
+                        <div class="border-2 border-dashed border-slate-200 hover:border-blue-500 rounded-2xl p-8 text-center bg-slate-50/50 hover:bg-blue-50/20 transition-all cursor-pointer group">
+                            <span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-blue-600 transition-colors mb-2">cloud_upload</span>
+                            <p class="text-sm font-bold text-slate-700">Kéo thả tệp tin vào đây, hoặc <span class="text-blue-600 underline">bấm để duyệt</span></p>
+                            <p class="text-[11px] text-slate-400 font-medium mt-1">Hỗ trợ định dạng PDF, ZIP, RAR, PNG, JPG (Tối đa 25MB)</p>
+                            <input class="hidden" id="file-input" type="file"/>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-2" for="artifact-link">Đường dẫn sản phẩm trực tuyến (Không bắt buộc)</label>
+                        <div class="relative rounded-xl shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-slate-400 text-lg">link</span>
+                            </div>
+                            <input class="w-full rounded-xl border-slate-200 text-sm focus:border-blue-500 focus:ring-blue-500 pl-10 p-3 placeholder:text-slate-400" id="artifact-link" placeholder="https://github.com/username/project-repo hoặc link sản phẩm..." type="url"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+                    <div>
+                        <h3 class="font-black text-sm text-slate-800 uppercase tracking-wider text-emerald-600 border-b border-slate-100 pb-2">Đề xuất Khung năng lực số đáp ứng</h3>
+                        <p class="text-xs text-slate-400 mt-1">Tích chọn các nhóm năng lực mà bạn tin rằng sản phẩm này chứng minh rõ nét nhất để AI làm căn cứ đối chiếu.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <label class="flex items-start gap-3 p-3 border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                            <input class="rounded text-[#00236f] focus:ring-[#00236f] mt-0.5 border-slate-300" type="checkbox" checked/>
+                            <div class="leading-tight">
+                                <span class="block text-xs font-bold text-slate-700">Sáng tạo nội dung số</span>
+                                <span class="text-[10px] text-slate-400 font-medium">Lập trình, thiết kế, sản xuất tài nguyên truyền thông số</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                            <input class="rounded text-[#00236f] focus:ring-[#00236f] mt-0.5 border-slate-300" type="checkbox" checked/>
+                            <div class="leading-tight">
+                                <span class="block text-xs font-bold text-slate-700">Giải quyết vấn đề số</span>
+                                <span class="text-[10px] text-slate-400 font-medium">Sử dụng công cụ AI, thuật toán để tối ưu bài toán kỹ thuật</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                            <input class="rounded text-[#00236f] focus:ring-[#00236f] mt-0.5 border-slate-300" type="checkbox"/>
+                            <div class="leading-tight">
+                                <span class="block text-xs font-bold text-slate-700">An toàn & Bảo mật số</span>
+                                <span class="text-[10px] text-slate-400 font-medium">Mã hóa dữ liệu, bảo vệ quyền riêng tư, an ninh mạng</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                            <input class="rounded text-[#00236f] focus:ring-[#00236f] mt-0.5 border-slate-300" type="checkbox"/>
+                            <div class="leading-tight">
+                                <span class="block text-xs font-bold text-slate-700">Năng lực dữ liệu & Thông tin</span>
+                                <span class="text-[10px] text-slate-400 font-medium">Khai thác Big Data, truy vấn dữ liệu SQL, trực quan hóa</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-end gap-3 pt-2">
+                    <a href="portfolio.html" class="px-5 py-3 border border-slate-200 hover:bg-slate-100 rounded-xl text-xs font-bold text-slate-500 transition-all text-center">
+                        Hủy bỏ
+                    </a>
+                    <button type="submit" class="inline-flex items-center gap-2 bg-[#00236f] hover:bg-[#1b365d] text-white font-bold text-xs px-6 py-3 rounded-xl shadow-md transition-all active:scale-95">
+                        <span class="material-symbols-outlined text-sm">send</span>
+                        <span>XÁC NHẬN NỘP MINH CHỨNG</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="js/sidebar_learner.js"></script>
+</body>
+</html>

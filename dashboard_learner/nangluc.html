@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chi tiết Năng lực - NEXA Student</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#90a8ff",
+                      "surface-container-highest": "#e3e1e9",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdbcb",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#f1f0f7",
+                      "on-surface-variant": "#444651",
+                      "teacher-accent": "#8B5CF6",
+                      "surface-container-low": "#f4f3fa",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#faf8ff",
+                      "on-tertiary-container": "#f39461",
+                      "on-primary-fixed-variant": "#264191",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1a1b21",
+                      "secondary-container": "#8a4cfc",
+                      "secondary": "#712ae2",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dad9e1",
+                      "tertiary": "#4b1c00",
+                      "background": "#faf8ff",
+                      "outline": "#757682",
+                      "on-secondary-fixed-variant": "#5a00c6",
+                      "on-tertiary-fixed": "#341100",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb691",
+                      "primary": "#00236f",
+                      "inverse-primary": "#b6c4ff",
+                      "border-subtle": "#E2E8F0",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#6e2c00",
+                      "surface-container-high": "#e9e7ef",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "secondary-fixed": "#eaddff",
+                      "secondary-fixed-dim": "#d2bbff",
+                      "primary-container": "#1e3a8a",
+                      "on-secondary-fixed": "#25005a",
+                      "surface-variant": "#e3e1e9",
+                      "on-primary-fixed": "#00164e",
+                      "surface-container": "#eeedf4",
+                      "on-tertiary-fixed-variant": "#773205",
+                      "primary-fixed": "#dce1ff",
+                      "outline-variant": "#c5c5d3",
+                      "on-secondary-container": "#fffbff",
+                      "surface-tint": "#4059aa",
+                      "surface": "#faf8ff",
+                      "student-accent": "#3B82F6",
+                      "surface-muted": "#F8FAFC",
+                      "admin-accent": "#F43F5E",
+                      "on-surface": "#1a1b21",
+                      "inverse-surface": "#2f3036",
+                      "employer-accent": "#10B981"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "card-gap": "20px",
+                      "section-margin": "48px",
+                      "container-padding": "24px",
+                      "base-unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Geist", "sans-serif"],
+                      "display-lg": ["Geist", "sans-serif"],
+                      "body-md": ["Inter", "sans-serif"],
+                      "label-md": ["Geist", "sans-serif"],
+                      "label-sm": ["Geist", "sans-serif"],
+                      "body-lg": ["Inter", "sans-serif"],
+                      "headline-xl": ["Geist", "sans-serif"],
+                      "headline-lg-mobile": ["Geist", "sans-serif"]
+              },
+              "fontSize": {
+                      "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "1.1", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["20px", {"lineHeight": "1.3", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-surface-muted text-on-surface font-body-md min-h-screen antialiased flex flex-col md:flex-row">
+<script src="../js/sidebar_learner.js"></script>
+<!-- TopAppBar (Mobile Only) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface-container-lowest dark:bg-on-background border-b border-border-subtle dark:border-outline-variant shadow-sm md:hidden">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">NEXA</h1>
+</div>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim">
+<button class="transition-all duration-200 active:scale-95 hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+<button class="transition-all duration-200 active:scale-95 hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 rounded-full"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 pt-20 md:pt-8 p-gutter md:p-container-padding max-w-[1280px] mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-section-margin">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Chi tiết Năng lực Số</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Tổng quan về 6 nhóm năng lực cốt lõi theo khung chuẩn. Hoàn thành các nhiệm vụ được đề xuất để nâng cao mức độ thông thạo của bạn.</p>
+</div>
+<!-- Highlighted Competency: Giao tiếp và hợp tác -->
+<section class="mb-section-margin">
+<div class="relative bg-surface-container-lowest rounded-xl border border-secondary/20 shadow-[0_4px_24px_rgba(138,76,252,0.1)] overflow-hidden p-6 md:p-8">
+<!-- AI Glassmorphism Background Accent -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div>
+<span class="inline-block px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm mb-1 uppercase tracking-wider">Nhóm Năng Lực Trọng Điểm</span>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">Giao tiếp và hợp tác trong môi trường số</h3>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Khả năng tương tác, giao tiếp, chia sẻ thông tin và hợp tác hiệu quả thông qua các công nghệ kỹ thuật số. Bao gồm cả việc hiểu rõ các quy tắc ứng xử trên mạng (netiquette) và quản lý danh tính số.</p>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-md text-label-md text-on-surface">Mức độ hiện tại: <span class="text-student-accent font-bold">Trung bình</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">65% tới Nâng cao</span>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-student-accent rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-muted rounded-lg p-5 border border-border-subtle">
+<h4 class="font-label-md text-label-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">auto_awesome</span>
+                            Nhiệm vụ đề xuất (AI)
+                        </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 p-3 bg-surface-container-lowest rounded border border-border-subtle hover:bg-surface-container-low transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary mt-0.5">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Hoàn thành khóa học: Giao tiếp qua Email chuyên nghiệp</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">+15 điểm kinh nghiệm</p>
+</div>
+</li>
+<li class="flex items-start gap-3 p-3 bg-surface-container-lowest rounded border border-border-subtle hover:bg-surface-container-low transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary mt-0.5">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Tham gia thảo luận dự án nhóm trên nền tảng số</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">+20 điểm kinh nghiệm</p>
+</div>
+</li>
+</ul>
+<button class="mt-4 w-full bg-primary text-on-primary font-label-md text-label-md py-2.5 rounded-lg hover:bg-primary-container transition-colors active:scale-[0.98]">
+                            Bắt đầu cải thiện
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid for Other Competencies -->
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6">Các Nhóm Năng Lực Khác</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-card-gap">
+<!-- Vận hành thiết bị và phần mềm -->
+<div class="bg-surface-container-lowest rounded-xl border border-border-subtle p-5 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">devices</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Vận hành thiết bị &amp; phần mềm</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-1">Hiểu và sử dụng cơ bản các thiết bị phần cứng, hệ điều hành và các phần mềm ứng dụng thông dụng.</p>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-employer-accent/10 text-employer-accent">Nâng cao</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">90%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-employer-accent rounded-full" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<!-- Khai thác dữ liệu và thông tin -->
+<div class="bg-surface-container-lowest rounded-xl border border-border-subtle p-5 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search_insights</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Khai thác dữ liệu &amp; thông tin</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-1">Khả năng tìm kiếm, đánh giá, quản lý và tổ chức dữ liệu, thông tin và nội dung số một cách có ý nghĩa.</p>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-student-accent/10 text-student-accent">Trung bình</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">45%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-student-accent rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+<!-- Sáng tạo nội dung số -->
+<div class="bg-surface-container-lowest rounded-xl border border-border-subtle p-5 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">draw</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Sáng tạo nội dung số</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-1">Tạo ra và chỉnh sửa nội dung số ở các định dạng khác nhau. Hiểu về bản quyền và giấy phép.</p>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-outline/10 text-outline">Cơ bản</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">25%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+</div>
+<!-- Bảo vệ và an toàn số -->
+<div class="bg-surface-container-lowest rounded-xl border border-border-subtle p-5 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Bảo vệ và an toàn số</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-1">Bảo vệ thiết bị, nội dung, dữ liệu cá nhân và quyền riêng tư trong môi trường kỹ thuật số.</p>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-student-accent/10 text-student-accent">Trung bình</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">70%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-student-accent rounded-full" style="width: 70%;"></div>
+</div>
+</div>
+</div>
+<!-- Giải quyết vấn đề -->
+<div class="bg-surface-container-lowest rounded-xl border border-border-subtle p-5 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">extension</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Giải quyết vấn đề số</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-1">Nhận diện nhu cầu công nghệ, giải quyết các vấn đề kỹ thuật và sử dụng công nghệ một cách sáng tạo.</p>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-outline/10 text-outline">Cơ bản</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

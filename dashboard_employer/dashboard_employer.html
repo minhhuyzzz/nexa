@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXA - Dashboard Doanh Nghiệp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e9e7ef",
+                        "secondary": "#712ae2",
+                        "surface-container-highest": "#e3e1e9",
+                        "secondary-fixed": "#eaddff",
+                        "on-tertiary-fixed": "#341100",
+                        "on-surface": "#1a1b21",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "on-secondary-fixed": "#25005a",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-container": "#eeedf4",
+                        "surface-variant": "#e3e1e9",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface-variant": "#444651",
+                        "on-secondary-container": "#fffbff",
+                        "teacher-accent": "#8B5CF6",
+                        "on-primary-container": "#90a8ff",
+                        "surface-bright": "#faf8ff",
+                        "surface-muted": "#F8FAFC",
+                        "tertiary-fixed": "#ffdbcb",
+                        "outline-variant": "#c5c5d3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-primary-fixed": "#00164e",
+                        "outline": "#757682",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#8a4cfc",
+                        "admin-accent": "#F43F5E",
+                        "student-accent": "#3B82F6",
+                        "primary-container": "#1e3a8a",
+                        "border-subtle": "#E2E8F0",
+                        "surface": "#faf8ff",
+                        "employer-accent": "#10B981",
+                        "background": "#faf8ff",
+                        "tertiary": "#4b1c00",
+                        "on-tertiary-container": "#f39461",
+                        "tertiary-container": "#6e2c00",
+                        "inverse-surface": "#2f3036",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dad9e1",
+                        "on-background": "#1a1b21",
+                        "primary": "#00236f",
+                        "inverse-on-surface": "#f1f0f7",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "surface-container-low": "#f4f3fa",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base-unit": "4px",
+                        "section-margin": "48px",
+                        "card-gap": "20px",
+                        "gutter": "16px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Geist"],
+                        "display-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.1", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .ai-gradient-bg {
+            background: linear-gradient(135deg, rgba(113, 42, 226, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex">
+<!-- SideNavBar -->
+<script src="../js/sidebar_employer.js"></script>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-30 flex justify-between items-center w-full px-container-padding h-16 bg-surface-bright shadow-sm">
+<div class="md:hidden flex items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">NEXA</span>
+</div>
+<div class="hidden md:flex items-center flex-1 max-w-md ml-4">
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary-container transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors scale-95 active:scale-90 transition-transform relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-employer-accent rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors scale-95 active:scale-90 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-label-md text-label-md hidden md:block">Công ty TNHH ABC</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-container-padding lg:p-section-margin bg-surface-muted ai-gradient-bg">
+<div class="max-w-7xl mx-auto space-y-card-gap">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">Tổng quan Tuyển dụng</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Chào mừng trở lại. Cập nhật mới nhất về ứng viên và chứng chỉ.</p>
+</div>
+</div>
+<!-- Top Section: Search & Quick Verify -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+<!-- Search Candidates -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-border-subtle flex flex-col justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[100px]">person_search</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-4 relative z-10">Tìm kiếm Ứng viên AI</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 relative z-10 max-w-lg">
+                            Sử dụng AI để tìm kiếm ứng viên dựa trên năng lực, chứng chỉ và lịch sử học tập.
+                        </p>
+<div class="relative z-10 flex gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface rounded-lg border border-outline-variant focus:border-employer-accent focus:ring-1 focus:ring-employer-accent outline-none transition-all font-body-md text-body-md text-on-surface" placeholder="Nhập kỹ năng, ví dụ: React, Data Analysis..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Tìm kiếm
+                            </button>
+</div>
+</div>
+<!-- Quick Verify -->
+<div class="bg-primary-container rounded-xl p-6 shadow-sm flex flex-col relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-32 h-32 bg-primary rounded-full opacity-20 blur-2xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<h3 class="font-headline-lg text-headline-lg text-on-primary-container">Xác thực Chứng chỉ</h3>
+<span class="material-symbols-outlined text-on-primary-container">qr_code_scanner</span>
+</div>
+<p class="font-body-md text-body-md text-primary-fixed-dim mb-4 relative z-10">
+                            Nhập mã chứng nhận hoặc quét QR để xác thực tính hợp lệ.
+                        </p>
+<div class="mt-auto relative z-10 space-y-3">
+<input class="w-full px-4 py-2 bg-surface-container-lowest/10 border border-primary-fixed-dim/30 rounded-lg text-on-primary-container placeholder:text-primary-fixed-dim/70 focus:outline-none focus:border-primary-fixed-dim font-body-md text-body-md backdrop-blur-sm" placeholder="Nhập mã chứng nhận..." type="text"/>
+<button class="w-full bg-surface-container-lowest text-primary-container px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-bright transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified</span> Xác thực ngay
+                            </button>
+</div>
+</div>
+</div>
+<!-- Verification Results Demo (New Section based on requirements) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-border-subtle">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Kết quả Xác thực Gần đây</h3>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-employer-accent/20 flex items-center justify-center text-employer-accent shrink-0">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Chứng chỉ Phát triển Frontend Chuyên sâu</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Mã số: CERT-2023-98765</p>
+</div>
+<span class="px-3 py-1 bg-employer-accent/10 text-employer-accent rounded-full font-label-sm text-label-sm">Hợp lệ</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-3 pt-3 border-t border-border-subtle">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Thông tin cơ bản của người được cấp</p>
+<p class="font-body-md text-body-md text-on-surface font-medium">Nguyễn Văn A</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Tóm tắt năng lực</p>
+<p class="font-body-md text-body-md text-on-surface">React, Vue, Web Performance</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-card-gap">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-border-subtle flex items-center gap-4 hover:border-outline-variant transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmarks</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Ứng viên đã lưu</p>
+<p class="font-headline-xl text-headline-xl text-on-surface">124</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-border-subtle flex items-center gap-4 hover:border-outline-variant transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-employer-accent">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Chứng chỉ đã xác thực</p>
+<p class="font-headline-xl text-headline-xl text-on-surface">342</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-border-subtle flex items-center gap-4 hover:border-outline-variant transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Yêu cầu xem hồ sơ</p>
+<p class="font-headline-xl text-headline-xl text-on-surface">28</p>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Saved Candidates (Table/List) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-border-subtle overflow-hidden">
+<div class="p-5 border-b border-border-subtle flex justify-between items-center bg-surface">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Ứng viên Tiềm năng</h3>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">
+                            Xem tất cả <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-border-subtle">
+<th class="py-3 px-5 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ứng viên</th>
+<th class="py-3 px-5 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Thẻ Năng lực (AI)</th>
+<th class="py-3 px-5 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mức độ phù hợp</th>
+<th class="py-3 px-5 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="border-b border-border-subtle hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-label-md text-label-md">
+                                                NVA
+                                            </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Nguyễn Văn A</p>
+<p class="text-[13px] text-on-surface-variant">Frontend Developer</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[12px] font-medium border border-secondary-fixed-dim/50">ReactJS (Expert)</span>
+<span class="px-2 py-1 rounded-full bg-surface-container text-on-surface-variant text-[12px] font-medium border border-outline-variant/50">UI/UX</span>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-container rounded-full h-2 max-w-[100px]">
+<div class="bg-employer-accent h-2 rounded-full" style="width: 92%"></div>
+</div>
+<span class="text-[13px] font-medium text-employer-accent">92%</span>
+</div>
+</td>
+<td class="py-4 px-5 text-right space-x-2">
+<button class="px-3 py-1.5 text-xs font-medium text-primary bg-primary-container rounded-md hover:bg-primary hover:text-on-primary transition-colors inline-flex items-center gap-1" title="Gửi yêu cầu xem hồ sơ e-Portfolio chi tiết">
+<span class="material-symbols-outlined text-[16px]">contact_mail</span> Gửi yêu cầu
+                                </button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors border border-outline-variant rounded-md hover:bg-surface-container" title="Lưu ứng viên">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-border-subtle hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-label-md text-label-md">
+                                                TTB
+                                            </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Trần Thị B</p>
+<p class="text-[13px] text-on-surface-variant">Data Analyst</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[12px] font-medium border border-secondary-fixed-dim/50">Python (Advanced)</span>
+<span class="px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[12px] font-medium border border-secondary-fixed-dim/50">SQL</span>
+</div>
+</td>
+<td class="py-4 px-5">
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-container rounded-full h-2 max-w-[100px]">
+<div class="bg-employer-accent h-2 rounded-full" style="width: 85%"></div>
+</div>
+<span class="text-[13px] font-medium text-employer-accent">85%</span>
+</div>
+</td>
+<td class="py-4 px-5 text-right space-x-2">
+<button class="px-3 py-1.5 text-xs font-medium text-primary bg-primary-container rounded-md hover:bg-primary hover:text-on-primary transition-colors inline-flex items-center gap-1" title="Gửi yêu cầu xem hồ sơ e-Portfolio chi tiết">
+<span class="material-symbols-outlined text-[16px]">contact_mail</span> Gửi yêu cầu
+                                </button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors border border-outline-variant rounded-md hover:bg-surface-container" title="Lưu ứng viên">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script src="../storage.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Kiểm tra xem NexaStorage có dữ liệu không
+        if (typeof NexaStorage !== 'undefined') {
+            const user = NexaStorage.getUserAccount();
+            
+            // Chỉ cập nhật nếu đúng vai trò là employer (Doanh nghiệp)
+            // Hoặc nếu bạn muốn dùng chung cho cả Teacher, hãy đổi điều kiện role
+            if (user && user.role === 'employer') {
+                // Tìm đến phần hiển thị tên công ty trong Header
+                const nameDisplay = document.querySelector('.flex.items-center.gap-2 > span.hidden.md\\:block');
+                if (nameDisplay) {
+                    nameDisplay.innerText = user.name || "Công ty TNHH ABC";
+                }
+                
+                // Nếu muốn cập nhật thêm cả tiêu đề Sidebar
+                const sidebarTitle = document.querySelector('aside .font-label-sm');
+                if (sidebarTitle) {
+                    sidebarTitle.innerText = user.institution || "Hệ thống Doanh nghiệp";
+                }
+            }
+        }
+    });
+</script>
+</body></html>

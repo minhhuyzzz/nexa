@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXA - Ứng viên đã lưu</title>
+<!-- Fonts: Geist and Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS with custom config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface-variant": "#444651",
+                        "on-surface": "#1a1b21",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container": "#eeedf4",
+                        "surface": "#faf8ff",
+                        "surface-tint": "#4059aa",
+                        "surface-container-low": "#f4f3fa",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "background": "#faf8ff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#eaddff",
+                        "on-secondary-container": "#fffbff",
+                        "inverse-on-surface": "#f1f0f7",
+                        "border-subtle": "#E2E8F0",
+                        "student-accent": "#3B82F6",
+                        "on-tertiary-container": "#f39461",
+                        "tertiary-fixed": "#ffdbcb",
+                        "surface-muted": "#F8FAFC",
+                        "surface-dim": "#dad9e1",
+                        "primary-container": "#1e3a8a",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-fixed": "#341100",
+                        "primary": "#00236f",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b6c4ff",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "on-background": "#1a1b21",
+                        "tertiary": "#4b1c00",
+                        "tertiary-container": "#6e2c00",
+                        "outline": "#757682",
+                        "employer-accent": "#10B981",
+                        "surface-variant": "#e3e1e9",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "admin-accent": "#F43F5E",
+                        "surface-container-high": "#e9e7ef",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "outline-variant": "#c5c5d3",
+                        "on-primary-container": "#90a8ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#264191",
+                        "secondary": "#712ae2",
+                        "on-secondary-fixed": "#25005a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "teacher-accent": "#8B5CF6",
+                        "surface-container-highest": "#e3e1e9",
+                        "secondary-container": "#8a4cfc",
+                        "inverse-surface": "#2f3036"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "card-gap": "20px",
+                        "section-margin": "48px",
+                        "base-unit": "4px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.1", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-border-subtle dark:border-outline flex justify-between items-center h-16 px-8 ml-64">
+<div class="flex items-center gap-4">
+<span class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary font-black tracking-tight">NEXA</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-opacity opacity-80 active:opacity-100 flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-opacity opacity-80 active:opacity-100 flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-opacity opacity-80 active:opacity-100 flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="account_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+ <script src="../js/sidebar_employer.js"></script>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-container-padding min-h-screen">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-section-margin gap-4">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">Ứng viên đã lưu</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Quản lý và theo dõi các ứng viên tiềm năng bạn đã đánh dấu.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+                    Quản lý thư mục
+                </button>
+</div>
+</div>
+<!-- Filters / Folders -->
+<div class="flex flex-wrap gap-2 mb-8 border-b border-border-subtle pb-4">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm">
+                Tất cả (12)
+            </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant border border-border-subtle hover:bg-surface-variant font-label-md text-label-md transition-colors flex items-center gap-2">
+                Phỏng vấn đợt 1 <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded-full text-[10px]">4</span>
+</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant border border-border-subtle hover:bg-surface-variant font-label-md text-label-md transition-colors flex items-center gap-2">
+                Thực tập sinh IT <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded-full text-[10px]">5</span>
+</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant border border-border-subtle hover:bg-surface-variant font-label-md text-label-md transition-colors flex items-center gap-2">
+                Tiềm năng cao <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded-full text-[10px]">3</span>
+</button>
+<button class="px-4 py-2 rounded-full border border-dashed border-outline-variant text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">add</span> Thư mục mới
+            </button>
+</div>
+<!-- Candidate Grid (Bento/Rich Card Style) -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-card-gap">
+<!-- Candidate Card 1 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)] transition-shadow relative overflow-hidden group">
+<!-- Decorative AI background hint -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/20 blur-3xl -z-10 rounded-full"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4 items-center">
+<img alt="Avatar" class="w-14 h-14 rounded-full object-cover border-2 border-surface-container" data-alt="A professional headshot of a young Vietnamese woman, smiling subtly, wearing smart casual business attire. She has dark hair tied back. The lighting is soft and natural, suggesting a modern corporate environment. The overall tone is approachable yet highly competent and reliable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC168_aAHs_orTFeRgJD1Wb3GCu_4bvJfjc08sTUBzR5GNxrzzmaowP3K0EwNffvGbyhuESPPikYVeLlufF_wbs9xWOFK19aWNSHiEaiUZSaRm0jHewQvoMIGlUZMIPV1cAMDrXf4PuPDP8EVtBSKk_bLWMAhgaYhORupguKMOL3q68TjL7BmfoQ3HWDObKv14t5CC9Q3QTz-shVisxpsJSTXtE-uygSilH2tLPRseeOay0GDTx9OXS9XXV9HX92l85FKmv_hA-2yM"/>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-2">Nguyễn Trần Kim Ngân <span class="material-symbols-outlined text-employer-accent text-[18px]" data-icon="verified">verified</span></h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sinh viên năm cuối - Khoa học Máy tính</p>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors p-1" title="Xóa khỏi danh sách">
+<span class="material-symbols-outlined" data-icon="bookmark_remove">bookmark_remove</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-muted rounded-lg p-3 border border-border-subtle">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1 uppercase tracking-wider">Kỹ năng nổi bật</span>
+<div class="flex flex-wrap gap-1">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-1 rounded font-label-sm text-label-sm">ReactJS</span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-1 rounded font-label-sm text-label-sm">Node.js</span>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-1 rounded font-label-sm text-label-sm">+3</span>
+</div>
+</div>
+<div class="bg-surface-muted rounded-lg p-3 border border-border-subtle flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1 uppercase tracking-wider">Đánh giá AI</span>
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary container h-2 rounded-full" style="width: 85%"></div>
+</div>
+<span class="font-label-md text-label-md text-secondary-container font-bold">85%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto border-t border-border-subtle pt-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-employer-accent"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trạng thái: Chưa liên hệ</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-transform hover:scale-[0.98] flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">send</span> Gửi yêu cầu e-Portfolio
+                    </button>
+</div>
+</div>
+<!-- Candidate Card 2 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)] transition-shadow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4 items-center">
+<div class="w-14 h-14 rounded-full bg-student-accent/20 text-student-accent flex items-center justify-center font-headline-lg text-headline-lg font-bold border-2 border-surface-container">
+                            MH
+                        </div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Lê Minh Hải</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Kỹ sư Phần mềm - 2 năm kinh nghiệm</p>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors p-1" title="Xóa khỏi danh sách">
+<span class="material-symbols-outlined" data-icon="bookmark_remove">bookmark_remove</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-muted rounded-lg p-3 border border-border-subtle">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1 uppercase tracking-wider">Chứng chỉ</span>
+<div class="flex flex-col gap-1">
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface"><span class="material-symbols-outlined text-employer-accent text-[14px]">workspace_premium</span> AWS Certified Developer</span>
+</div>
+</div>
+<div class="bg-surface-muted rounded-lg p-3 border border-border-subtle flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1 uppercase tracking-wider">Đánh giá AI</span>
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-variant rounded-full h-2">
+<div class="bg-secondary container h-2 rounded-full" style="width: 92%"></div>
+</div>
+<span class="font-label-md text-label-md text-secondary-container font-bold">92%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto border-t border-border-subtle pt-4">
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1 rounded-full border border-border-subtle">
+<span class="w-2 h-2 rounded-full bg-admin-accent animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trạng thái: Đã gửi yêu cầu</span>
+</div>
+<button class="bg-surface text-primary border border-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                        Xem hồ sơ chi tiết
+                    </button>
+</div>
+</div>
+<!-- Candidate Card 3 (Empty State / Placeholder style) -->
+<div class="bg-surface-container-lowest border border-dashed border-outline-variant rounded-xl p-6 flex flex-col items-center justify-center text-center h-full min-h-[250px] opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-outline mb-2">person_add</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-1">Tìm thêm ứng viên</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Khám phá kho dữ liệu sinh viên đã được xác thực kỹ năng.</p>
+<button class="mt-4 px-4 py-2 bg-surface-container text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+                    Chuyển đến Tìm kiếm
+                </button>
+</div>
+</div>
+</main>
+</body></html>

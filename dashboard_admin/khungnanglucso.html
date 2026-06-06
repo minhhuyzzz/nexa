@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý Khung năng lực số - NEXA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-bright": "#faf8ff", "primary-container": "#1e3a8a", "surface-dim": "#dad9e1", "tertiary-fixed": "#ffdbcb", "surface-muted": "#F8FAFC", "tertiary-container": "#6e2c00", "on-background": "#1a1b21", tertiary: "#4b1c00", "inverse-primary": "#b6c4ff", "on-tertiary-fixed-variant": "#773205", "on-primary": "#ffffff", primary: "#00236f", "on-tertiary-fixed": "#341100", "surface-container-low": "#f4f3fa", "surface-tint": "#4059aa", surface: "#faf8ff", "on-primary-fixed": "#00164e", "surface-container": "#eeedf4", "on-error-container": "#93000a", "on-tertiary": "#ffffff", "primary-fixed": "#dce1ff", "on-surface-variant": "#444651", "on-surface": "#1a1b21", "student-accent": "#3B82F6", "on-tertiary-container": "#f39461", "secondary-fixed": "#dce1ff", "on-secondary-container": "#1d3989", "inverse-on-surface": "#f1f0f7", "border-subtle": "#E2E8F0", error: "#ba1a1a", "tertiary-fixed-dim": "#ffb691", background: "#faf8ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#00164e", secondary: "#4059aa", "on-primary-fixed-variant": "#264191", "inverse-surface": "#2f3036", "secondary-container": "#8fa7fe", "teacher-accent": "#8B5CF6", "surface-container-highest": "#e3e1e9", "secondary-fixed-dim": "#b6c4ff", "admin-accent": "#F43F5E", "on-secondary": "#ffffff", "employer-accent": "#10B981", "surface-variant": "#e3e1e9", "on-error": "#ffffff", outline: "#757682", "on-primary-container": "#90a8ff", "error-container": "#ffdad6", "outline-variant": "#c5c5d3", "primary-fixed-dim": "#b6c4ff", "on-secondary-fixed-variant": "#264191", "surface-container-high": "#e9e7ef"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-padding": "24px", "card-gap": "20px", "section-margin": "48px", "base-unit": "4px", gutter: "16px"}, fontFamily: {"display-lg": ["Geist"], "headline-xl": ["Geist"], "label-md": ["Geist"], "headline-lg-mobile": ["Geist"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-sm": ["Geist"], "headline-lg": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Inter"], label: ["Geist"]}, fontSize: {"display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}], "headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+      </style>
+</head>
+<body class="bg-surface-muted text-on-surface font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- Top Navigation (Mobile Only) -->
+<header class="md:hidden sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 bg-surface-container-lowest border-b border-border-subtle shadow-sm">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-admin-accent">NEXA</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Side Navigation (Web) -->
+<script src="../js/sidebar_admin.js"></script>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-container-padding">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-section-margin gap-4">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Khung năng lực số</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Quản lý và cập nhật 6 miền năng lực số cốt lõi.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-lowest text-primary border border-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors active:scale-95">
+                    Xuất Báo Cáo
+                </button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-primary/90 transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    Thêm Miền Năng Lực
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Competencies -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-card-gap">
+<!-- D1 Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-border-subtle shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container opacity-5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-fill text-2xl" data-icon="computer">computer</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="mb-4">
+<span class="inline-block px-2 py-1 bg-surface-container-high text-on-surface-variant rounded font-label-sm text-label-sm mb-2">D1</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Vận hành Thiết bị &amp; Phần mềm</h2>
+<p class="font-body-sm text-sm text-on-surface-variant line-clamp-2">Khả năng sử dụng các thiết bị phần cứng cơ bản và phần mềm thông dụng trong công việc hàng ngày.</p>
+</div>
+<div class="space-y-2 mt-auto">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Cơ bản</span>
+<span class="font-medium text-on-surface">5 Tiêu chí</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Nâng cao</span>
+<span class="font-medium text-on-surface">8 Tiêu chí</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-border-subtle">
+<button class="w-full text-center text-primary font-label-md text-label-md hover:underline">Chi tiết miền năng lực</button>
+</div>
+</div>
+<!-- D2 Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-border-subtle shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-teacher-accent opacity-5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined icon-fill text-2xl" data-icon="manage_search">manage_search</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="mb-4">
+<span class="inline-block px-2 py-1 bg-surface-container-high text-on-surface-variant rounded font-label-sm text-label-sm mb-2">D2</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Khai thác Thông tin &amp; Dữ liệu</h2>
+<p class="font-body-sm text-sm text-on-surface-variant line-clamp-2">Kỹ năng tìm kiếm, đánh giá, quản lý và tổ chức dữ liệu số một cách hiệu quả và an toàn.</p>
+</div>
+<div class="space-y-2 mt-auto">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Cơ bản</span>
+<span class="font-medium text-on-surface">6 Tiêu chí</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Nâng cao</span>
+<span class="font-medium text-on-surface">10 Tiêu chí</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-border-subtle">
+<button class="w-full text-center text-primary font-label-md text-label-md hover:underline">Chi tiết miền năng lực</button>
+</div>
+</div>
+<!-- D3 Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-border-subtle shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-employer-accent opacity-5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-lg flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined icon-fill text-2xl" data-icon="forum">forum</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="mb-4">
+<span class="inline-block px-2 py-1 bg-surface-container-high text-on-surface-variant rounded font-label-sm text-label-sm mb-2">D3</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Giao tiếp &amp; Hợp tác Số</h2>
+<p class="font-body-sm text-sm text-on-surface-variant line-clamp-2">Sử dụng các công cụ kỹ thuật số để tương tác, giao tiếp và làm việc nhóm trong môi trường trực tuyến.</p>
+</div>
+<div class="space-y-2 mt-auto">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Cơ bản</span>
+<span class="font-medium text-on-surface">4 Tiêu chí</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Nâng cao</span>
+<span class="font-medium text-on-surface">7 Tiêu chí</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-border-subtle">
+<button class="w-full text-center text-primary font-label-md text-label-md hover:underline">Chi tiết miền năng lực</button>
+</div>
+</div>
+<!-- Add more cards for D4, D5, D6 similarly to complete the 6 competencies -->
+</div>
+</main>
+</body></html>

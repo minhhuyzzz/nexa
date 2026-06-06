@@ -4,27 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXA - Nền Tảng Đánh Giá & Chứng Nhận Năng Lực Số Thích Ứng Tiên Phong</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        iuhBlue: {
-                            DEFAULT: '#003366',
-                            light: '#004aa6',
-                            dark: '#002244',
-                            surface: '#f0f5fa'
-                        },
-                        iuhGold: {
-                            DEFAULT: '#D4AF37',
-                            light: '#e6c353',
-                            dark: '#b39025',
-                            surface: '#fdfaf2'
-                        },
+                        nexaBlue: { DEFAULT: '#1b365d', light: '#2a4c7e', dark: '#0f2444' }, // Xanh Navy học thuật chuẩn
+                        nexaPurple: { DEFAULT: '#4f46e5', light: '#6366f1', dark: '#3730a3' }, // Tím công nghệ AI mới
                         richBlack: '#111827',
-                        lightGray: '#F3F4F6'
+                        lightGray: '#F3F4F6',
+                        slateBg: '#f8fafc',
+                        iuhGold: { DEFAULT: '#D4AF37' }
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -34,9 +25,7 @@
             }
         }
     </script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
@@ -44,13 +33,8 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: #F3F4F6; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
-        .text-gradient {
-            background: linear-gradient(135deg, #003366 0%, #3B82F6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
         .bg-tech-grid {
-            background-image: radial-gradient(rgba(0, 51, 102, 0.08) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px);
             background-size: 24px 24px;
         }
         .interactive-card {
@@ -58,126 +42,110 @@
         }
         .interactive-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(0, 51, 102, 0.1), 0 10px 10px -5px rgba(0, 51, 102, 0.04);
-        }
-        .active-tab {
-            border-bottom: 2px solid #003366;
-            color: #003366;
-            font-weight: 600;
+            box-shadow: 0 20px 25px -5px rgba(27, 54, 93, 0.08), 0 10px 10px -5px rgba(79, 70, 229, 0.03);
         }
     </style>
 </head>
 <body class="bg-white text-richBlack font-sans antialiased custom-scrollbar">
 
-   <script src="js/header.js"></script>
+    <script src="js/header.js"></script>
 
-    <!-- ==================== COMPREHENSIVE HERO BANNER WITH PORTALS ==================== -->
-    <div id="trang-chu" class="relative pt-16 pb-16 lg:pt-18 lg:pb-20 overflow-hidden bg-tech-grid bg-slate-50 border-b border-slate-200">
+    <div id="trang-chu" class="relative pt-15.8 pb-20 overflow-hidden bg-tech-grid bg-slateBg border-b border-slate-200">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none -z-10">
-            <div class="absolute top-[-20%] left-[10%] w-[500px] h-[500px] rounded-full bg-blue-100 blur-3xl opacity-50"></div>
-            <div class="absolute bottom-[-10%] right-[5%] w-[400px] h-[400px] rounded-full bg-amber-50 blur-3xl opacity-40"></div>
+            <div class="absolute top-[-20%] left-[10%] w-[500px] h-[500px] rounded-full bg-blue-50 blur-3xl opacity-50"></div>
+            <div class="absolute bottom-[-10%] right-[5%] w-[400px] h-[400px] rounded-full bg-purple-50 blur-3xl opacity-40"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-blue-100 text-iuhBlue text-[10px] font-bold mb-4 shadow-sm">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-indigo-100 text-nexaBlue text-[10px] font-black mb-6 shadow-sm uppercase tracking-wide">
                 <span class="relative flex h-1.5 w-1.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-nexaPurple"></span>
                 </span>
                 XÁC THỰC NĂNG LỰC THỰC CHỨNG THEO TIÊU CHUẨN DIGCOMP 2.2 CHÂU ÂU
             </div>
 
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-richBlack tracking-tight leading-tight text-center max-w-4xl mb-4">
-                Nền tảng đánh giá & chứng nhận năng lực số  <br/>
-               
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-nexaBlue tracking-tight leading-none text-center max-w-5xl mb-6">
+                Next-Gen Excellence Assessment <br/>
+                <span class="text-nexaPurple text-2xl sm:text-4xl md:text-5xl block mt-3 font-extrabold">Nền tảng kiểm chuẩn & chứng nhận năng lực số dựa trên AI</span>
             </h1>
 
-            <p class="text-xs sm:text-sm md:text-base text-slate-500 max-w-2xl text-center leading-relaxed mb-8">
-                NEXA giải quyết sự lệch pha kỹ năng giữa môi trường học thuật và thực tiễn doanh nghiệp. Bóc tách <strong class="text-iuhBlue font-bold">Tốc độ thích nghi công nghệ mới (D6)</strong> thông qua AI Core thay vì kiểm tra trí nhớ thao tác.
+            <p class="text-xs sm:text-sm md:text-base text-slate-500 max-w-3xl text-center leading-relaxed mb-10 font-medium">
+                NEXA giải quyết sự lệch pha kỹ năng giữa môi trường học thuật và thực tiễn doanh nghiệp. Bóc tách và đo lường <strong class="text-nexaPurple font-black">Tốc độ thích nghi công nghệ mới (D6)</strong> thông qua AI Core thay vì kiểm tra trí nhớ thao tác.
             </p>
 
             <div class="w-full max-w-4xl flex flex-col items-center">
                 
-                <button onclick="window.location.href='NEXA_Free_Test.html'" class="w-full max-w-xl py-4 bg-[#0B2559] hover:bg-iuhBlue-light text-white font-extrabold text-lg sm:text-xl rounded-t-xl rounded-b-md shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-between px-8 relative z-10 mb-6">
-    <i class="fa-solid fa-bolt text-iuhGold text-xl"></i>
-    <span class="tracking-wide uppercase text-base sm:text-lg">TEST NĂNG LỰC MIỄN PHÍ NGAY</span>
-    <i class="fa-solid fa-arrow-right text-lg text-iuhGold group-hover:translate-x-1 transition-transform"></i>
-</button>
+                <button onclick="window.location.href='NEXA_Free_Test.html'" class="w-full max-w-xl py-4 bg-nexaBlue hover:bg-nexaBlue-light text-white font-black text-sm rounded-xl shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-between px-8 relative z-10 mb-8 border-b-4 border-slate-900 cursor-pointer tracking-widest uppercase">
+                    <i class="fa-solid fa-bolt text-iuhGold text-base"></i>
+                    <span>TEST PHẢN XẠ NĂNG LỰC SỐ MIỄN PHÍ</span>
+                    <i class="fa-solid fa-arrow-right text-sm text-iuhGold"></i>
+                </button>
 
-<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-    </div>
-
-                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 -mt-1.5">
-                    <div class="bg-white rounded-xl border border-slate-200 border-t-[5px] border-t-[#E5ECF6] p-6 shadow-lg flex flex-col justify-between transition-transform hover:-translate-y-1">
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl border border-slate-200 border-t-[5px] border-t-nexaPurple p-6 shadow-md flex flex-col justify-between interactive-card">
                         <div>
-                            <div class="w-10 h-10 bg-[#F0F4FA] text-[#0B2559] rounded-lg flex items-center justify-center text-xl mb-4 shadow-sm">
+                            <div class="w-10 h-10 bg-indigo-50 text-nexaPurple rounded-xl flex items-center justify-center text-lg mb-4 shadow-sm border border-indigo-100">
                                 <i class="fa-solid fa-user-graduate"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-richBlack mb-2">
-                                Cổng Nhân Sự & Sinh Viên
-                            </h3>
-                            <p class="text-xs text-slate-500 leading-relaxed mb-5">
-                                Đăng nhập tập trung hệ thống SSO để thực hiện các bài thi áp lực nhúng chính khóa, tích lũy hồ sơ E-Portfolio thực chứng kết nối Blockchain.
+                            <h3 class="text-lg font-bold text-nexaBlue mb-2">Phân hệ Học Viên & Doanh Nghiệp</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-5 font-medium text-justify">
+                                Dành cho Sinh viên thực hiện bài đánh giá 120 câu, quản lý lộ trình học tập, tích lũy hồ sơ e-Portfolio thực chứng; và Doanh nghiệp quét mã định danh QR Code xác thực ứng viên tức thời.
                             </p>
                         </div>
-                        <button onclick="window.location.href='NEXA_Login.html'" class="w-full py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold text-[#0B2559] rounded-lg transition flex items-center justify-center gap-1.5">
-                            <span>Đăng nhập hệ thống SSO</span>
+                        <button onclick="window.location.href='NEXA_Login.html'" class="w-full py-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-black text-nexaBlue rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            <span>Đăng nhập Không gian thực chứng</span>
                             <i class="fa-solid fa-chevron-right text-[9px]"></i>
                         </button>
                     </div>
 
-                    <div class="bg-white rounded-xl border border-slate-200 border-t-[5px] border-t-[#D4AF37] p-6 shadow-lg flex flex-col justify-between transition-transform hover:-translate-y-1">
+                    <div class="bg-white rounded-2xl border border-slate-200 border-t-[5px] border-t-nexaBlue p-6 shadow-md flex flex-col justify-between interactive-card">
                         <div>
-                            <div class="w-10 h-10 bg-[#FDF9ED] text-[#D4AF37] rounded-lg flex items-center justify-center text-xl mb-4 shadow-sm">
+                            <div class="w-10 h-10 bg-slate-100 text-nexaBlue rounded-xl flex items-center justify-center text-lg mb-4 shadow-sm border border-slate-200">
                                 <i class="fa-solid fa-building-shield"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-richBlack mb-2">
-                                Cổng Giảng Viên & Quản Trị
-                            </h3>
-                            <p class="text-xs text-slate-500 leading-relaxed mb-5">
-                                Khởi tạo kho đề bài tình huống, cấu hình tiêu chí chấm điểm và kiểm định phê duyệt các bài nộp bị gắn cờ do AI chấm điểm có độ tin cậy thấp.
+                            <h3 class="text-lg font-bold text-nexaBlue mb-2">Phân hệ Giảng Viên</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-5 font-medium text-justify">
+                                Dành cho Giảng viên quản lý ngân hàng câu hỏi trắc nghiệm, tạo tiêu chí rubric chấm điểm thực hành và Admin hệ thống giám sát phân quyền, theo dõi log phân phối cấp phát chứng chỉ số.
                             </p>
                         </div>
-                        <button onclick="window.location.href='NEXA_Login.html'" class="w-full py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold text-[#0B2559] rounded-lg transition flex items-center justify-center gap-1.5">
-                            <span>Bảng điều khiển quản trị</span>
+                        <button onclick="window.location.href='NEXA_Login.html'" class="w-full py-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-black text-nexaBlue rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            <span>Bảng điều khiển quản trị (Core Panel)</span>
                             <i class="fa-solid fa-chevron-right text-[9px]"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
 
-    <!-- ==================== SECTION 2: THE CHALLENGE (THÁCH THỨC VĨ MÔ) ==================== -->
     <div class="py-24 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
                 <div class="lg:col-span-1 space-y-4">
-                    <span class="text-xs font-bold uppercase tracking-widest text-iuhGold bg-amber-50 px-3 py-1 rounded border border-amber-200">Thực Trạng Tuyển Dụng</span>
-                    <h2 class="text-3xl font-extrabold text-richBlack tracking-tight leading-tight">
-                        Sự Lệch Pha Kỹ Năng Số <br class="hidden lg:block"/> Trong Kỷ Nguyên AI
+                    <span class="text-[10px] font-black uppercase tracking-widest text-nexaPurple bg-indigo-50 px-3 py-1 rounded-md border border-indigo-100">Thực Trạng Đào Tạo</span>
+                    <h2 class="text-3xl font-extrabold text-nexaBlue tracking-tight leading-tight">
+                        Sự Lệch Pha Kỹ Năng Số <br class="hidden lg:block"/> Trong Kỷ Nguyên Trí Tuệ Nhân Tạo
                     </h2>
-                    <p class="text-sm text-slate-500 leading-relaxed text-justify">
-                        Cuộc Cách mạng Công nghiệp lần thứ tư đang tái định hình cấu trúc lao động toàn cầu. Các phương pháp khảo thí tin học truyền thống chỉ đo lường khả năng học vẹt thao tác tĩnh, hoàn toàn thất bại trong việc chứng minh khả năng thích nghi thực chiến khi doanh nghiệp liên tục đổi mới công cụ số.
+                    <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                        Các phương pháp khảo thí tin học truyền thống chỉ đo lường khả năng học thuộc lòng thao tác tĩnh, hoàn toàn thất bại trong việc chứng minh năng lực thích nghi thực chiến khi doanh nghiệp liên tục thay đổi công cụ. NEXA ra đời để làm cầu nối chuẩn hóa e-Portfolio thực chứng.
                     </p>
                 </div>
 
                 <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <!-- Stat Card 1 -->
-                    <div class="bg-lightGray rounded-xl p-8 border border-slate-200 space-y-3">
-                        <div class="text-5xl font-black text-iuhBlue">44%</div>
-                        <h4 class="text-sm font-bold text-richBlack">Kỹ năng cốt lõi sẽ thay đổi</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                            Báo cáo Tương lai Việc làm 2023 của Diễn đàn Kinh tế Thế giới (WEF) chỉ ra khoảng 44% kỹ năng cốt lõi của người lao động sẽ biến đổi hoàn toàn trong vòng 5 năm tới. Tư duy phân tích năng lực số và khả năng tự học thích nghi trở thành yếu tố sống còn được đặt lên hàng đầu.
+                    <div class="bg-slateBg rounded-2xl p-8 border border-slate-200 space-y-3 shadow-sm">
+                        <div class="text-5xl font-black text-nexaBlue font-mono">44%</div>
+                        <h4 class="text-sm font-bold text-richBlack">Kỹ năng cốt lõi sẽ thay đổi liên tục</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                            Báo cáo Tương lai Việc làm của WEF chỉ ra khoảng 44% kỹ năng cốt lõi của người lao động sẽ biến đổi hoàn toàn dưới tác động của AI. Khả năng thích thích ứng công nghệ (Adaptive Tech) trở thành yếu tố sống còn của sinh viên khi ra trường.
                         </p>
                     </div>
 
-                    <!-- Stat Card 2 -->
-                    <div class="bg-lightGray rounded-xl p-8 border border-slate-200 space-y-3">
-                        <div class="text-5xl font-black text-iuhBlue">60%</div>
-                        <h4 class="text-sm font-bold text-richBlack">Doanh nghiệp gặp khó khăn</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                            Báo cáo từ Trung tâm Dự báo nhu cầu nhân lực TP.HCM cho thấy hơn 60% doanh nghiệp gặp khủng hoảng nghiêm trọng trong việc tuyển dụng nhân sự đáp ứng yêu cầu về năng lực số thực tế, mặc dù nguồn cung sinh viên ra trường hằng năm vô cùng dồi dào nhưng thiếu tính thực chứng.
+                    <div class="bg-slateBg rounded-2xl p-8 border border-slate-200 space-y-3 shadow-sm">
+                        <div class="text-5xl font-black text-nexaPurple font-mono">60%</div>
+                        <h4 class="text-sm font-bold text-richBlack">Doanh nghiệp thiếu minh chứng thực tế</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                            Hơn 60% doanh nghiệp gặp khó khăn trong việc xác thực trình độ kỹ năng số thực chất của ứng viên qua bằng cấp giấy tờ, đòi hỏi một cơ chế xác thực bất biến thông qua mã băm và mã định danh QR Code.
                         </p>
                     </div>
                 </div>
@@ -185,346 +153,228 @@
         </div>
     </div>
 
-    <!-- ==================== SECTION 3: ECOSYSTEM THREE PILLARS (GIẢI PHÁP TỔNG QUAN) ==================== -->
-    <div class="py-24 bg-slate-50 border-b border-slate-200">
+    <div id="mien-nang-luc" class="py-24 bg-slate-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
-                <span class="text-xs font-bold text-iuhBlue uppercase tracking-wider block">NEXA INTEGRATION CORE</span>
-                <h2 class="text-3xl font-extrabold text-richBlack tracking-tight">Hệ Sinh Thái Giải Pháp Ba Trụ Cột Kỹ Thuật</h2>
-                <p class="text-sm text-slate-500 leading-relaxed">Kết hợp giữa cơ sở lý luận tiêu chuẩn quốc tế và nền tảng công nghệ phân tích hành vi tự động nhằm tạo ra hệ sinh thái đánh giá minh bạch.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="bg-white rounded-xl p-8 border border-slate-200 shadow-sm space-y-4 text-center">
-                    <div class="w-14 h-14 bg-blue-50 text-iuhBlue rounded-full flex items-center justify-center text-2xl mx-auto border border-blue-100">
-                        <i class="fa-solid fa-passport"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-richBlack">Chuẩn Quốc Tế DigComp 2.2</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Toàn bộ cấu trúc đánh giá được ánh xạ chặt chẽ theo Khung năng lực số Châu Âu DigComp 2.2 bao gồm 5 lĩnh vực lớn và 21 năng lực thành phần trải dài từ mức nền tảng đến chuyên sâu, đảm bảo chứng nhận đầu ra mang giá trị tương thích toàn cầu.
-                    </p>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="bg-white rounded-xl p-8 border border-slate-200 shadow-sm space-y-4 text-center">
-                    <div class="w-14 h-14 bg-amber-50 text-iuhGold rounded-full flex items-center justify-center text-2xl mx-auto border border-amber-100">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-richBlack">Giáo Dục Năng Lực Thực Chứng</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Ứng dụng mô hình máy học (AI-Driven CBE) tự động giám sát hành trình thử sai sửa, ghi nhận timestamps thao tác thực tế thay vì chỉ nhìn vào sản phẩm đầu ra, gánh vác 70% khối lượng công việc chấm điểm lặp lại của đội ngũ sư phạm.
-                    </p>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="bg-white rounded-xl p-8 border border-slate-200 shadow-sm space-y-4 text-center">
-                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto border border-emerald-100">
-                        <i class="fa-solid fa-link"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-richBlack">Bảo Chứng Chuỗi Khối Bất Biến</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Cơ chế mã hóa ghi vết chứng chỉ trực tiếp lên mạng lưới Blockchain an toàn. Toàn bộ hồ sơ năng lực số (E-Portfolio) được cấp phát một mã băm độc nhất giúp nhà tuyển dụng xác thực trình độ thực sự của ứng viên tức thời trong 15 giây, loại bỏ 100% rủi ro gian lận.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== SECTION 4: 6 MIỀN NĂNG LỰC SỐ ĐỘC QUYỀN (NEXA DOMAINS) ==================== -->
-    <div id="mien-nang-luc" class="py-24 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
-                <span class="text-xs font-bold text-iuhGold uppercase tracking-wider block">KHUNG ĐÁNH GIÁ NĂNG LỰC ĐỘC QUYỀN</span>
-                <h2 class="text-3xl font-extrabold text-richBlack tracking-tight">Cấu Trúc Hệ Thống 6 Miền Kỹ Năng Số MECE</h2>
-                <p class="text-sm text-slate-500 leading-relaxed">Thiết kế tuân thủ tuyệt đối nguyên tắc MECE đảm bảo các kỹ năng vừa không chồng chéo lên nhau vừa bao phủ trọn vẹn tư duy công nghệ trong kỷ nguyên mới.</p>
+                <span class="text-xs font-black text-nexaPurple uppercase tracking-wider block">KHUNG KIỂM CHUẨN CHUYÊN BIỆT</span>
+                <h2 class="text-3xl font-extrabold text-nexaBlue tracking-tight">Cấu Trúc 6 Nhóm Năng Lực Số Chuẩn DigComp 2.2</h2>
+                <p class="text-sm text-slate-500 font-medium leading-relaxed">Hệ thống bài đánh giá trắc nghiệm và nhiệm vụ thực hành được quy hoạch đồng bộ theo nguyên tắc không chồng chéo.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Domain D1 -->
-                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm interactive-card relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-slate-50 text-iuhBlue border border-slate-200 rounded-lg flex items-center justify-center text-lg mb-4 group-hover:bg-iuhBlue group-hover:text-white transition-colors">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm interactive-card group">
+                    <div class="w-12 h-12 bg-slate-50 text-nexaBlue border border-slate-200 rounded-xl flex items-center justify-center text-lg mb-4 group-hover:bg-nexaBlue group-hover:text-white transition-all">
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <h3 class="text-base font-bold text-richBlack mb-2">D1 - Năng Lực Dữ Liệu (Data Literacy)</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Khả năng đọc hiểu, thu thập, cấu trúc, làm sạch bảng tính và trực quan hóa dữ liệu thô bằng công cụ chuyên dụng (Excel, Google Sheets, Flourish) phục vụ kỹ năng ra quyết định chính xác dựa trên số liệu thực chứng.
+                    <h3 class="text-sm font-bold text-nexaBlue mb-2">1. Tìm kiếm, khai thác dữ liệu và thông tin số</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                        Kỹ năng định vị, tìm kiếm, lọc, cấu trúc và quản lý dữ liệu thô trên không gian số, thiết lập các bộ lọc nâng cao phục vụ nghiên cứu và phân tích số liệu khoa học.
                     </p>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between text-[10px] font-mono text-slate-400">
-                        <span>KPI: Độ chính xác phân tích</span>
-                        <span>Mapping: DC 1.1 & 1.3</span>
-                    </div>
                 </div>
 
-                <!-- Domain D2 -->
-                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm interactive-card relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-slate-50 text-iuhBlue border border-slate-200 rounded-lg flex items-center justify-center text-lg mb-4 group-hover:bg-iuhBlue group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-robot"></i>
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm interactive-card group">
+                    <div class="w-12 h-12 bg-slate-50 text-nexaBlue border border-slate-200 rounded-xl flex items-center justify-center text-lg mb-4 group-hover:bg-nexaBlue group-hover:text-white transition-all">
+                        <i class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-base font-bold text-richBlack mb-2">D2 - Cộng Tác AI (AI Collaboration)</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Làm chủ kỹ nghệ câu lệnh (Prompt Engineering) với các mô hình ngôn ngữ lớn (ChatGPT, Claude, Gemini). Biết cách tối ưu hóa zero-shot, few-shot prompt, đánh giá chất lượng kết quả đầu ra và xác định ranh giới sai lệch của máy học.
+                    <h3 class="text-sm font-bold text-nexaBlue mb-2">2. Đánh giá thông tin, dữ liệu và nội dung số</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                        Tư duy phản biện phân tích độ tin cậy của nguồn tin, bóc tách tin giả (fake news), nhận diện thiên lệch thông tin và đánh giá mức độ chính xác của nội dung do AI tạo ra.
                     </p>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between text-[10px] font-mono text-slate-400">
-                        <span>KPI: Tỷ lệ tái sử dụng output AI</span>
-                        <span>Mapping: DC 2.2 & 5.3</span>
-                    </div>
                 </div>
 
-                <!-- Domain D3 -->
-                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm interactive-card relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-slate-50 text-iuhBlue border border-slate-200 rounded-lg flex items-center justify-center text-lg mb-4 group-hover:bg-iuhBlue group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-gears"></i>
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm interactive-card group">
+                    <div class="w-12 h-12 bg-slate-50 text-nexaBlue border border-slate-200 rounded-xl flex items-center justify-center text-lg mb-4 group-hover:bg-nexaBlue group-hover:text-white transition-all">
+                        <i class="fa-solid fa-comments text-sm"></i>
                     </div>
-                    <h3 class="text-base font-bold text-richBlack mb-2">D3 - Tự Động Hóa (Process Automation)</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Tư duy thiết kế và cấu hình triển khai hệ thống tự động hóa công việc văn phòng thông qua công cụ low-code/no-code (Make.com, Power Automate, RPA, Python Scripting cơ bản), giúp cắt giảm tối đa các tác vụ lặp lại thủ công.
+                    <h3 class="text-sm font-bold text-nexaBlue mb-2">3. Giao tiếp và hợp tác trong môi trường số</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                        Làm chủ các công cụ cộng tác đám mây, chia sẻ dữ liệu an toàn, thực thi quy tắc ứng xử số lịch sự và xây dựng dấu vết số cá nhân (Digital Footprint) uy tín, sạch sẽ.
                     </p>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between text-[10px] font-mono text-slate-400">
-                        <span>KPI: Số workflow tự động / giờ tiết kiệm</span>
-                        <span>Mapping: DC 5.2 & 5.4</span>
-                    </div>
                 </div>
 
-                <!-- Domain D4 -->
-                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm interactive-card relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-slate-50 text-iuhBlue border border-slate-200 rounded-lg flex items-center justify-center text-lg mb-4 group-hover:bg-iuhBlue group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-user-shield"></i>
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm interactive-card group">
+                    <div class="w-12 h-12 bg-slate-50 text-nexaBlue border border-slate-200 rounded-xl flex items-center justify-center text-lg mb-4 group-hover:bg-nexaBlue group-hover:text-white transition-all">
+                        <i class="fa-solid fa-photo-film"></i>
                     </div>
-                    <h3 class="text-base font-bold text-richBlack mb-2">D4 - Công Dân Số Cốt Lõi (Digital Citizenship)</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Hình thành tư duy phản biện trước các nguồn tin sai lệch (phishing, fake news), thiết lập cơ chế bảo mật tài khoản cá nhân nâng cao (2FA) và am hiểu sâu sắc khung pháp lý bảo vệ an toàn dữ liệu cá nhân (GDPR, Luật PDPL Việt Nam).
+                    <h3 class="text-sm font-bold text-nexaBlue mb-2">4. Sáng tạo nội dung số</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                        Tạo lập và chỉnh sửa các định dạng nội dung đa phương tiện, thấu hiểu quy định bản quyền, giấy phép Creative Commons và lập trình logic/tự động hóa cơ bản.
                     </p>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between text-[10px] font-mono text-slate-400">
-                        <span>KPI: Điểm nhận diện rủi ro lừa đảo</span>
-                        <span>Mapping: DC 4.1 & 4.4</span>
-                    </div>
                 </div>
 
-                <!-- Domain D5 -->
-                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm interactive-card relative overflow-hidden group">
-                    <div class="w-12 h-12 bg-slate-50 text-iuhBlue border border-slate-200 rounded-lg flex items-center justify-center text-lg mb-4 group-hover:bg-iuhBlue group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-cloud"></i>
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm interactive-card group">
+                    <div class="w-12 h-12 bg-slate-50 text-nexaBlue border border-slate-200 rounded-xl flex items-center justify-center text-lg mb-4 group-hover:bg-nexaBlue group-hover:text-white transition-all">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 class="text-base font-bold text-richBlack mb-2">D5 - Năng Suất Đám Mây (Cloud Collaboration)</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed text-justify">
-                        Kỹ năng quản trị dự án, kiểm soát phiên bản (Version Control) và làm việc nhóm hiệu quả trên không gian số ảo thông qua tích hợp các hệ sinh thái đám mây nâng cao (Google Workspace, Microsoft 365, Notion, Trello, Git).
+                    <h3 class="text-sm font-bold text-nexaBlue mb-2">5. An toàn, bảo mật và trách nhiệm số</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                        Bảo vệ thiết bị, bảo mật thông tin cá nhân thông qua xác thực nhiều lớp (2FA), phòng chống tấn công lừa đảo (Phishing) và quản lý cân bằng sức khỏe số màn hình.
                     </p>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between text-[10px] font-mono text-slate-400">
-                        <span>KPI: Tần suất tương tác dự án nhóm</span>
-                        <span>Mapping: DC 2.1 & 2.4</span>
-                    </div>
                 </div>
 
-                <!-- Domain D6 - HIGHLIGHT PREM -->
-                <div class="bg-amber-50/40 border-2 border-iuhGold rounded-xl p-6 shadow-sm interactive-card relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-iuhGold text-white font-mono text-[9px] font-bold px-3 py-1 rounded-bl">MIỀN ĐỘC QUYỀN CORE</div>
-                    <div class="w-12 h-12 bg-white text-iuhGold border border-iuhGold/40 rounded-lg flex items-center justify-center text-lg mb-4 group-hover:bg-iuhGold group-hover:text-white transition-colors shadow-sm">
+                <div class="bg-indigo-50/40 border-2 border-nexaPurple rounded-2xl p-6 shadow-sm interactive-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-nexaPurple text-white font-mono text-[8px] font-black px-2.5 py-1 rounded-bl uppercase tracking-wider">Trọng tâm AI</div>
+                    <div class="w-12 h-12 bg-white text-nexaPurple border border-indigo-100 rounded-xl flex items-center justify-center text-lg mb-4 group-hover:bg-nexaPurple group-hover:text-white transition-all shadow-sm">
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <h3 class="text-base font-bold text-amber-900 mb-2">D6 - Thích Nghi Công Nghệ (Adaptive Learning)</h3>
-                    <p class="text-xs text-amber-800 leading-relaxed text-justify">
-                        Thước đo năng lực cốt lõi đỉnh cao của NEXA: Đo lường tốc độ onboarding, tự đọc tài liệu hướng dẫn (Documentation) và làm chủ hoàn toàn một phần mềm/công cụ kỹ thuật số mới lạ ngẫu nhiên trong thời gian giới hạn áp lực.
+                    <h3 class="text-sm font-bold text-indigo-950 mb-2">6. Giải quyết vấn đề bằng công nghệ và AI</h3>
+                    <p class="text-xs text-indigo-900/80 leading-relaxed text-justify font-medium">
+                        Thước đo tư duy đỉnh cao: Nhận diện điểm nghẽn quy trình, tối ưu hóa câu lệnh prompt, tự học và làm chủ một phần mềm kỹ thuật số mới lạ ngẫu nhiên dưới áp lực thời gian.
                     </p>
-                    <div class="mt-4 pt-3 border-t border-iuhGold/20 flex justify-between text-[10px] font-mono text-amber-700">
-                        <span>KPI: Thời gian tạo sản phẩm đầu tiên</span>
-                        <span>Mapping: DC 5.1 & 5.4</span>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== SECTION 5: SPIRAL LEARNING PATH TIMELINE (LỘ TRÌNH XOẮN ỐC) ==================== -->
-    <div id="lo-trinh-dao-tao" class="py-24 bg-slate-50 border-b border-slate-200">
+    <div id="lo-trinh-dao-tao" class="py-24 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-20 space-y-2">
-                <span class="text-xs font-bold text-iuhBlue uppercase tracking-wider block">MÔ HÌNH HỌC TẬP XOẮN ỐC</span>
-                <h2 class="text-3xl font-extrabold text-richBlack tracking-tight">Lộ Trình Đào Tạo Phát Triển 4 Cấp Độ</h2>
-                <p class="text-sm text-slate-500 leading-relaxed">Kiến thức và kỹ năng liên tục được quay trở lại, mở rộng tầm vóc đa chiều qua các năm học, đòi hỏi sự chuyển hóa thực chất về mặt chất lượng tư duy chứ không đơn thuần tích lũy tín chỉ tuyến tính.</p>
+                <span class="text-xs font-black text-nexaBlue uppercase tracking-wider block">MÔ HÌNH HỌC TẬP XOẮN ỐC</span>
+                <h2 class="text-3xl font-extrabold text-nexaBlue tracking-tight">Lộ Trình Đào Tạo Phát Triển Theo Thang Đo</h2>
+                <p class="text-sm text-slate-500 font-medium leading-relaxed">Kỹ năng liên tục được quay trở lại, mở rộng tầm vóc qua từng năm học dưới sự phân tích và nhận xét gợi ý lộ trình từ AI Core.</p>
             </div>
 
-            <!-- Timeline Blocks Mapping Layout -->
             <div class="space-y-12 max-w-5xl mx-auto relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:w-0.5 before:bg-slate-200">
-                <!-- Level 1 -->
                 <div class="relative flex flex-col md:flex-row items-start md:items-center group">
-                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-iuhBlue rounded-full -translate-x-[7px] z-10 group-hover:bg-iuhGold transition-colors"></div>
+                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-nexaBlue rounded-full -translate-x-[7px] z-10 group-hover:bg-nexaPurple transition-colors"></div>
                     <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right">
-                        <span class="text-[10px] font-mono font-bold text-iuhBlue bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">NĂM THỨ NHẤT</span>
-                        <h4 class="text-lg font-bold text-richBlack mt-1">Level 1 - Kiến Tạo Nền Móng Kỹ Năng Đồng Đều</h4>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify md:text-right">
-                            Xây dựng khung kỹ năng số căn bản trải dài qua 5 học phần cốt lõi: Làm sạch dữ liệu cơ bản (Excel/Flourish), prompt cơ bản (zero-shot, few-shot), bảo mật 2FA, cộng tác Google Workspace và Notion. Khép lại năm nhất bằng thử thách làm chủ tool random trong vòng 2 giờ đồng hồ.
+                        <span class="text-[9px] font-black text-nexaBlue bg-slate-100 border border-slate-200 px-2 py-0.5 rounded uppercase">Cấp độ nền tảng</span>
+                        <h4 class="text-base font-bold text-nexaBlue mt-1">Level 1 & 2 - Nhận biết và Thao tác Cơ bản</h4>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify md:text-right font-medium">
+                            Sinh viên làm quen với các khái niệm công nghệ số, thực hiện các thao tác văn phòng cơ bản, nhận diện rủi ro không gian mạng và biết cách đặt câu hỏi prompt zero-shot đơn giản cho AI.
                         </p>
                     </div>
                     <div class="w-full md:w-1/2 pl-12 hidden md:block"></div>
                 </div>
 
-                <!-- Level 2 -->
                 <div class="relative flex flex-col md:flex-row items-start md:items-center group">
-                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-iuhBlue rounded-full -translate-x-[7px] z-10 group-hover:bg-iuhGold transition-colors"></div>
+                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-nexaPurple rounded-full -translate-x-[7px] z-10 group-hover:bg-nexaBlue transition-colors"></div>
                     <div class="w-full md:w-1/2 pr-12 hidden md:block"></div>
                     <div class="w-full md:w-1/2 pl-12">
-                        <span class="text-[10px] font-mono font-bold text-iuhBlue bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">NĂM THỨ HAI</span>
-                        <h4 class="text-lg font-bold text-richBlack mt-1">Level 2 - Phân Hóa Chiến Lược Ứng Dụng Chuyên Ngành</h4>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify">
-                            Chuyển dịch từ kỹ năng số đại trà sang bối cảnh chuyên sâu của từng ngành nghề. Sinh viên Khối Marketing học phân tích Google Analytics 4; khối Tài chính dựng mô hình dự báo doanh thu 12 tháng bằng Python/PowerBI; khối Kỹ thuật sử dụng phần mềm mô phỏng tối ưu chi tiết máy ANSYS/Fusion 360; khối CNTT tiếp cận tư duy DevOps (Docker, PostgreSQL).
+                        <span class="text-[9px] font-black text-nexaPurple bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded uppercase">Cấp độ thực chiến</span>
+                        <h4 class="text-base font-bold text-nexaBlue mt-1">Level 3 & 4 - Ứng dụng Khá và Tốt vào Chuyên Ngành</h4>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify font-medium">
+                            Phân hóa theo ngành học. Học viên sử dụng thành thạo phần mềm chuyên dụng (PowerBI, ERP, No-code Workflow Automation), hoàn thành các bài đánh giá áp lực và nhiệm vụ thực hành do giảng viên giao xuống.
                         </p>
                     </div>
                 </div>
 
-                <!-- Level 3 -->
                 <div class="relative flex flex-col md:flex-row items-start md:items-center group">
-                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-iuhBlue rounded-full -translate-x-[7px] z-10 group-hover:bg-iuhGold transition-colors"></div>
+                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-emerald-500 rounded-full -translate-x-[7px] z-10 bg-emerald-500 transition-colors"></div>
                     <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right">
-                        <span class="text-[10px] font-mono font-bold text-iuhBlue bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">NĂM THỨ BA</span>
-                        <h4 class="text-lg font-bold text-richBlack mt-1">Level 3 - Thực Chiến Tình Huống Doanh Nghiệp Mơ Hồ</h4>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify md:text-right">
-                            Đối mặt với bài toán lỗi đau do chính các doanh nghiệp đối tác cung cấp, không có sẵn thông số chỉ định. Sinh viên tự nhận diện cốt lõi, tự do chọn công cụ phù hợp dưới sự phản hồi phản biện từ Hội đồng Doanh nghiệp. Chặng quyết định là <strong>Bài thi Thích nghi số lần thứ nhất kéo dài áp lực liên tục 48 giờ</strong>.
+                        <span class="text-[9px] font-black text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded uppercase">Cấp độ tinh hoa</span>
+                        <h4 class="text-base font-bold text-nexaBlue mt-1">Level 5 - Chuyên Gia Tinh Hoa & Đột Phá</h4>
+                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify md:text-right font-medium">
+                            Làm chủ môi trường số hoàn toàn, giải quyết các bài toán thực tế mơ hồ từ doanh nghiệp, đệ trình bộ hồ sơ minh chứng năng lực thực chứng xuất sắc để hệ thống cấp phát chứng nhận số mã hóa Blockchain bất biến.
                         </p>
                     </div>
                     <div class="w-full md:w-1/2 pl-12 hidden md:block"></div>
-                </div>
-
-                <!-- Level 4 -->
-                <div class="relative flex flex-col md:flex-row items-start md:items-center group">
-                    <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-iuhGold rounded-full -translate-x-[7px] z-10 bg-iuhGold transition-colors"></div>
-                    <div class="w-full md:w-1/2 pr-12 hidden md:block"></div>
-                    <div class="w-full md:w-1/2 pl-12">
-                        <span class="text-[10px] font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">NĂM BỐN & NĂM NĂM</span>
-                        <h4 class="text-lg font-bold text-amber-900 mt-1 flex items-center gap-1.5"><i class="fa-solid fa-crown text-iuhGold text-sm"></i> Level 4 - Đổi Mới Sáng Tạo & Dẫn Dắt Đột Phá</h4>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed text-justify">
-                            Chặng đường tinh hoa bàn giao Capstone Project có tác động thực tế (giảm tối thiểu 15% thời gian chi phí hoặc tăng 20% hiệu suất doanh nghiệp). Vượt qua <strong>Bài kiểm tra Thích nghi số lần hai kéo dài kinh khủng 72 giờ</strong> sử dụng nền tảng tự động hóa đa tầng, đệ trình tệp 20 minh chứng xuất sắc để phát hành chứng chỉ số mã hóa Blockchain vĩnh viễn.
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-                
-                 
-    <!-- ==================== SECTION 7: MARKETPLACE SHOWCASE (CHỢ NHIỆM VỤ SỐ) ==================== -->
-    <div id="cho-nhiem-vu" class="py-24 bg-slate-50 border-b border-slate-200">
+    <div id="mien-nhiem-vu" class="py-24 bg-slate-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
-                <span class="text-xs font-bold text-iuhBlue uppercase tracking-wider block">NEXA MARKETPLACE B2C COMMERCE</span>
-                <h2 class="text-3xl font-extrabold text-richBlack tracking-tight">Chợ Thử Thách & Khóa Học Nhiệm Vụ Chuyên Sâu</h2>
-                <p class="text-sm text-slate-500 leading-relaxed">Mô hình tự chủ tài chính vững chắc. Người học tự do hoặc sinh viên có nhu cầu nâng cấp chứng chỉ Blockchain cao cấp có thể đăng ký mua các gói thử thách thực tế độc quyền do các nhà cung cấp bên thứ ba đăng tải.</p>
+                <span class="text-xs font-black text-nexaPurple uppercase tracking-wider block">NEXA PRACTICAL TASKS</span>
+                <h2 class="text-3xl font-extrabold text-nexaBlue tracking-tight">Hệ Thống Nhiệm Vụ Thực Hành & Chứng Nhận Số</h2>
+                <p class="text-sm text-slate-500 font-medium leading-relaxed">Người học thực hiện các thử thách thực tế từ Nhà trường hoặc Doanh nghiệp, nộp file minh chứng để tích lũy điểm năng lực vào hồ sơ e-Portfolio.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Course Item 1 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col justify-between interactive-card group">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between interactive-card group">
                     <div>
-                        <div class="bg-gradient-to-r from-iuhBlue to-blue-900 p-6 text-white border-b-4 border-iuhGold relative">
-                            <span class="absolute top-3 right-3 text-[10px] bg-black/30 font-mono font-bold px-2 py-0.5 rounded tracking-wide text-iuhGold">MIỀN D2 - AI</span>
-                            <h4 class="text-base font-bold tracking-tight">Kỹ Sư Prompt Chuyên Sâu Cho Khối Doanh Nghiệp SMEs</h4>
-                            <p class="text-[11px] text-slate-300 mt-1">Vendor EdTech Partner: AI Advance Academy</p>
+                        <div class="bg-gradient-to-r from-nexaBlue to-slate-900 p-6 text-white relative">
+                            <span class="absolute top-3 right-3 text-[9px] bg-white/10 font-mono font-bold px-2 py-0.5 rounded text-iuhGold">NHÓM 2 - AI PROMPT</span>
+                            <h4 class="text-base font-bold tracking-tight">Kỹ Sư Prompt Chuyên Sâu Cho Doanh Nghiệp SMEs</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Đơn vị giao: Hội đồng Khoa học CNTT</p>
                         </div>
-                        <div class="p-5 space-y-3 text-xs text-slate-500 leading-relaxed text-justify">
-                            <p>Khóa học huấn luyện kỹ năng thiết kế chuỗi câu lệnh phức tạp, ứng dụng các mô hình ngôn ngữ lớn để tự động hóa khâu viết content truyền thông, phân tích hành vi khách hàng và trích xuất báo cáo dữ liệu kinh doanh thô tự động.</p>
+                        <div class="p-5 space-y-3 text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                            <p>Huấn luyện kỹ năng thiết kế chuỗi câu lệnh phức tạp, ứng dụng LLMs để tự động hóa khâu viết nội dung truyền thông, phân tích hành vi khách hàng và trích xuất dữ liệu kinh doanh thô.</p>
                             <div class="flex flex-wrap gap-1.5 pt-2">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono">5 Modules</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono">Chấm AI 100%</span>
-                                <span class="bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-mono font-semibold">Tặng Blockchain Cert</span>
+                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono font-bold">5 Câu hỏi trắc nghiệm</span>
+                                <span class="bg-indigo-50 text-nexaPurple px-2 py-0.5 rounded text-[10px] font-mono font-bold">Chấm điểm tự động</span>
                             </div>
                         </div>
                     </div>
-                    <div class="p-5 border-t border-slate-100 flex items-center justify-between bg-slate-50/50">
-                        <div class="flex flex-col">
-                            <span class="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Học phí trọn gói</span>
-                            <span class="text-lg font-black text-iuhBlue font-mono">750.000 VNĐ</span>
-                        </div>
-                        <button onclick="alert('Tính năng thanh toán cổng VNPay/Momo đang được thiết lập trong Sandbox.')" class="px-4 py-2 bg-iuhBlue hover:bg-iuhBlue-light text-white font-bold text-xs rounded transition shadow border-b-2 border-iuhBlue-dark">Đăng Ký Học</button>
+                    <div class="p-5 border-t border-slate-100 bg-slate-50/50 text-right">
+                        <button onclick="window.location.href='NEXA_Login.html'" class="px-4 py-2 bg-nexaBlue hover:bg-nexaBlue-light text-white font-bold text-xs rounded-lg transition shadow cursor-pointer">Vào Phòng Thi</button>
                     </div>
                 </div>
 
-                <!-- Course Item 2 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col justify-between interactive-card group">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between interactive-card group">
                     <div>
-                        <div class="bg-gradient-to-r from-iuhBlue to-blue-900 p-6 text-white border-b-4 border-iuhGold relative">
-                            <span class="absolute top-3 right-3 text-[10px] bg-black/30 font-mono font-bold px-2 py-0.5 rounded tracking-wide text-iuhGold">MIỀN D3 - AUTOMATION</span>
-                            <h4 class="text-base font-bold tracking-tight">Tự Động Hóa Quy Trình Văn Phòng Với Make.com & RPA</h4>
-                            <p class="text-[11px] text-slate-300 mt-1">Vendor Tech Partner: Nexa Solutions Corp</p>
+                        <div class="bg-gradient-to-r from-nexaBlue to-slate-900 p-6 text-white relative">
+                            <span class="absolute top-3 right-3 text-[9px] bg-white/10 font-mono font-bold px-2 py-0.5 rounded text-iuhGold">NHÓM 3 - AUTOMATION</span>
+                            <h4 class="text-base font-bold tracking-tight">Tự Động Hóa Quy Trình Văn Phòng Với Low-code Workflow</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Đơn vị giao: Trung tâm Chuyển đổi số</p>
                         </div>
-                        <div class="p-5 space-y-3 text-xs text-slate-500 leading-relaxed text-justify">
-                            <p>Thiết lập luồng công việc tự động kết nối API giữa Gmail, Google Sheets, Trello và Hệ thống quản trị CRM của công ty. Học viên giải quyết bài toán thực tế giúp cắt giảm 15-20 tiếng làm việc thủ công lặp đi lặp lại hằng tuần.</p>
+                        <div class="p-5 space-y-3 text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                            <p>Thiết lập luồng công việc tự động kết nối API giữa Webhook, Email, Google Sheets và CRM. Giải quyết bài toán thực tế giúp cắt giảm 15 tiếng làm việc thủ công lặp lại hằng tuần.</p>
                             <div class="flex flex-wrap gap-1.5 pt-2">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono">8 Luồng Case</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono">Độ khó: Level 3</span>
-                                <span class="bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-mono font-semibold">Bảo chứng Blockchain</span>
+                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono font-bold">1 File minh chứng</span>
+                                <span class="bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-mono font-bold">Chấm theo Rubric</span>
                             </div>
                         </div>
                     </div>
-                    <div class="p-5 border-t border-slate-100 flex items-center justify-between bg-slate-50/50">
-                        <div class="flex flex-col">
-                            <span class="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Học phí trọn gói</span>
-                            <span class="text-lg font-black text-iuhBlue font-mono">1.200.000 VNĐ</span>
-                        </div>
-                        <button onclick="alert('Tính năng thanh toán cổng VNPay/Momo đang được thiết lập trong Sandbox.')" class="px-4 py-2 bg-iuhBlue hover:bg-iuhBlue-light text-white font-bold text-xs rounded transition shadow border-b-2 border-iuhBlue-dark">Đăng Ký Học</button>
+                    <div class="p-5 border-t border-slate-100 bg-slate-50/50 text-right">
+                        <button onclick="window.location.href='NEXA_Login.html'" class="px-4 py-2 bg-nexaBlue hover:bg-nexaBlue-light text-white font-bold text-xs rounded-lg transition shadow cursor-pointer">Nộp Minh Chứng</button>
                     </div>
                 </div>
 
-                <!-- Course Item 3 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col justify-between interactive-card group">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between interactive-card group">
                     <div>
-                        <div class="bg-gradient-to-r from-iuhBlue to-blue-900 p-6 text-white border-b-4 border-iuhGold relative">
-                            <span class="absolute top-3 right-3 text-[10px] bg-black/30 font-mono font-bold px-2 py-0.5 rounded tracking-wide text-iuhGold">MIỀN D1 - DATA DATA</span>
-                            <h4 class="text-base font-bold tracking-tight">Xây Dựng Bảng Điều Khiển PowerBI Cho Lãnh Đạo SMEs</h4>
-                            <p class="text-[11px] text-slate-300 mt-1">Vendor Enterprise Partner: DigiData Center</p>
+                        <div class="bg-gradient-to-r from-nexaBlue to-slate-900 p-6 text-white relative">
+                            <span class="absolute top-3 right-3 text-[9px] bg-white/10 font-mono font-bold px-2 py-0.5 rounded text-iuhGold">NHÓM 1 - DATA BI</span>
+                            <h4 class="text-base font-bold tracking-tight">Xây Dựng Bảng Điều Khiển Kinh Doanh Trên PowerBI</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Đơn vị giao: Khoa Hệ thống thông tin</p>
                         </div>
-                        <div class="p-5 space-y-3 text-xs text-slate-500 leading-relaxed text-justify">
-                            <p>Lộ trình thực chiến kéo dài 4 tuần bóp tách dữ liệu doanh thu bán hàng thực tế từ mạng xã hội và Google Analytics 4. Kỹ thuật ETL làm sạch chuyên sâu bằng Python kết hợp thiết lập biểu đồ nhện đối chiếu sức khỏe tài chính tổ chức.</p>
+                        <div class="p-5 space-y-3 text-xs text-slate-500 leading-relaxed text-justify font-medium">
+                            <p>Trực quan hóa tập dữ liệu bán hàng đa kênh từ file CSV. Thực hiện các kỹ thuật ETL làm sạch dữ liệu chuyên sâu và thiết lập biểu đồ mạng nhện đối chiếu sức khỏe tài chính doanh nghiệp.</p>
                             <div class="flex flex-wrap gap-1.5 pt-2">
-                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono">12 Đề Bài</span>
-                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono">Giảng viên Review</span>
-                                <span class="bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-mono font-semibold">Cấp chứng nhận số</span>
+                                <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-[10px] font-mono font-bold">12 Đề mục con</span>
+                                <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded text-[10px] font-mono font-bold">Tích hợp e-Portfolio</span>
                             </div>
                         </div>
                     </div>
-                    <div class="p-5 border-t border-slate-100 flex items-center justify-between bg-slate-50/50">
-                        <div class="flex flex-col">
-                            <span class="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Học phí trọn gói</span>
-                            <span class="text-lg font-black text-iuhBlue font-mono">1.850.000 VNĐ</span>
-                        </div>
-                        <button onclick="alert('Tính năng thanh toán cổng VNPay/Momo đang được thiết lập trong Sandbox.')" class="px-4 py-2 bg-iuhBlue hover:bg-iuhBlue-light text-white font-bold text-xs rounded transition shadow border-b-2 border-iuhBlue-dark">Đăng Ký Học</button>
+                    <div class="p-5 border-t border-slate-100 bg-slate-50/50 text-right">
+                        <button onclick="window.location.href='NEXA_Login.html'" class="px-4 py-2 bg-nexaBlue hover:bg-nexaBlue-light text-white font-bold text-xs rounded-lg transition shadow cursor-pointer">Xem Chi Tiết</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== SECTION 8: IMPACT AND SOCIAL VALUES (CAM KẾT ĐẦU RA) ==================== -->
-    <div class="py-24 bg-white border-b border-slate-200">
+    <div class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-slate-950 via-iuhBlue-dark to-slate-950 rounded-2xl p-12 text-center text-white border-b-8 border-iuhGold shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-32 -bottom-32 w-80 h-80 bg-iuhBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="bg-gradient-to-br from-slate-950 via-nexaBlue-dark to-slate-950 rounded-3xl p-12 text-center text-white border-b-8 border-nexaPurple shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-32 -bottom-32 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="z-10 relative max-w-4xl mx-auto space-y-4">
-                    <span class="text-xs font-bold tracking-widest text-iuhGold bg-white/10 px-3 py-1 rounded">CHỈ SỐ TÁC ĐỘNG & HIỆU SUẤT ĐỀ ÁN</span>
-                    <h3 class="text-3xl font-extrabold tracking-tight">Giá Trị Cam Kết Thực Tiễn Dự Kiến</h3>
-                    <p class="text-xs text-slate-400 max-w-2xl mx-auto leading-relaxed">NEXA không chỉ dừng lại ở mô hình ý tưởng lý thuyết trên giảng đường mà bám sát kế hoạch tài chính và mục tiêu tác động bền vững xã hội.</p>
+                    <span class="text-xs font-bold tracking-widest text-iuhGold bg-white/10 px-3 py-1 rounded-md uppercase">CHỈ SỐ TÁC ĐỘNG MVP PRODUCT</span>
+                    <h3 class="text-3xl font-extrabold tracking-tight">Giá Trị Cam Kết Thực Tiễn Đo Lường</h3>
+                    <p class="text-xs text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">NEXA tạo dựng ưu thế định vị vượt trội, kết nối trực tiếp nhà trường và thế giới doanh nghiệp thực tế đầy biến động.</p>
                     
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8">
                         <div class="space-y-1">
                             <div class="text-4xl font-black font-mono text-iuhGold">90%</div>
-                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Sinh viên có việc làm</div>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Cam kết 90% sinh viên đạt chuẩn NEXA Level 3 có việc làm ổn định ngay trong 3 tháng đầu sau tốt nghiệp.</p>
+                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Ứng viên có việc ngay</div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed font-medium">Đạt mốc Level 3 năng lực số thực chứng được doanh nghiệp săn đón nhận việc tức thì hằng năm.</p>
                         </div>
                         <div class="space-y-1 border-l border-white/10 pl-4">
-                            <div class="text-4xl font-black font-mono text-iuhGold">50.000</div>
-                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Hồ Sơ Thực Chứng</div>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Cung cấp lộ trình rèn luyện cá nhân hóa tích hợp trực tiếp vào 70% chương trình học chính khóa.</p>
+                            <div class="text-4xl font-black font-mono text-nexaPurple">100%</div>
+                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Hồ sơ bất biến</div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed font-medium">Toàn bộ Certificate được cấp phát mã băm chuỗi khối, chống làm giả hồ sơ năng lực 100%.</p>
                         </div>
                         <div class="space-y-1 border-l border-white/10 pl-4">
-                            <div class="text-4xl font-black font-mono text-iuhGold">5% - 10%</div>
-                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Tăng Tỷ Lệ Nhập Học</div>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Tạo ưu thế định vị truyền thông bán hàng độc nhất (USP) giúp gia tăng tỷ lệ nộp hồ sơ vào trường hằng năm.</p>
+                            <div class="text-4xl font-black font-mono text-iuhGold">15 Giây</div>
+                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Xác thực tức thời</div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed font-medium">Doanh nghiệp quét mã định danh QR Code công khai để kiểm tra trạng thái hiệu lực tức thời.</p>
                         </div>
                         <div class="space-y-1 border-l border-white/10 pl-4">
-                            <div class="text-4xl font-black font-mono text-iuhGold">30 Tháng</div>
-                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Tự Chủ Tài Chính</div>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Mô hình vận hành tinh gọn đảm bảo đạt điểm hòa vốn dòng tiền và bắt đầu sinh lời tự chủ từ tháng thứ 30.</p>
+                            <div class="text-4xl font-black font-mono text-nexaPurple">70%</div>
+                            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Tự động hóa chấm bài</div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed font-medium">Động cơ AI Core gánh vác phần lớn khối lượng chấm bài trắc nghiệm và đánh giá hành vi lặp lại.</p>
                         </div>
                     </div>
                 </div>
@@ -532,11 +382,11 @@
         </div>
     </div>
 
-
     <script src="js/footer.js"></script>
     
-    <script src="js/questions.js"></script>
-    <script src="js/app-logic.js"></script>
+    <script src="storage.js"></script>
+    <script src="js/Questions.js"></script>
     <script src="js/nexa-scale.js"></script>
+    <script src="js/app-logic.js"></script>
 </body>
 </html>

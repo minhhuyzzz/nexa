@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý Nhiệm vụ thực hành - NEXA Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-fixed-dim": "#b6c4ff", "on-tertiary-fixed": "#341100", "on-surface": "#1a1b21", "tertiary-fixed-dim": "#ffb691", "on-secondary-container": "#1d3989", "secondary-fixed": "#dce1ff", "on-primary-container": "#90a8ff", "outline-variant": "#c5c5d3", "surface-container": "#eeedf4", "surface-bright": "#faf8ff", "on-primary-fixed-variant": "#264191", "surface-container-lowest": "#ffffff", "on-primary-fixed": "#00164e", "on-surface-variant": "#444651", "inverse-on-surface": "#f1f0f7", "surface-dim": "#dad9e1", "teacher-accent": "#8B5CF6", "surface-muted": "#F8FAFC", "tertiary-container": "#6e2c00", "on-secondary-fixed": "#00164e", "border-subtle": "#E2E8F0", "student-accent": "#3B82F6", background: "#faf8ff", "inverse-surface": "#2f3036", "primary-container": "#1e3a8a", "inverse-primary": "#b6c4ff", "tertiary-fixed": "#ffdbcb", secondary: "#4059aa", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#773205", error: "#ba1a1a", "on-secondary": "#ffffff", "error-container": "#ffdad6", "primary-fixed": "#dce1ff", "on-error": "#ffffff", "on-background": "#1a1b21", "secondary-container": "#8fa7fe", "admin-accent": "#F43F5E", outline: "#757682", surface: "#faf8ff", "surface-container-highest": "#e3e1e9", "primary-fixed-dim": "#b6c4ff", "surface-variant": "#e3e1e9", "on-secondary-fixed-variant": "#264191", tertiary: "#4b1c00", "on-primary": "#ffffff", "surface-container-high": "#e9e7ef", "surface-container-low": "#f4f3fa", "on-tertiary-container": "#f39461", "on-tertiary": "#ffffff", "surface-tint": "#4059aa", "employer-accent": "#10B981", primary: "#00236f"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-padding": "24px", "card-gap": "20px", "section-margin": "48px", gutter: "16px", "base-unit": "4px"}, fontFamily: {"label-sm": ["Geist"], "body-md": ["Inter"], "headline-lg": ["Geist"], "label-md": ["Geist"], "headline-xl": ["Geist"], "display-lg": ["Geist"], "body-lg": ["Inter"], "headline-lg-mobile": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Inter"], label: ["Geist"]}, fontSize: {"label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}]}}}};</script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf8ff; color: #1a1b21; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<script src="../js/sidebar_admin.js"></script>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 w-full bg-surface-muted h-full overflow-hidden">
+<!-- TopAppBar (Mobile Only for Sidebar setup, but adapting for context if needed, usually Sidebar replaces Top Nav on desktop for this app style, but let's include a header) -->
+<header class="sticky top-0 z-30 bg-surface-container-lowest border-b border-border-subtle shadow-sm flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg md:text-headline-xl font-headline-lg text-on-surface">Quản lý Nhiệm vụ thực hành</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-border-subtle rounded-full text-sm focus:outline-none focus:border-admin-accent focus:ring-1 focus:ring-admin-accent w-64 transition-all" placeholder="Tìm kiếm nhiệm vụ..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-admin-accent rounded-full"></span>
+</button>
+<div class="w-9 h-9 rounded-full bg-surface-container-high overflow-hidden border border-border-subtle cursor-pointer">
+<img alt="Admin Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGndT9-yCvQwv72QqGRcS24uCEK5uCuaTvVknNns3eU3__xR8nItEljra5aVbSWd99-YM9bWobyIS6iFxkQeF7ZO8_BCOpGAJxEBIqNUu4v5NNjsHy4TmUenOk8fEtB8cjStA46_fBcl0GoVmwINRviV60gCKf1uW3uUY8XGs5t3N5_xQv6Ih78NBEJm7lAtRPNFuGF_ZikyAMoF0c_CkckCxpPCd2p78EOYY68wMtRRwM4Z8xbaiPWwoO6PZYnq1O1T4qR3fqxwA"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto p-4 md:p-container-padding space-y-section-margin relative">
+<!-- Dashboard Stats Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-card-gap">
+<div class="glass-card rounded-xl p-5 flex flex-col justify-between relative overflow-hidden border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-on-surface-variant font-medium mb-1">Tổng số nhiệm vụ</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">1,248</h3>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+</div>
+<div class="flex items-center text-sm">
+<span class="text-employer-accent flex items-center mr-2"><span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>+12%</span>
+<span class="text-on-surface-variant">so với tháng trước</span>
+</div>
+</div>
+<div class="glass-card rounded-xl p-5 flex flex-col justify-between relative overflow-hidden border-l-4 border-l-student-accent">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-on-surface-variant font-medium mb-1">Bài nộp chờ duyệt</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">342</h3>
+</div>
+<div class="w-10 h-10 rounded-lg bg-student-accent/10 flex items-center justify-center text-student-accent">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<div class="flex items-center text-sm">
+<span class="text-admin-accent flex items-center mr-2"><span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>+5%</span>
+<span class="text-on-surface-variant">cần xử lý ngay</span>
+</div>
+</div>
+<div class="glass-card rounded-xl p-5 flex flex-col justify-between relative overflow-hidden border-l-4 border-l-teacher-accent">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-on-surface-variant font-medium mb-1">Điểm trung bình</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">8.2/10</h3>
+</div>
+<div class="w-10 h-10 rounded-lg bg-teacher-accent/10 flex items-center justify-center text-teacher-accent">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
+<div class="bg-teacher-accent h-1.5 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-5 flex flex-col justify-between relative overflow-hidden border-l-4 border-l-employer-accent md:col-span-3 lg:col-span-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-on-surface-variant font-medium mb-1">Phản hồi tích cực</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">94%</h3>
+</div>
+<div class="w-10 h-10 rounded-lg bg-employer-accent/10 flex items-center justify-center text-employer-accent">
+<span class="material-symbols-outlined">thumb_up</span>
+</div>
+</div>
+<div class="flex items-center text-sm">
+<span class="text-on-surface-variant">Dựa trên 5k+ đánh giá</span>
+</div>
+</div>
+</section>
+<!-- Task List & Filters -->
+<section class="bg-surface-container-lowest rounded-xl border border-border-subtle shadow-sm overflow-hidden flex flex-col">
+<!-- Header & Actions -->
+<div class="p-5 border-b border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4 bg-white">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Danh sách Dự án &amp; Nhiệm vụ</h2>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<div class="relative flex-1 md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">filter_list</span>
+<select class="w-full pl-10 pr-8 py-2 bg-surface-container-low border border-border-subtle rounded-lg text-sm appearance-none focus:outline-none focus:border-primary">
+<option>Tất cả trạng thái</option>
+<option>Đang diễn ra</option>
+<option>Đã đóng</option>
+<option>Chờ duyệt</option>
+</select>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md font-display-lg hover:bg-primary/90 transition-colors flex items-center gap-2 whitespace-nowrap active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Tạo nhiệm vụ
+                        </button>
+</div>
+</div>
+<!-- Table Content -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-sm font-semibold border-b border-border-subtle">
+<th class="px-6 py-4 font-label-md">Tên Nhiệm vụ / Dự án</th>
+<th class="px-6 py-4 font-label-md">Môn học / Kỹ năng</th>
+<th class="px-6 py-4 font-label-md">Tiến độ nộp</th>
+<th class="px-6 py-4 font-label-md">Trạng thái</th>
+<th class="px-6 py-4 font-label-md text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-sm">
+<tr class="hover:bg-surface-muted transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div>
+<div class="font-medium text-on-surface">Xây dựng API Quản lý Kho</div>
+<div class="text-on-surface-variant text-xs mt-1">ID: TASK-2023-08A</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-block px-2.5 py-1 bg-surface-container-high rounded-md text-xs font-medium text-on-surface">Backend Development</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 w-24">
+<div class="bg-employer-accent h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">150/200</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200">
+                                        Đang diễn ra
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary p-1 rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-admin-accent p-1 rounded transition-colors ml-1" title="Chỉnh sửa">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-muted transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 shrink-0">
+<span class="material-symbols-outlined">design_services</span>
+</div>
+<div>
+<div class="font-medium text-on-surface">Thiết kế UI/UX App Đặt đồ ăn</div>
+<div class="text-on-surface-variant text-xs mt-1">ID: TASK-2023-09B</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-block px-2.5 py-1 bg-surface-container-high rounded-md text-xs font-medium text-on-surface">UI/UX Design</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 w-24">
+<div class="bg-student-accent h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">45/100</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                                        Chờ duyệt (12)
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary p-1 rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-admin-accent p-1 rounded transition-colors ml-1" title="Chỉnh sửa">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-muted transition-colors group opacity-75">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 shrink-0">
+<span class="material-symbols-outlined">data_usage</span>
+</div>
+<div>
+<div class="font-medium text-on-surface">Phân tích Dữ liệu Bán hàng Q2</div>
+<div class="text-on-surface-variant text-xs mt-1">ID: TASK-2023-07C</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-block px-2.5 py-1 bg-surface-container-high rounded-md text-xs font-medium text-on-surface">Data Analysis</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 w-24">
+<div class="bg-gray-400 h-1.5 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">80/80</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200">
+                                        Đã đóng
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary p-1 rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="text-on-surface-variant hover:text-admin-accent p-1 rounded transition-colors ml-1" disabled="" title="Chỉnh sửa">
+<span class="material-symbols-outlined text-[20px] opacity-50">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-border-subtle bg-white flex items-center justify-between text-sm">
+<span class="text-on-surface-variant">Hiển thị 1-3 của 1,248 nhiệm vụ</span>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded border border-border-subtle flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded border border-primary bg-primary text-white flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded border border-border-subtle flex items-center justify-center text-on-surface hover:bg-surface-container-low">2</button>
+<button class="w-8 h-8 rounded border border-border-subtle flex items-center justify-center text-on-surface hover:bg-surface-container-low">3</button>
+<button class="w-8 h-8 rounded border border-border-subtle flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

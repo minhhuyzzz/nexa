@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý Bài đánh giá - NEXA</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-fixed-dim": "#b6c4ff", "on-tertiary-fixed": "#341100", "on-surface": "#1a1b21", "tertiary-fixed-dim": "#ffb691", "on-secondary-container": "#1d3989", "secondary-fixed": "#dce1ff", "on-primary-container": "#90a8ff", "outline-variant": "#c5c5d3", "surface-container": "#eeedf4", "surface-bright": "#faf8ff", "on-primary-fixed-variant": "#264191", "surface-container-lowest": "#ffffff", "on-primary-fixed": "#00164e", "on-surface-variant": "#444651", "inverse-on-surface": "#f1f0f7", "surface-dim": "#dad9e1", "teacher-accent": "#8B5CF6", "surface-muted": "#F8FAFC", "tertiary-container": "#6e2c00", "on-secondary-fixed": "#00164e", "border-subtle": "#E2E8F0", "student-accent": "#3B82F6", background: "#faf8ff", "inverse-surface": "#2f3036", "primary-container": "#1e3a8a", "inverse-primary": "#b6c4ff", "tertiary-fixed": "#ffdbcb", secondary: "#4059aa", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#773205", error: "#ba1a1a", "on-secondary": "#ffffff", "error-container": "#ffdad6", "primary-fixed": "#dce1ff", "on-error": "#ffffff", "on-background": "#1a1b21", "secondary-container": "#8fa7fe", "admin-accent": "#F43F5E", outline: "#757682", surface: "#faf8ff", "surface-container-highest": "#e3e1e9", "primary-fixed-dim": "#b6c4ff", "surface-variant": "#e3e1e9", "on-secondary-fixed-variant": "#264191", tertiary: "#4b1c00", "on-primary": "#ffffff", "surface-container-high": "#e9e7ef", "surface-container-low": "#f4f3fa", "on-tertiary-container": "#f39461", "on-tertiary": "#ffffff", "surface-tint": "#4059aa", "employer-accent": "#10B981", primary: "#00236f"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-padding": "24px", "card-gap": "20px", "section-margin": "48px", gutter: "16px", "base-unit": "4px"}, fontFamily: {"label-sm": ["Geist"], "body-md": ["Inter"], "headline-lg": ["Geist"], "label-md": ["Geist"], "headline-xl": ["Geist"], "display-lg": ["Geist"], "body-lg": ["Inter"], "headline-lg-mobile": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Inter"], label: ["Geist"]}, fontSize: {"label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}]}}}};</script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-geist { font-family: 'Geist', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface-muted text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<script src="../js/sidebar_admin.js"></script>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 w-full relative">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 bg-surface-container-lowest border-b border-border-subtle shadow-sm transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Search Bar (on_left) -->
+<div class="relative max-w-md w-full hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full font-body-md text-body-md focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Tìm kiếm bài đánh giá, mẫu..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-2 w-2 h-2 bg-admin-accent rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-150 hidden sm:block">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden ml-2 cursor-pointer">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate system administrator in a well-lit office environment. The lighting is soft and neutral, conveying competence and reliability. The style is a high-quality photograph suitable for a corporate enterprise platform profile picture, adhering to a light and clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3LFkc1z1nY2TG9EL4pTM2jO40lDyQXHi92TRD-xRMnobm1Lk8nvgdy5BYM-scfIN9u0dQFFYffMXMycx5vFq3WDhR3upQrAqIovMoA5N8nPZDUDPKtXFrkmhM4_kQ5gNx3Cot9It49afVBubwIC1hSUsAw7lbgcps-OnxV7YCGR13_ooRO_obAdDDuLszA3eTcRWDTvKWMEdzlMQPwvfcUOrfvvXlZCQpD8uhY32kQb1w97GtXbs0um27NAcETF5kBntsbyQcJ6s"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-container-padding overflow-y-auto">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Quản lý Bài đánh giá</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Giám sát và cấu hình các kỳ thi năng lực số</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-on-primary-fixed-variant transition-colors shadow-sm active:scale-95">
+<span class="material-symbols-outlined">add</span>
+                    Tạo mẫu mới
+                </button>
+</div>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-card-gap mb-section-margin">
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed rounded-full opacity-20 blur-xl"></div>
+<div class="flex items-center gap-3 mb-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="font-label-md text-label-md">Tổng số bài thi</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">1,248</div>
+<div class="font-label-sm text-label-sm text-employer-accent mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> +12% so với tháng trước
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary-fixed rounded-full opacity-20 blur-xl"></div>
+<div class="flex items-center gap-3 mb-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary-container">model_training</span>
+<span class="font-label-md text-label-md">Đang diễn ra</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">42</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                        Trong 5 kỳ thi đang mở
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-employer-accent rounded-full opacity-10 blur-xl"></div>
+<div class="flex items-center gap-3 mb-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-employer-accent">check_circle</span>
+<span class="font-label-md text-label-md">Tỷ lệ hoàn thành</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">86%</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                        Trung bình toàn hệ thống
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-admin-accent rounded-full opacity-10 blur-xl"></div>
+<div class="flex items-center gap-3 mb-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-admin-accent">speed</span>
+<span class="font-label-md text-label-md">Điểm trung bình</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface">7.4</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                        Thang điểm 10
+                    </div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+<!-- Ongoing Assessments List (Spans 2 columns) -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Kỳ thi đang diễn ra</h3>
+<a class="font-label-md text-label-md text-primary hover:underline" href="#">Xem tất cả</a>
+</div>
+<!-- List Item 1 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+<div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-semibold">Đánh giá Năng lực Kỹ sư Phần mềm Đầu vào</h4>
+<span class="bg-tertiary-fixed text-tertiary-container px-2 py-1 rounded-full font-label-sm text-label-sm whitespace-nowrap">Đang mở</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 text-sm">Mã kỳ thi: EX-2023-SW1 • Đối tượng: Ứng viên tuyển dụng mới</p>
+<div class="flex items-center gap-4 w-full">
+<div class="flex-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Tiến độ nộp bài</span>
+<span>85 / 120</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 70%"></div>
+</div>
+</div>
+<button class="border border-outline px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap">Chi tiết</button>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-semibold">Kiểm tra Kiến thức Marketing Digital Q3</h4>
+<span class="bg-tertiary-fixed text-tertiary-container px-2 py-1 rounded-full font-label-sm text-label-sm whitespace-nowrap">Đang mở</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 text-sm">Mã kỳ thi: MKT-Q3-23 • Đối tượng: Nhân sự phòng Marketing</p>
+<div class="flex items-center gap-4 w-full">
+<div class="flex-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Tiến độ nộp bài</span>
+<span>42 / 45</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-employer-accent rounded-full" style="width: 93%"></div>
+</div>
+</div>
+<button class="border border-outline px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap">Chi tiết</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Assessment Templates -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end mb-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Mẫu bài đánh giá</h3>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">architecture</span>
+<h4 class="font-label-md text-label-md font-semibold">Khung chuẩn IT Cơ bản</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">Mẫu đề thi trắc nghiệm 50 câu về kiến thức mạng, hệ điều hành và bảo mật cơ bản.</p>
+<div class="flex justify-between items-center">
+<span class="bg-surface-container px-2 py-1 rounded text-[11px] font-semibold text-on-surface-variant">45 Phút</span>
+<button class="text-primary font-label-md text-label-md group-hover:underline">Sử dụng mẫu</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">manage_accounts</span>
+<h4 class="font-label-md text-label-md font-semibold">Đánh giá Năng lực Quản lý</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">Bài luận và tình huống giả định (Case study) dành cho cấp quản lý tầm trung.</p>
+<div class="flex justify-between items-center">
+<span class="bg-surface-container px-2 py-1 rounded text-[11px] font-semibold text-on-surface-variant">120 Phút</span>
+<button class="text-primary font-label-md text-label-md group-hover:underline">Sử dụng mẫu</button>
+</div>
+</div>
+<button class="w-full border border-dashed border-outline-variant rounded-xl p-4 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors flex justify-center items-center gap-2 font-label-md text-label-md">
+<span class="material-symbols-outlined">add_circle</span>
+                        Xem thư viện mẫu
+                    </button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

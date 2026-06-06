@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA Engine | Khảo thí Năng lực số Toàn diện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nexaBlue: { DEFAULT: '#1b365d', light: '#2a4c7e', dark: '#0f2444' }, // Xanh dương học thuật
+                        nexaPurple: { DEFAULT: '#4f46e5', light: '#6366f1', dark: '#3730a3' }, // Tím AI mới theo yêu cầu của thầy
+                        slateBg: '#f8fafc',
+                        nexaRed: '#a44125'
+                    },
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    animation: { 'scan': 'scan 2.5s linear infinite' },
+                    keyframes: {
+                        scan: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(200%)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(36px, 1fr)); gap: 6px; }
+    </style>
+</head>
+<body class="bg-slateBg font-sans text-slate-800 h-screen overflow-hidden flex">
+
+    <aside class="w-[280px] bg-white border-r border-slate-200 flex flex-col flex-shrink-0 z-20 shadow-sm relative">
+        <div class="absolute inset-0 bg-white/70 backdrop-blur-[2px] z-50 flex flex-col items-center justify-center cursor-not-allowed" title="Sidebar bị khóa để đảm bảo tính công bằng của bài kiểm tra">
+            <div class="w-12 h-12 rounded-full bg-nexaBlue/5 text-nexaBlue flex items-center justify-center mb-2 animate-bounce">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+            </div>
+            <span class="text-xs font-bold text-nexaBlue/80 uppercase tracking-wider">Môi trường thi đóng</span>
+            <span class="text-[10px] text-slate-400 mt-1">Hệ thống đang khóa điều hướng</span>
+        </div>
+
+        <div class="h-[72px] flex items-center px-6 border-b border-slate-100">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden border border-slate-200 p-0.5 mr-3 bg-white shadow-sm">
+                <img src="https://i.postimg.cc/Vv0HrbfK/anh-logo-nexa.png" alt="NX" class="w-full h-full object-contain">
+            </div>
+            <div class="leading-tight">
+                <h1 class="font-black text-nexaBlue tracking-tight text-lg">NEXA <span class="text-nexaPurple">CORE</span></h1>
+                <p class="text-[9px] text-slate-400 uppercase tracking-widest font-black">Assessment MVP</p>
+            </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-6 custom-scrollbar opacity-30">
+            <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-3">Hồ Sơ Thí Sinh</p>
+                <nav class="space-y-1"><a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium"><i class="fa-solid fa-chart-pie w-5"></i> Tổng quan</a></nav>
+            </div>
+            <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-3">Bài Khảo Thí</p>
+                <nav class="space-y-1"><a href="#" class="flex items-center gap-3 px-3 py-2 bg-blue-50 text-nexaBlue rounded-md font-bold text-sm"><i class="fa-solid fa-file-signature w-5"></i> Đang làm bài</a></nav>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0 bg-[#f4f7f6]">
+        
+        <header class="h-[72px] bg-white border-b border-slate-200 flex items-center justify-between px-8 flex-shrink-0 z-10 shadow-sm">
+            <div>
+                <h2 class="text-base font-black text-nexaBlue uppercase tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-laptop-code text-nexaPurple"></i> KHẢO THÍ TOÀN DIỆN (120 CÂU HỎI)
+                </h2>
+                <p class="text-[11px] text-slate-500 font-medium">Bảo chứng năng lực số thực chứng chuẩn Châu Âu DigComp 2.2</p>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="bg-red-50 border border-red-100 px-4 py-2 rounded-xl flex items-center gap-3 shadow-sm">
+                    <i class="fa-regular fa-clock text-red-500 animate-pulse text-xl"></i>
+                    <div class="flex flex-col">
+                        <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest leading-none mb-1">Thời gian làm bài</span>
+                        <span class="text-lg font-black text-red-600 font-mono leading-none" id="timer-display">120:00</span>
+                    </div>
+                </div>
+
+                <button onclick="submitExam()" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl shadow-md transition flex items-center gap-2 cursor-pointer border-b-2 border-emerald-800">
+                    <i class="fa-solid fa-paper-plane text-xs"></i> Nộp Bài Đánh Giá
+                </button>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-hidden p-6 lg:p-8 flex flex-col lg:flex-row gap-6">
+            
+            <div class="w-full lg:w-2/3 flex flex-col gap-6">
+                
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <span class="text-xs font-extrabold text-slate-400">TIẾN ĐỘ:</span>
+                        <span class="text-sm font-black text-nexaBlue" id="progress-text">1/120</span>
+                    </div>
+                    <div class="flex-1 h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200/50 p-0.5">
+                        <div id="progress-bar" class="h-full bg-gradient-to-r from-nexaBlue to-nexaPurple rounded-full transition-all duration-300" style="width: 0.83%;"></div>
+                    </div>
+                    <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-nexaPurple text-[10px] font-bold rounded-md uppercase tracking-wide max-w-[240px] truncate" id="domain-indicator">
+                        Miền 1: Khai thác dữ liệu
+                    </span>
+                </div>
+
+                <div class="flex-1 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col overflow-hidden relative">
+                    <div id="q-loader" class="absolute inset-0 bg-white/90 backdrop-blur-sm z-10 hidden items-center justify-center">
+                        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-nexaPurple"></i>
+                    </div>
+
+                    <div class="p-8 flex-1 overflow-y-auto custom-scrollbar">
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-notch text-nexaPurple animate-spin"></i> CÂU HỎI KIỂM CHUẨN <span id="q-number" class="text-nexaBlue font-black text-sm">1</span>
+                        </h3>
+                        <p class="text-lg font-bold text-slate-800 leading-relaxed mb-8" id="q-prompt">
+                            Đang tải cấu trúc câu hỏi số thực chứng từ ngân hàng dữ liệu NEXA...
+                        </p>
+
+                        <div class="space-y-3.5" id="q-options-container">
+                            </div>
+                    </div>
+
+                    <div class="p-5 border-t border-slate-100 bg-slate-50 flex items-center justify-between">
+                        <button onclick="navigateQuestion(-1)" id="btn-prev" class="px-5 py-2.5 border border-slate-300 text-slate-600 bg-white hover:bg-slate-100 rounded-xl text-sm font-bold transition flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer">
+                            <i class="fa-solid fa-arrow-left text-xs"></i> Câu Trước
+                        </button>
+                        
+                        <div class="flex items-center gap-1.5 text-xs font-bold text-slate-400 font-mono">
+                            <i class="fa-solid fa-lock text-emerald-500"></i> SSL SECURE DATA
+                        </div>
+
+                        <button onclick="navigateQuestion(1)" id="btn-next" class="px-5 py-2.5 bg-nexaBlue hover:bg-nexaBlue-light text-white rounded-xl text-sm font-bold transition flex items-center gap-2 shadow-sm border-b-2 border-slate-900 cursor-pointer">
+                            Câu Tiếp <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/3 flex flex-col gap-6">
+                
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 bg-[#0a182e] text-white flex items-center justify-between">
+                        <h3 class="text-xs font-black uppercase tracking-wider flex items-center gap-2 text-slate-200">
+                            <i class="fa-solid fa-eye text-emerald-400"></i> NEXA AI Proctoring System
+                        </h3>
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                    </div>
+                    
+                    <div class="p-4 flex flex-col gap-3">
+                        <div class="h-28 bg-slate-950 rounded-xl relative overflow-hidden flex items-center justify-center border border-slate-800 shadow-inner">
+                            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            <i class="fa-solid fa-user-astronaut text-4xl text-slate-700"></i>
+                            
+                            <div class="absolute w-20 h-20 border-2 border-nexaPurple/40 rounded-xl"></div>
+                            <div class="absolute top-0 left-0 w-full h-0.5 bg-nexaPurple shadow-[0_0_8px_#4f46e5] animate-scan"></div>
+                            
+                            <span class="absolute bottom-2 left-3 text-[8px] font-mono text-nexaPurple font-black tracking-widest bg-black/60 px-2 py-0.5 rounded">BIOMETRIC ACTIVE</span>
+                        </div>
+
+                        <div class="flex-1 bg-slate-900 border border-slate-950 rounded-xl p-3 h-24 overflow-y-auto custom-scrollbar flex flex-col-reverse shadow-inner" id="proctor-log">
+                            <div class="text-[10px] font-mono text-slate-400 mb-1 border-b border-slate-800 pb-1 leading-normal">
+                                <span class="text-emerald-400 font-bold">[SYS]</span> Khởi tạo môi trường thi mã hóa thành công.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm flex-1 flex flex-col overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 bg-slate-50 flex flex-col gap-3">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xs font-black uppercase tracking-wider text-slate-600"><i class="fa-solid fa-table-cells text-nexaBlue mr-1"></i> Danh Sách Câu Hỏi</h3>
+                            
+                            <select id="palette-filter" onchange="applyPaletteFilter()" class="text-[11px] border border-slate-300 rounded-lg px-2.5 py-1 outline-none focus:border-nexaPurple bg-white text-slate-600 font-bold cursor-pointer shadow-sm">
+                                <option value="all">Tất cả câu hỏi</option>
+                                <option value="done">Câu đã làm</option>
+                                <option value="pending">Câu chưa làm</option>
+                            </select>
+                        </div>
+                        
+                        <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider flex gap-4">
+                            <span class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 bg-nexaBlue rounded"></div> Đã làm (<span id="count-done" class="text-nexaBlue">0</span>)</span>
+                            <span class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 bg-white border border-slate-300 rounded"></div> Chưa làm (<span id="count-pending" class="text-slate-600">120</span>)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 flex-1 overflow-y-auto custom-scrollbar">
+                        <div class="q-grid" id="question-palette">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="result-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="result-modal-content">
+            <div class="bg-gradient-to-br from-nexaBlue to-nexaPurple p-6 text-center text-white relative overflow-hidden">
+                <i class="fa-solid fa-award absolute -right-4 -bottom-4 text-7xl opacity-10"></i>
+                <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-2xl mx-auto mb-3 backdrop-blur-md border border-white/30 text-emerald-400">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2 class="text-xl font-black tracking-wider uppercase">Hoàn Thành Đánh Giá!</h2>
+                <p class="text-[11px] text-blue-200 mt-1 font-medium">Hồ sơ thực chứng số đã đồng bộ lên chuỗi khối.</p>
+            </div>
+            
+            <div class="p-6">
+                <div class="bg-slate-50 rounded-2xl p-5 mb-5 border border-slate-200 text-center shadow-inner">
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Kết quả kiểm chuẩn</p>
+                    <div class="text-5xl font-black text-nexaBlue mb-5"><span id="result-score">0</span><span class="text-xl text-slate-400">/120</span></div>
+                    
+                    <div class="h-px w-12 bg-slate-300 mx-auto mb-4"></div>
+
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Xếp Hạng (NEXA Scale)</p>
+                    <div class="inline-block px-4 py-1 bg-amber-50 text-amber-700 border border-amber-200 font-extrabold rounded-full text-xs mb-3 shadow-sm" id="result-level">
+                        Level 1: Yếu/Cần cải thiện
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed" id="result-diagnosis">...</p>
+                </div>
+
+                <button onclick="window.location.href='dashboard_learner/dashboard_learner.html'" class="w-full py-3 bg-nexaBlue hover:bg-nexaBlue-light text-white font-extrabold rounded-xl shadow-md hover:shadow-lg transition cursor-pointer flex items-center justify-center gap-2 border-b-2 border-slate-900 text-sm">
+                    Quay Về Bảng Điều Khiển <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="js/Questions.js"></script> 
+    <script src="js/nexa-scale.js"></script>
+
+    <script>
+        let currentQIndex = 0;
+        let totalQuestions = 0;
+        let userAnswers = []; 
+        let examQuestions = [];
+        let timeLeft = 7200; // 120 Phút định mức phòng thi
+        let timerInterval;
+        let currentFilter = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initExamEngine();
+            startTimer();
+            startProctoringSimulation();
+        });
+
+        // 1. Khởi tạo mảng câu hỏi phủ đều từ Questions.js
+        function initExamEngine() {
+            if (typeof appQuestionBank === 'undefined' || appQuestionBank.length === 0) {
+                alert("Lỗi Core Engine: Không tìm thấy thư viện Questions.js chứa ngân hàng câu hỏi!");
+                return;
+            }
+            
+            // Xáo trộn ngẫu nhiên ngân hàng câu hỏi đầu vào
+            let shuffledBank = [...appQuestionBank].sort(() => 0.5 - Math.random());
+            while (shuffledBank.length < 120) {
+                shuffledBank = shuffledBank.concat([...appQuestionBank].sort(() => 0.5 - Math.random()));
+            }
+            examQuestions = shuffledBank.slice(0, 120);
+            totalQuestions = 120;
+            userAnswers = new Array(totalQuestions).fill(null);
+
+            renderPalette();
+            loadQuestion(0);
+        }
+
+        // 2. Nạp câu hỏi và render DOM đáp án
+        function loadQuestion(index) {
+            currentQIndex = index;
+            const q = examQuestions[index];
+            
+            document.getElementById('q-number').innerText = index + 1;
+            document.getElementById('progress-text').innerText = `${index + 1}/${totalQuestions}`;
+            document.getElementById('progress-bar').style.width = `${((index + 1) / totalQuestions) * 100}%`;
+            document.getElementById('domain-indicator').innerText = q.groupName || "Tiêu chí năng lực";
+            document.getElementById('q-prompt').innerText = q.prompt;
+
+            document.getElementById('btn-prev').disabled = (index === 0);
+            document.getElementById('btn-next').disabled = (index === totalQuestions - 1);
+            
+            let optionsHTML = '';
+            q.options.forEach((optText, idx) => {
+                const isSelected = userAnswers[index] === idx;
+                const cleanText = optText.replace(/^[A-D]\.\s*/, ''); 
+                
+                optionsHTML += `
+                <div onclick="selectAnswer(${idx})" class="p-4 rounded-xl border-2 transition flex items-center gap-4 shadow-sm hover:bg-slate-50 cursor-pointer
+                    ${isSelected ? 'border-nexaPurple bg-indigo-50/40' : 'border-slate-200 bg-white hover:border-slate-300'}">
+                    <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition
+                        ${isSelected ? 'border-nexaPurple bg-nexaPurple' : 'border-slate-300 bg-white'}">
+                        ${isSelected ? '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>' : ''}
+                    </div>
+                    <span class="text-sm font-semibold ${isSelected ? 'text-nexaPurple' : 'text-slate-700'}">${cleanText}</span>
+                </div>`;
+            });
+            document.getElementById('q-options-container').innerHTML = optionsHTML;
+            updatePaletteUI();
+        }
+
+        // 3. Click ghi nhận và ép kiểu dữ liệu chặt chẽ tránh lỗi chấm điểm
+        function selectAnswer(optIdx) {
+            userAnswers[currentQIndex] = parseInt(optIdx);
+            loadQuestion(currentQIndex); 
+        }
+
+        // 4. Hàm chuyển câu tuyệt đối giải quyết triệt để lỗi nhảy sai câu
+        function goToQuestion(index) {
+            if (index >= 0 && index < totalQuestions) {
+                const loader = document.getElementById('q-loader');
+                loader.classList.remove('hidden');
+                loader.classList.add('flex');
+                setTimeout(() => {
+                    loadQuestion(index);
+                    loader.classList.add('hidden');
+                    loader.classList.remove('flex');
+                }, 120); 
+            }
+        }
+
+        function navigateQuestion(step) { goToQuestion(currentQIndex + step); }
+
+        // 5. Khởi tạo cây danh sách 120 nút nhảy trang
+        function renderPalette() {
+            const container = document.getElementById('question-palette');
+            let html = '';
+            for (let i = 0; i < totalQuestions; i++) {
+                html += `<button onclick="goToQuestion(${i})" id="pal-${i}" class="w-full aspect-square rounded-lg border text-[10px] font-bold flex items-center justify-center transition hover:opacity-80 cursor-pointer"></button>`;
+            }
+            container.innerHTML = html;
+            updatePaletteUI();
+        }
+
+        function applyPaletteFilter() {
+            currentFilter = document.getElementById('palette-filter').value;
+            updatePaletteUI();
+        }
+
+        // 5.1 Xử lý đổi màu bảng câu hỏi dựa trên trạng thái thực tế
+        function updatePaletteUI() {
+            let doneCount = 0;
+            let pendingCount = 0;
+
+            for (let i = 0; i < totalQuestions; i++) {
+                const btn = document.getElementById(`pal-${i}`);
+                const isDone = userAnswers[i] !== null;
+                if (isDone) doneCount++; else pendingCount++;
+
+                btn.className = `w-full aspect-square rounded-lg border text-[10px] font-black flex items-center justify-center transition hover:opacity-80 cursor-pointer 
+                    ${isDone ? 'bg-nexaBlue border-nexaBlue text-white shadow-sm' : 'bg-white border-slate-200 text-slate-400'}`;
+                
+                if (i === currentQIndex) {
+                    btn.classList.add('ring-2', 'ring-offset-2', 'ring-nexaPurple', 'shadow-md');
+                    btn.classList.remove('text-slate-400');
+                    if(!isDone) btn.classList.add('text-nexaPurple');
+                }
+
+                if ((currentFilter === 'done' && !isDone) || (currentFilter === 'pending' && isDone)) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = 'flex';
+                }
+                btn.innerText = i + 1;
+            }
+            document.getElementById('count-done').innerText = doneCount;
+            document.getElementById('count-pending').innerText = pendingCount;
+        }
+
+        // 6. Đếm ngược phòng khảo thí
+        function startTimer() {
+            const display = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                display.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                if (timeLeft <= 0) { clearInterval(timerInterval); submitExam(); }
+            }, 1000);
+        }
+
+        // 7. Nhật ký Proctoring
+        function startProctoringSimulation() {
+            const logBox = document.getElementById('proctor-log');
+            const logs = ["Phân tích võng mạc ổn định.", "Môi trường mạng đạt yêu cầu.", "AI Proctor: Không phát hiện tài liệu lạ.", "Cảnh báo: Góc nhìn lệch nhẹ khỏi vùng trung tâm.", "Xác thực danh tính: Khớp hồ sơ."];
+            setInterval(() => {
+                if (Math.random() < 0.25) {
+                    const timeStr = new Date().toLocaleTimeString('vi-VN');
+                    const entry = document.createElement('div');
+                    const isWarn = Math.random() < 0.2;
+                    entry.className = `text-[10px] font-mono mb-1 border-b border-slate-800 pb-1 ${isWarn ? 'text-nexaRed font-bold' : 'text-slate-400'}`;
+                    entry.innerHTML = `<span class="${isWarn ? 'text-nexaRed' : 'text-emerald-500'} font-bold">[${isWarn ? 'WARN' : 'INFO'}]</span> ${logs[Math.floor(Math.random() * logs.length)]}`;
+                    logBox.insertBefore(entry, logBox.firstChild);
+                }
+            }, 4000);
+        }
+
+        // =========================================================================
+        // 8. ĐIỂU HƯỚNG CHẤM ĐIỂM CHUẨN THEO THANG ĐO ĐỒNG BỘ ĐÚNG VỚI NỘI DUNG THẦY GIAO
+        // =========================================================================
+        function submitExam() {
+            clearInterval(timerInterval);
+            
+            let correctCount = 0;
+            for (let i = 0; i < totalQuestions; i++) {
+                if (userAnswers[i] !== null && parseInt(userAnswers[i]) === parseInt(examQuestions[i].correctIndex)) {
+                    correctCount++;
+                }
+            }
+
+            // --- 💡 MẸO KIỂM THỬ: Bỏ hai dấu xuyệt '//' phía dưới để kiểm tra mốc điểm cao ---
+            // correctCount = 114; 
+
+            let rankLabel = "Level 1: Yếu/Cần cải thiện"; 
+            let diagnosis = "Cần củng cố thao tác và tư duy công nghệ cơ bản.";
+
+            // Kiểm soát đối chứng thang đo nexaScales từ tệp nexa-scale.js đã liên kết
+            if (typeof nexaScales !== 'undefined' && nexaScales.official) {
+                const scale = nexaScales.official;
+                if (correctCount >= scale.level5.min) { rankLabel = scale.level5.label; diagnosis = scale.level5.diagnosis; }
+                else if (correctCount >= scale.level4.min) { rankLabel = scale.level4.label; diagnosis = scale.level4.diagnosis; }
+                else if (correctCount >= scale.level3.min) { rankLabel = scale.level3.label; diagnosis = scale.level3.diagnosis; }
+                else if (correctCount >= scale.level2.min) { rankLabel = scale.level2.label; diagnosis = scale.level2.diagnosis; }
+                else { rankLabel = scale.level1.label; diagnosis = scale.level1.diagnosis; }
+            } else {
+                console.error("Lỗi: Không nạp được thang đo từ tệp nexa-scale.js!");
+            }
+
+            // Đồng bộ bộ nhớ dùng chung qua NexaStorage
+            if (typeof NexaStorage !== 'undefined') {
+                NexaStorage.saveCurrentSession(correctCount, 120, rankLabel, diagnosis);
+            }
+
+            // Đổ dữ liệu lên màn hình tổng kết (Modal)
+            document.getElementById('result-score').innerText = correctCount;
+            document.getElementById('result-level').innerText = rankLabel;
+            document.getElementById('result-diagnosis').innerText = diagnosis;
+
+            const modal = document.getElementById('result-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                document.getElementById('result-modal-content').classList.remove('scale-95', 'opacity-0');
+                document.getElementById('result-modal-content').classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Cài đặt - NEXA Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-primary-fixed": "#00164e",
+                "tertiary-container": "#6e2c00",
+                tertiary: "#4b1c00",
+                "employer-accent": "#10b981",
+                "on-secondary": "#ffffff",
+                "admin-accent": "#f43f5e",
+                "primary-fixed-dim": "#b6c4ff",
+                "on-background": "#1a1b21",
+                "primary-container": "#1e3a8a",
+                "error-container": "#ffdad6",
+                "outline-variant": "#c5c5d3",
+                "teacher-accent": "#8b5cf6",
+                "secondary-fixed": "#dce1ff",
+                "secondary-container": "#8fa7fe",
+                "surface-container-lowest": "#ffffff",
+                "tertiary-fixed-dim": "#ffb691",
+                "on-surface": "#1a1b21",
+                "on-surface-variant": "#444651",
+                "surface-tint": "#4059aa",
+                "surface-container-highest": "#e3e1e9",
+                outline: "#757682",
+                "on-primary-container": "#90a8ff",
+                "on-error-container": "#93000a",
+                "inverse-on-surface": "#f1f0f7",
+                "on-secondary-container": "#1d3989",
+                "surface-dim": "#dad9e1",
+                primary: "#00236f",
+                "surface-container-low": "#f4f3fa",
+                secondary: "#4059aa",
+                background: "#faf8ff",
+                "inverse-surface": "#2f3036",
+                "surface-muted": "#f8fafc",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed": "#00164e",
+                "primary-fixed": "#dce1ff",
+                "surface-container-high": "#e9e7ef",
+                surface: "#faf8ff",
+                "surface-container": "#eeedf4",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed-variant": "#264191",
+                "on-error": "#ffffff",
+                "border-subtle": "#e2e8f0"
+              }
+            }
+          }
+        }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #faf8ff; }
+    .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.5); }
+    .ambient-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .ambient-1 { position: absolute; top: -10%; right: -5%; width: 600px; height: 600px; background: #b6c4ff; opacity: 0.15; filter: blur(100px); border-radius: 50%; }
+    .ambient-2 { position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: #d2bbff; opacity: 0.15; filter: blur(80px); border-radius: 50%; }
+    
+    /* Đồng bộ giao diện nút Toggle từ code gốc */
+    .toggle-wrap { position: relative; display: inline-block; width: 3rem; height: 1.5rem; }
+    .toggle-wrap input { position: absolute; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 2; }
+    .toggle-bg { position: absolute; inset: 0; border-radius: 9999px; background: #c5c5d3; transition: background 0.3s; }
+    .toggle-knob { position: absolute; top: 0; left: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #ffffff; border: 4px solid #e2e8f0; transition: transform 0.3s; }
+    .toggle-wrap input:checked ~ .toggle-bg { background: #8b5cf6; }
+    .toggle-wrap input:checked ~ .toggle-knob { transform: translateX(1.5rem); border-color: transparent; }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased flex min-h-screen">
+
+  <script src="../js/sidebar_teacher.js"></script>
+
+  <div class="flex-1 md:ml-64 flex flex-col min-h-screen relative">
+    
+    <div class="ambient-bg">
+      <div class="ambient-1"></div>
+      <div class="ambient-2"></div>
+    </div>
+
+    <header class="h-16 bg-white border-b border-slate-200 fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] z-40 flex justify-between items-center px-8 transition-all">
+      <div class="flex-grow max-w-md relative">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+        <input class="w-full bg-slate-50 border border-slate-200 rounded-full py-1.5 pl-10 pr-4 text-xs font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Tìm kiếm cài đặt..." type="text"/>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-50 transition-colors relative">
+          <span class="material-symbols-outlined text-xl">notifications</span>
+          <span class="absolute top-2 right-2 w-1.5 h-1.5 bg-admin-accent rounded-full"></span>
+        </button>
+        <button class="w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-50 transition-colors">
+          <span class="material-symbols-outlined text-xl">help</span>
+        </button>
+        <span class="text-sm font-bold text-slate-600" id="teacher-profile-top">GV: Tiến sĩ Lê Văn A</span>
+      </div>
+    </header>
+
+    <main class="flex-1 p-6 md:p-8 pt-24 z-10 relative max-w-6xl w-full mx-auto">
+      <div class="mb-6">
+        <h1 class="text-3xl font-black text-primary tracking-tight">Cài đặt hệ thống</h1>
+        <p class="text-sm text-slate-500 font-medium mt-1">Quản lý thông tin cá nhân, cấu hình bảo mật và tùy chỉnh trải nghiệm làm việc tổ chức.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+        
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm lg:col-span-2 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">person</span>
+              </div>
+              <h2 class="text-lg font-bold text-slate-800">Thông tin cá nhân</h2>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 items-start">
+              <div class="flex flex-col items-center gap-2 flex-shrink-0 w-full sm:w-auto">
+                <div class="relative w-28 h-28 rounded-full overflow-hidden border-2 border-slate-100 shadow-inner group cursor-pointer">
+                  <img alt="Profile picture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSLJhSQKsDQhv_OVj9aGS1xjLxGK5d28yldyR0WSHVbuFFikW72q2TaiXHXOWDalV-vv3ygcl4-xuTqCuaLPhIWq3IVt2LSESSGwm5pcxO1nqUWlAldCrXv8KW_jYXzThFs3djDoHSAy9YZjGDthQQlOFpYbU-UhY_0vgHJqr_CV0AXA6QPaK88294NnycnA91fMw47n1WeI0r7XgDQ8ZPbbW-WG4JY10An34lCYkyolKlzEGctC5AsgcEt_I9B4BD-pyacaDMuhQ">
+                  <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="material-symbols-outlined text-white text-lg">photo_camera</span>
+                  </div>
+                </div>
+                <button class="text-xs font-bold text-primary hover:text-teacher-accent transition-colors bg-transparent border-none cursor-pointer">Sửa ảnh</button>
+              </div>
+
+              <div class="flex-1 w-full space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Họ và tên</label>
+                    <input type="text" class="w-full px-4 py-2 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:border-teacher-accent bg-white text-slate-800" value="Tiến sĩ Lê Văn A">
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Mã giảng viên</label>
+                    <input type="text" class="w-full px-4 py-2 border border-slate-200 rounded-xl text-sm font-medium bg-slate-50 text-slate-400 cursor-not-allowed" value="GV-2026-089" disabled>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Email công việc</label>
+                  <input type="email" class="w-full px-4 py-2 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:border-teacher-accent bg-white text-slate-800" value="levana.co@nexa.edu.vn">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Khoa / Đơn vị công tác</label>
+                  <select class="w-full px-4 py-2 border border-slate-300 rounded-xl text-sm font-bold text-slate-600 focus:outline-none focus:border-teacher-accent bg-white cursor-pointer shadow-sm">
+                    <option>Khoa Công nghệ Thông tin</option>
+                    <option>Khoa Hệ thống thông tin quản lý</option>
+                    <option>Viện Khảo thí & Kiểm định chất lượng</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-end pt-6 border-t border-slate-100 mt-6">
+            <button class="bg-primary hover:bg-primary-container text-white font-bold text-xs py-2.5 px-6 rounded-xl transition-all border-b-2 border-slate-900 shadow-sm uppercase tracking-wide">Lưu thay đổi</button>
+          </div>
+        </section>
+
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">shield_lock</span>
+              </div>
+              <h2 class="text-lg font-bold text-slate-800">Bảo mật</h2>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <h3 class="text-sm font-bold text-slate-800">Mật khẩu đăng nhập</h3>
+              <p class="text-xs text-slate-400 font-medium">Cập nhật lần cuối bảo vệ: Khởi tạo đợt 2026</p>
+              <button class="w-full border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                <span class="material-symbols-outlined text-sm">key</span> Đổi mật khẩu bảo vệ
+              </button>
+            </div>
+            
+            <hr class="border-slate-100">
+            
+            <div class="flex items-start justify-between">
+              <div class="pr-4">
+                <h3 class="text-sm font-bold text-slate-800">Xác thực 2 yếu tố (2FA)</h3>
+                <p class="text-xs text-slate-400 font-medium mt-0.5">Yêu cầu OTP tăng cường bảo mật khóa số.</p>
+              </div>
+              <label class="toggle-wrap flex-shrink-0">
+                <input type="checkbox" id="toggle-2fa">
+                <span class="toggle-bg"></span>
+                <span class="toggle-knob"></span>
+              </label>
+            </div>
+            
+            <hr class="border-slate-100">
+            
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-sm font-bold text-slate-800">Thiết bị đang làm việc</h3>
+                <button class="text-xs font-bold text-primary hover:underline bg-transparent border-none">Xem log</button>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl shadow-inner">
+                <span class="material-symbols-outlined text-slate-400">laptop_mac</span>
+                <div>
+                  <p class="text-xs font-bold text-slate-700">Workstation PC (Thiết bị này)</p>
+                  <p class="text-[10px] text-slate-400 font-medium">Hệ thống mạng nội bộ trường • Chrome</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-employer-accent flex items-center justify-center">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">notifications_active</span>
+            </div>
+            <h2 class="text-lg font-bold text-slate-800">Thông báo</h2>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-sm font-bold text-slate-800">Bài nộp mới từ lớp</h3>
+                <p class="text-xs text-slate-400 font-medium mt-0.5">Nhận cảnh báo khi học viên đệ trình minh chứng.</p>
+              </div>
+              <label class="toggle-wrap flex-shrink-0">
+                <input type="checkbox" checked id="notif-1">
+                <span class="toggle-bg"></span>
+                <span class="toggle-knob"></span>
+              </label>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-sm font-bold text-slate-800">Cảnh báo gian lận (AI)</h3>
+                <p class="text-xs text-slate-400 font-medium mt-0.5">AI Proctoring tự động gắn cờ đỏ khi phát hiện vi phạm.</p>
+              </div>
+              <label class="toggle-wrap flex-shrink-0">
+                <input type="checkbox" checked id="notif-2">
+                <span class="toggle-bg"></span>
+                <span class="toggle-knob"></span>
+              </label>
+            </div>
+            <div class="pt-4 border-t border-slate-100">
+              <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-2">Kênh phân phối</h3>
+              <div class="flex gap-4 text-xs font-bold text-slate-600">
+                <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" checked class="rounded border-slate-300 text-primary focus:ring-transparent w-4 h-4"> Email trường</label>
+                <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" checked class="rounded border-slate-300 text-primary focus:ring-transparent w-4 h-4"> Notification Panel</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm lg:col-span-2">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-secondary flex items-center justify-center">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">palette</span>
+            </div>
+            <h2 class="text-lg font-bold text-slate-800">Tùy chọn hiển thị Dashboard</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-3">
+              <div>
+                <h3 class="text-sm font-bold text-slate-800">Chế độ xem mặc định lúc đăng nhập</h3>
+                <p class="text-xs text-slate-400 font-medium mt-0.5">Trang đầu tiên hệ thống chuyển hướng sau khi SSO thành công.</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="flex items-center gap-3 p-3 border border-teacher-accent bg-purple-50/20 rounded-xl cursor-pointer text-xs font-bold text-slate-700">
+                  <input type="radio" name="default-view" checked class="text-teacher-accent focus:ring-transparent w-4 h-4">
+                  <span>Tổng quan Dashboard Core</span>
+                </label>
+                <label class="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer text-xs font-bold text-slate-500 hover:bg-slate-50">
+                  <input type="radio" name="default-view" class="text-teacher-accent focus:ring-transparent w-4 h-4">
+                  <span>Danh sách lớp học phụ trách</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-sm font-bold text-slate-800">Mật độ hiển thị dữ liệu bảng</h3>
+                <p class="text-xs text-slate-400 font-medium mt-0.5">Điều chỉnh độ nén mật độ khoảng cách dòng của bảng kết quả.</p>
+              </div>
+              <div class="flex bg-slate-100 border p-1 rounded-xl gap-1">
+                <button class="flex-1 py-1.5 bg-white text-primary font-bold text-xs rounded-lg shadow-sm border-none cursor-pointer">Tiêu chuẩn (Rộng rãi)</button>
+                <button class="flex-1 py-1.5 bg-transparent text-slate-500 font-bold text-xs rounded-lg border-none cursor-pointer hover:text-primary">Dày đặc (Thu gọn)</button>
+              </div>
+              <div class="pt-4 border-t border-slate-100 flex items-center justify-between bg-gradient-to-r from-blue-50/40 to-purple-50/40 p-3 rounded-xl border">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary">auto_awesome</span>
+                  <span class="text-xs font-bold text-slate-700">Hiển thị tooltip phân tích từ AI</span>
+                </div>
+                <label class="toggle-wrap flex-shrink-0">
+                  <input type="checkbox" checked id="ai-toggle">
+                  <span class="toggle-bg"></span>
+                  <span class="toggle-knob"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../storage.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          if (typeof NexaStorage !== 'undefined') {
+              const user = NexaStorage.getUserAccount();
+              if (user && user.role === 'teacher') {
+                  document.getElementById('teacher-profile-top').innerText = "GV: " + (user.name || "Tiến sĩ Lê Văn A");
+              }
+          }
+      });
+  </script>
+</body>
+</html>

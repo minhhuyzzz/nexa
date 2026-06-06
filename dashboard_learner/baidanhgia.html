@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh sách bài đánh giá - NEXA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e3e1e9",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f3036",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "admin-accent": "#F43F5E",
+                        "surface-dim": "#dad9e1",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dce1ff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-surface": "#1a1b21",
+                        "inverse-primary": "#b6c4ff",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "border-subtle": "#E2E8F0",
+                        "tertiary-container": "#6e2c00",
+                        "secondary-fixed": "#eaddff",
+                        "on-surface-variant": "#444651",
+                        "surface-container-high": "#e9e7ef",
+                        "primary-container": "#1e3a8a",
+                        "surface-muted": "#F8FAFC",
+                        "on-secondary-fixed": "#25005a",
+                        "outline": "#757682",
+                        "primary": "#00236f",
+                        "on-background": "#1a1b21",
+                        "background": "#faf8ff",
+                        "tertiary": "#4b1c00",
+                        "student-accent": "#3B82F6",
+                        "surface-container-highest": "#e3e1e9",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#341100",
+                        "on-primary-fixed-variant": "#264191",
+                        "secondary-container": "#8a4cfc",
+                        "on-primary-container": "#90a8ff",
+                        "teacher-accent": "#8B5CF6",
+                        "on-primary-fixed": "#00164e",
+                        "surface": "#faf8ff",
+                        "outline-variant": "#c5c5d3",
+                        "on-tertiary": "#ffffff",
+                        "employer-accent": "#10B981",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "secondary": "#712ae2",
+                        "on-tertiary-container": "#f39461",
+                        "surface-container-low": "#f4f3fa",
+                        "surface-container": "#eeedf4",
+                        "surface-bright": "#faf8ff",
+                        "inverse-on-surface": "#f1f0f7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-margin": "48px",
+                        "card-gap": "20px",
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "base-unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["20px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-xl": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.1", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<script src="../js/sidebar_learner.js"></script>
+<!-- TopAppBar (Mobile) -->
+<header class="bg-surface shadow-sm docked full-width top-0 z-40 border-b border-border-subtle flex justify-between items-center w-full px-4 py-3 md:hidden fixed">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary mr-2">menu</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">NEXA</span>
+</div>
+<div class="flex items-center space-x-3 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="material-symbols-outlined">help_outline</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-border-subtle">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVwzjTNWkvxjBLkuOscDIvOmInxQuLPeoD3WvQkHNWgOpasVBWJBeGedhvuRivA2KkJho1O33ECvhGocUjWfM6bZcooq8-cQ6iAxxn-wXr3SDf-NdtsDgfY9aZmm8IYjfXVNtQMneYEyryn1P1HxWEDq21Jt44pZu7bt8v_hi7jIeqUWSXPNfMzn52u9PiHUmoRaPfi9iyec3t7-Z_O7SDBU9CrFYTMUFfYXuY4PLXuHpuj2WIFnymW2eIuKRckRivQc6tCdaaWtw"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 ml-0 md:ml-64 pt-16 md:pt-0 p-container-padding max-w-[1280px] mx-auto w-full">
+<div class="mb-section-margin">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Danh sách bài đánh giá</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Hoàn thành các bài đánh giá để nhận chứng chỉ năng lực số và nâng cao hồ sơ của bạn.</p>
+</div>
+<!-- Filters (Bento Style) -->
+<section class="mb-section-margin">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Lọc theo Năng lực số</h2>
+<button class="text-primary font-label-md text-label-md flex items-center hover:bg-surface-container p-2 rounded-md transition-colors">
+<span class="material-symbols-outlined mr-1 text-sm">filter_list</span> Tất cả
+                </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+<button class="bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm border border-border-subtle hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center text-center"><span class="material-symbols-outlined mb-1">devices</span>Cơ bản</button>
+<button class="bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm border border-border-subtle hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined mb-1">search</span>
+                    Thông tin
+                </button>
+<button class="bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm border border-border-subtle hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined mb-1">forum</span>
+                    Giao tiếp
+                </button>
+<button class="bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm border border-border-subtle hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined mb-1">draw</span>
+                    Sáng tạo
+                </button>
+<button class="bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm border border-border-subtle hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined mb-1">security</span>
+                    An toàn
+                </button>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm border border-primary-fixed-dim hover:opacity-90 transition-opacity flex flex-col items-center justify-center text-center"><span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">build</span>Giải quyết VĐ</button>
+</div>
+</section>
+<!-- Assessment Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-card-gap">
+<!-- Card 1: Chưa làm -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-border-subtle overflow-hidden flex flex-col hover:shadow-md transition-shadow relative">
+<!-- AI Accent Top Border -->
+<div class="h-1 w-full bg-gradient-to-r from-primary to-secondary"></div>
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center bg-surface-container px-2.5 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">
+                            Năng lực cơ bản
+                        </span>
+<span class="inline-flex items-center text-error font-label-sm text-label-sm bg-error-container px-2 py-0.5 rounded-full">
+                            Chưa làm
+                        </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2 line-clamp-2">Đánh giá Năng lực Giải quyết vấn đề (D6)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Kiểm tra kỹ năng ứng dụng công nghệ và AI để tối ưu hóa quy trình và giải quyết thách thức thực tế.</p>
+<div class="flex items-center space-x-4 mb-4">
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] mr-1">help</span>120 Câu hỏi</div>
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] mr-1">schedule</span>120 Phút</div>
+</div>
+</div>
+<div class="p-4 border-t border-border-subtle bg-surface-muted flex justify-between items-center">
+<div class="font-label-md text-label-md text-on-surface-variant">-- / 100 Điểm</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-sm flex items-center">
+                        Bắt đầu ngay <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Đang làm -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-border-subtle overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+<div class="h-1 w-full bg-student-accent"></div>
+<div class="p-5 flex-1">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center bg-surface-container px-2.5 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">
+                            Xử lý Thông tin
+                        </span>
+<span class="inline-flex items-center text-student-accent font-label-sm text-label-sm bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                            Đang làm (45%)
+                        </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2 line-clamp-2">Kỹ năng tìm kiếm và đánh giá thông tin</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Kiểm tra khả năng khai thác, phân tích và xác thực nguồn thông tin trên internet.</p>
+<div class="flex items-center space-x-4 mb-3">
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">help</span>
+                            30 Câu
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">schedule</span>
+                            30 Phút
+                        </div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-high rounded-full h-1.5 mb-2 mt-auto">
+<div class="bg-student-accent h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="p-4 border-t border-border-subtle bg-surface-muted flex justify-between items-center">
+<div class="font-label-md text-label-md text-on-surface-variant">-- / 100 Điểm</div>
+<button class="text-student-accent border border-student-accent px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-blue-50 transition-colors">
+                        Tiếp tục làm
+                    </button>
+</div>
+</div>
+<!-- Card 3: Hoàn thành -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-border-subtle overflow-hidden flex flex-col opacity-80 hover:opacity-100 transition-opacity">
+<div class="h-1 w-full bg-employer-accent"></div>
+<div class="p-5 flex-1 relative overflow-hidden">
+<!-- Glassmorphism success accent -->
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-employer-accent/10 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-3 relative z-10">
+<span class="inline-flex items-center bg-surface-container px-2.5 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">
+                            An toàn Mạng
+                        </span>
+<span class="inline-flex items-center text-employer-accent font-label-sm text-label-sm bg-green-50 px-2 py-0.5 rounded-full border border-green-100">
+<span class="material-symbols-outlined text-[14px] mr-1">check_circle</span>
+                            Hoàn thành
+                        </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2 line-clamp-2 relative z-10">Bảo mật thông tin cá nhân &amp; Doanh nghiệp</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2 relative z-10">Nhận diện rủi ro, bảo vệ dữ liệu và ứng phó với các mối đe dọa an ninh mạng cơ bản.</p>
+<div class="flex items-center space-x-4 mb-4 relative z-10">
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">help</span>
+                            50 Câu
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">schedule</span>
+                            60 Phút
+                        </div>
+</div>
+</div>
+<div class="p-4 border-t border-border-subtle bg-surface-muted flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Điểm số</span>
+<span class="font-headline-lg text-headline-lg text-employer-accent font-bold">92<span class="text-sm font-normal text-on-surface-variant">/100</span></span>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center">
+                        Xem chi tiết
+                    </button>
+</div>
+</div>
+<!-- Card 4: Chưa làm (Khóa) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-border-subtle overflow-hidden flex flex-col relative bg-surface-muted">
+<div class="p-5 flex-1 relative z-10 opacity-60">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center bg-surface-container px-2.5 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">
+                            Sáng tạo Nội dung
+                        </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2 line-clamp-2">Kỹ năng thiết kế và truyền thông đa phương tiện</h3>
+<div class="flex items-center space-x-4 mb-4 mt-4">
+<div class="flex items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">help</span>
+                            45 Câu
+                        </div>
+</div>
+</div>
+<!-- Overlay Khóa -->
+<div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-surface/50 backdrop-blur-[2px]">
+<div class="bg-surface-container-lowest p-3 rounded-full shadow-sm border border-border-subtle mb-2">
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface px-2 py-1 rounded">Yêu cầu hoàn thành Level 1</span>
+</div>
+<div class="p-4 border-t border-border-subtle bg-surface-muted flex justify-between items-center opacity-60">
+<div class="font-label-md text-label-md text-on-surface-variant">-- / 100 Điểm</div>
+<button class="bg-surface-variant text-on-surface-variant px-4 py-2 rounded-lg font-label-md text-label-md cursor-not-allowed">
+                        Đã khóa
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

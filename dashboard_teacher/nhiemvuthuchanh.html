@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nhiệm vụ thực hành - NEXA Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {error: "#ba1a1a", "on-primary-fixed": "#00164e", "tertiary-container": "#6e2c00", tertiary: "#4b1c00", "employer-accent": "#10B981", "on-secondary": "#ffffff", "admin-accent": "#F43F5E", "primary-fixed-dim": "#b6c4ff", "on-background": "#1a1b21", "primary-container": "#1e3a8a", "error-container": "#ffdad6", "outline-variant": "#c5c5d3", "teacher-accent": "#8B5CF6", "secondary-fixed": "#dce1ff", "secondary-container": "#8fa7fe", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#ffb691", "on-surface": "#1a1b21", "on-surface-variant": "#444651", "surface-tint": "#4059aa", "surface-container-highest": "#e3e1e9", outline: "#757682", "on-primary-container": "#90a8ff", "on-error-container": "#93000a", "inverse-on-surface": "#f1f0f7", "on-secondary-container": "#1d3989", "surface-dim": "#dad9e1", primary: "#00236f", "surface-container-low": "#f4f3fa", secondary: "#4059aa", background: "#faf8ff", "inverse-surface": "#2f3036", "surface-muted": "#F8FAFC", "on-primary": "#ffffff", "on-secondary-fixed": "#00164e", "primary-fixed": "#dce1ff", "on-tertiary-container": "#f39461", "surface-container-high": "#e9e7ef", surface: "#faf8ff", "surface-container": "#eeedf4", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#264191", "on-error": "#ffffff", "border-subtle": "#E2E8F0", "on-primary-fixed-variant": "#264191", "on-tertiary-fixed-variant": "#773205", "surface-bright": "#faf8ff", "surface-variant": "#e3e1e9", "student-accent": "#3B82F6", "secondary-fixed-dim": "#b6c4ff", "on-tertiary-fixed": "#341100", "inverse-primary": "#b6c4ff", "tertiary-fixed": "#ffdbcb"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-padding": "24px", "base-unit": "4px", "section-margin": "48px", gutter: "16px", "card-gap": "20px"}, fontFamily: {"headline-lg-mobile": ["Geist"], "headline-lg": ["Geist"], "display-lg": ["Geist"], "body-md": ["Inter"], "label-sm": ["Geist"], "headline-xl": ["Geist"], "body-lg": ["Inter"], "label-md": ["Geist"], headline: ["Geist"], display: ["Geist"], body: ["Inter"], label: ["Geist"]}, fontSize: {"headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}]}}}};</script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-geist { font-family: 'Geist', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<script src="../js/sidebar_teacher.js"></script>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 relative min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-surface-dim/80 backdrop-blur-md text-primary dark:text-primary-fixed-dim fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] z-40 border-b border-border-subtle dark:border-outline-variant flex items-center justify-between px-8 h-16">
+<div class="flex items-center w-full max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-border-subtle rounded-full focus:outline-none focus:border-teacher-accent focus:ring-1 focus:ring-teacher-accent transition-all font-body-md text-body-md" placeholder="Tìm kiếm nhiệm vụ..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-teacher-accent cursor-pointer transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-teacher-accent cursor-pointer transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="text-on-surface-variant hover:text-teacher-accent cursor-pointer transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<img alt="Teacher profile photo" class="w-8 h-8 rounded-full border border-border-subtle" data-alt="A professional headshot of a teacher, confident and approachable, well-lit in a modern office setting. The background is slightly blurred to focus on the subject. High quality, corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuDEHl_lY7mAyi5mrys6woa42uIBiph9wu2XKAI2I_k7p5MkQtZob29q3IIQYX8DUpykaxHkG9_XcSTgSB5vXrS-bPvWDgxybAYPdwvUin2YWUsXxazygbUXBUGmNkSRtWsC15vMf0Y0xdNxGU0LBONafROHyGBXl6y_xx6WHsU8ljvBCSxJ0vBLaWwnC_dK_SmVVkvweqPjKAGl7-RiXsBZbJm6tnH2GtEhvAzbVvDAo2fqnp73iKQmZavz2plHi8WB2wm3ixICM"/>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 px-container-padding pb-12 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-section-margin gap-4">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-2">Nhiệm vụ thực hành</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Quản lý và theo dõi tiến độ các bài tập lớn, đồ án và dự án thực tế.</p>
+</div>
+<button class="bg-teacher-accent text-white font-label-md text-label-md px-6 py-3 rounded-lg shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 w-full md:w-auto">
+<span class="material-symbols-outlined">add_task</span>
+                    Tạo nhiệm vụ mới
+                </button>
+</div>
+<!-- Stats Overview (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-card-gap mb-section-margin">
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-border-subtle shadow-sm flex items-center gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-teacher-accent/10 rounded-full blur-xl"></div>
+<div class="w-12 h-12 rounded-full bg-teacher-accent/10 flex items-center justify-center text-teacher-accent shrink-0">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Đang diễn ra</p>
+<p class="font-headline-lg text-headline-lg text-primary">12</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-border-subtle shadow-sm flex items-center gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-student-accent/10 rounded-full blur-xl"></div>
+<div class="w-12 h-12 rounded-full bg-student-accent/10 flex items-center justify-center text-student-accent shrink-0">
+<span class="material-symbols-outlined text-[24px]">pending_actions</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Cần chấm điểm</p>
+<p class="font-headline-lg text-headline-lg text-primary">48</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-border-subtle shadow-sm flex items-center gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-employer-accent/10 rounded-full blur-xl"></div>
+<div class="w-12 h-12 rounded-full bg-employer-accent/10 flex items-center justify-center text-employer-accent shrink-0">
+<span class="material-symbols-outlined text-[24px]">task_alt</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Đã hoàn thành</p>
+<p class="font-headline-lg text-headline-lg text-primary">156</p>
+</div>
+</div>
+</div>
+<!-- Task List -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl shadow-sm overflow-hidden">
+<div class="p-5 border-b border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4 bg-surface-muted/50">
+<h2 class="font-headline-lg text-headline-lg text-primary">Danh sách nhiệm vụ</h2>
+<div class="flex gap-2">
+<select class="bg-white border border-border-subtle text-on-surface-variant font-label-md text-label-md rounded-lg px-4 py-2 focus:outline-none focus:border-teacher-accent focus:ring-1 focus:ring-teacher-accent">
+<option>Tất cả lớp học</option>
+<option>Lập trình Web NC</option>
+<option>Cơ sở dữ liệu</option>
+</select>
+<select class="bg-white border border-border-subtle text-on-surface-variant font-label-md text-label-md rounded-lg px-4 py-2 focus:outline-none focus:border-teacher-accent focus:ring-1 focus:ring-teacher-accent">
+<option>Trạng thái</option>
+<option>Đang mở</option>
+<option>Đã đóng</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border-subtle bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="p-4 font-semibold">Tên nhiệm vụ</th>
+<th class="p-4 font-semibold">Lớp học</th>
+<th class="p-4 font-semibold">Thời hạn</th>
+<th class="p-4 font-semibold text-center">Tiến độ nộp</th>
+<th class="p-4 font-semibold text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface divide-y divide-border-subtle">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-4">
+<div class="font-semibold text-primary group-hover:text-teacher-accent transition-colors">Đồ án môn học: E-commerce Website</div>
+<div class="text-sm text-on-surface-variant mt-1">Dự án nhóm (4-5 sv)</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container/10 text-secondary">
+                                        Lập trình Web NC
+                                    </span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                                        23:59, Hôm nay
+                                    </div>
+</td>
+<td class="p-4">
+<div class="flex flex-col items-center gap-1">
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-teacher-accent h-2 rounded-full" style="width: 85%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">34/40 nhóm đã nộp</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-teacher-accent p-1 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-teacher-accent p-1 transition-colors ml-2">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-4">
+<div class="font-semibold text-primary group-hover:text-teacher-accent transition-colors">Lab 05: Tối ưu hóa truy vấn SQL</div>
+<div class="text-sm text-on-surface-variant mt-1">Cá nhân</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                                        Cơ sở dữ liệu
+                                    </span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                                        15/11/2023
+                                    </div>
+</td>
+<td class="p-4">
+<div class="flex flex-col items-center gap-1">
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-employer-accent h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">45/45 sv đã nộp</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-teacher-accent p-1 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-teacher-accent p-1 transition-colors ml-2">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="p-4">
+<div class="font-semibold text-primary group-hover:text-teacher-accent transition-colors">Thiết kế hệ thống Microservices</div>
+<div class="text-sm text-on-surface-variant mt-1">Dự án nhóm (3 sv)</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-admin-accent/10 text-admin-accent">
+                                        Kiến trúc PM
+                                    </span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                                        30/11/2023
+                                    </div>
+</td>
+<td class="p-4">
+<div class="flex flex-col items-center gap-1">
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-student-accent h-2 rounded-full" style="width: 20%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">4/20 nhóm đã nộp</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-teacher-accent p-1 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-teacher-accent p-1 transition-colors ml-2">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-border-subtle bg-surface-muted flex items-center justify-between">
+<span class="font-body-md text-sm text-on-surface-variant">Hiển thị 1-3 của 24 nhiệm vụ</span>
+<div class="flex gap-1">
+<button class="p-1 rounded bg-white border border-border-subtle text-on-surface-variant disabled:opacity-50"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="px-3 py-1 rounded bg-teacher-accent text-white font-label-sm">1</button>
+<button class="px-3 py-1 rounded bg-white border border-border-subtle text-on-surface-variant hover:bg-surface-container-low font-label-sm">2</button>
+<button class="px-3 py-1 rounded bg-white border border-border-subtle text-on-surface-variant hover:bg-surface-container-low font-label-sm">3</button>
+<button class="p-1 rounded bg-white border border-border-subtle text-on-surface-variant hover:bg-surface-container-low"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

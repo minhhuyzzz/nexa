@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi" class="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nhiệm vụ được giao - NEXA Student</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00236f",
+                        "student-accent": "#3B82F6",
+                        "purple-accent": "#8B5CF6",
+                        "emerald-accent": "#10B981",
+                        "red-accent": "#F43F5E"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, h4 { font-family: 'Geist', sans-serif; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <script src="../js/sidebar_learner.js"></script>
+
+    <div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+        
+        <header class="h-16 bg-white border-b border-slate-200 fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] z-40 flex justify-between items-center px-8 transition-all shadow-sm">
+            <div class="flex-grow max-w-md relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                <input class="w-full bg-slate-50 border border-slate-200 rounded-full py-1.5 pl-10 pr-4 text-xs font-medium focus:outline-none focus:border-student-accent transition-colors" placeholder="Tìm kiếm bài tập, nhiệm vụ..." type="text"/>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-50 transition-colors relative">
+                    <span class="material-symbols-outlined text-xl">notifications</span>
+                    <span class="absolute top-2 right-2 w-1.5 h-1.5 bg-red-accent rounded-full"></span>
+                </button>
+                <span class="text-sm font-bold text-slate-600">SV: Nguyễn Hoàng Long</span>
+                <div class="w-8 h-8 rounded-full bg-[#00236f] text-white flex items-center justify-center text-xs font-bold shadow-sm">NL</div>
+            </div>
+        </header>
+
+        <main class="flex-grow pt-24 p-6 md:p-8 max-w-[1280px] mx-auto w-full space-y-6">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <div>
+                    <h1 class="text-2xl font-black text-primary tracking-tight">Nhiệm vụ thực hành</h1>
+                    <p class="text-sm text-slate-500 font-medium mt-1">Danh sách bài tập, đồ án chuyên sâu được giảng viên giao trong học kỳ.</p>
+                </div>
+                <div class="flex gap-2 w-full sm:w-auto">
+                    <button class="px-4 py-2 bg-[#00236f] text-white rounded-xl text-xs font-bold shadow-sm">Tất cả</button>
+                    <button class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 shadow-sm transition-all">Chưa nộp</button>
+                    <button class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 shadow-sm transition-all">Đã chấm</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-1.5 w-full md:w-auto">
+                    <h3 class="text-base font-black text-slate-800">Tiến độ bài tập cá nhân Học kỳ Fall 2023</h3>
+                    <p class="text-xs text-slate-400 font-medium">Bạn đã hoàn thành và nộp <strong class="text-primary">8/12 nhiệm vụ</strong> giảng viên giao.</p>
+                </div>
+                <div class="flex items-center gap-6 w-full md:w-auto flex-1 max-w-xl">
+                    <div class="flex-grow h-3 bg-slate-100 rounded-full overflow-hidden p-0.5 border">
+                        <div class="h-full bg-gradient-to-r from-[#00236f] to-student-accent rounded-full" style="width: 66%"></div>
+                    </div>
+                    <span class="text-3xl font-black text-primary font-mono shrink-0">66%</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-white rounded-2xl border-t-4 border-t-red-500 border border-slate-200 p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-500 uppercase tracking-wide">Phân tích dữ liệu (DAT301)</span>
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-red-50 text-red-600 border border-red-100 uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-xs animate-pulse">schedule</span> Còn 12 giờ nộp
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-black text-slate-800 leading-snug hover:text-primary transition-colors cursor-pointer">Đồ án Cột sống: Dự đoán xu hướng thị trường tài chính</h3>
+                            <p class="text-xs text-slate-400 font-medium mt-1.5 line-clamp-2">Yêu cầu ứng dụng mô hình toán học nâng cao ARIMA để dự đoán giá trị cổ phiếu dựa trên tập dữ liệu lớn giảng viên đã cung cấp.</p>
+                        </div>
+                        <div class="pt-2 flex items-center gap-2 text-xs text-slate-400 font-medium">
+                            <span class="material-symbols-outlined text-sm text-slate-400">person</span>
+                            <span>Giảng viên giao: <strong>Thầy Trần Minh Nam</strong></span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex gap-2 mt-4">
+                        <button onclick="window.location.href='submit_artifact.html'" class="flex-1 bg-[#00236f] hover:bg-opacity-95 text-white text-xs font-bold py-2.5 rounded-xl border-none transition-all cursor-pointer shadow-sm text-center">
+                            Làm bài & Nộp ngay
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border-t-4 border-t-blue-500 border border-slate-200 p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-500 uppercase tracking-wide">Hệ điều hành (OS202)</span>
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-blue-50 text-student-accent border border-blue-100 uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-xs">calendar_today</span> Còn 3 ngày
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-black text-slate-800 leading-snug hover:text-primary transition-colors cursor-pointer">Mô phỏng thuật toán lập lịch tiến trình CPU</h3>
+                            <p class="text-xs text-slate-400 font-medium mt-1.5 line-clamp-2">Cài đặt mã nguồn trực quan các thuật toán điều phối FCFS, SJF, và Round Robin bằng ngôn ngữ tự chọn (Java/C++).</p>
+                        </div>
+                        <div class="pt-2 flex items-center gap-2 text-xs text-slate-400 font-medium">
+                            <span class="material-symbols-outlined text-sm text-slate-400">person</span>
+                            <span>Giảng viên giao: <strong>Cô Nguyễn Thị Thu</strong></span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex gap-2 mt-4">
+                        <button onclick="window.location.href='submit_artifact.html'" class="flex-1 bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold text-xs py-2.5 rounded-xl border transition-colors cursor-pointer">
+                            Tiếp tục làm bài
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border-t-4 border-t-emerald-500 border border-slate-200 p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-500 uppercase tracking-wide">Thiết kế UI/UX (UXD101)</span>
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-50 text-emerald-accent border border-emerald-100 uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-xs">check_circle</span> Đã chấm điểm
+                            </span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-black text-slate-700 tracking-tight line-through leading-snug">Wireframe Ứng dụng Quản lý Thời gian tối ưu</h3>
+                            <p class="text-xs text-slate-400 font-medium mt-1.5 line-clamp-2">Thiết kế hệ thống low-fidelity wireframe gồm 5 luồng kiến trúc trải nghiệm người dùng cốt lõi trên nền tảng Figma.</p>
+                        </div>
+                        <div class="bg-emerald-50/40 p-3 rounded-xl border border-emerald-100 flex justify-between items-center">
+                            <span class="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Kết quả đạt được:</span>
+                            <div class="text-lg font-black text-primary">9.5<span class="text-xs text-slate-400 font-normal">/10</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex gap-2 mt-4">
+                        <button onclick="window.location.href='artifact_detail.html'" class="flex-1 bg-transparent text-primary hover:underline font-bold text-xs py-2.5 rounded-xl border-none transition-all cursor-pointer text-center">
+                            Xem nhận xét & Phản hồi
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

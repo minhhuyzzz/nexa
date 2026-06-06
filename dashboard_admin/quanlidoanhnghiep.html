@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXA - Quản lý Chứng nhận &amp; Doanh nghiệp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-bright": "#faf8ff", "primary-container": "#1e3a8a", "surface-dim": "#dad9e1", "tertiary-fixed": "#ffdbcb", "surface-muted": "#F8FAFC", "tertiary-container": "#6e2c00", "on-background": "#1a1b21", tertiary: "#4b1c00", "inverse-primary": "#b6c4ff", "on-tertiary-fixed-variant": "#773205", "on-primary": "#ffffff", primary: "#00236f", "on-tertiary-fixed": "#341100", "surface-container-low": "#f4f3fa", "surface-tint": "#4059aa", surface: "#faf8ff", "on-primary-fixed": "#00164e", "surface-container": "#eeedf4", "on-error-container": "#93000a", "on-tertiary": "#ffffff", "primary-fixed": "#dce1ff", "on-surface-variant": "#444651", "on-surface": "#1a1b21", "student-accent": "#3B82F6", "on-tertiary-container": "#f39461", "secondary-fixed": "#dce1ff", "on-secondary-container": "#1d3989", "inverse-on-surface": "#f1f0f7", "border-subtle": "#E2E8F0", error: "#ba1a1a", "tertiary-fixed-dim": "#ffb691", background: "#faf8ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#00164e", secondary: "#4059aa", "on-primary-fixed-variant": "#264191", "inverse-surface": "#2f3036", "secondary-container": "#8fa7fe", "teacher-accent": "#8B5CF6", "surface-container-highest": "#e3e1e9", "secondary-fixed-dim": "#b6c4ff", "admin-accent": "#F43F5E", "on-secondary": "#ffffff", "employer-accent": "#10B981", "surface-variant": "#e3e1e9", "on-error": "#ffffff", outline: "#757682", "on-primary-container": "#90a8ff", "error-container": "#ffdad6", "outline-variant": "#c5c5d3", "primary-fixed-dim": "#b6c4ff", "on-secondary-fixed-variant": "#264191", "surface-container-high": "#e9e7ef"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-padding": "24px", "card-gap": "20px", "section-margin": "48px", "base-unit": "4px", gutter: "16px"}, fontFamily: {"display-lg": ["Geist", "sans-serif"], "headline-xl": ["Geist", "sans-serif"], "label-md": ["Geist", "sans-serif"], "headline-lg-mobile": ["Geist", "sans-serif"], "body-md": ["Inter", "sans-serif"], "body-lg": ["Inter", "sans-serif"], "label-sm": ["Geist", "sans-serif"], "headline-lg": ["Geist", "sans-serif"], headline: ["Geist"], display: ["Geist"], body: ["Inter"], label: ["Geist"]}, fontSize: {"display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700"}], "headline-xl": ["32px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "1.2", fontWeight: "500"}], "headline-lg-mobile": ["20px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.5", fontWeight: "400"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1.1", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "1.3", fontWeight: "600"}]}}}};</script>
+<style>
+        /* Setup Geist font manually since it might not be in Google Fonts standard list */
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-500-normal.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-600-normal.woff2') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #c5c5d3;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-surface-muted text-on-background font-body-md text-body-md overflow-hidden antialiased flex h-screen w-full">
+<!-- SideNavBar -->
+<script src="../js/sidebar_admin.js"></script>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 bg-surface-container-lowest dark:bg-inverse-surface docked full-width border-b border-border-subtle dark:border-outline-variant shadow-sm transition-colors duration-150">
+<div class="flex items-center gap-4">
+<!-- Search could go here based on "search_bar": "on_left" -->
+<div class="relative hidden md:flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-border-subtle rounded-full text-label-md font-label-md focus:outline-none focus:border-primary w-64 transition-colors" placeholder="Tìm kiếm doanh nghiệp..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-9 h-9 rounded-full bg-surface-dim ml-2 overflow-hidden border border-border-subtle">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate administrator in a bright, modern office setting. The lighting is soft and natural, emphasizing a trustworthy and efficient persona suitable for a high-tech platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsnOyDeYfjTvLo3-5IofujFAoKXOjztFdZ9iiWmmmGtLPY3dN_eGmVQRdWl4juJjTBf9Oed9MkjRK-LtZXOJzHYJaRL92CZOHZX3zaPmYI97X54TnjyzuwEZICB6rJKGn0uUcuLnTDox1uugrawrixyg_OEEGTJBLXNdADTfyZhSb9TySnsjqwsBRqu4B439b0qs-zwS2uHttjZmAXrVvLBcd9xUk2e-3GgBtVDBeyaeMGoDc2iEj8jbmBL9x9Al2XAbj0HQg2S20"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-container-padding custom-scrollbar bg-surface-muted relative">
+<!-- Subtle background tech element -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary opacity-5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto space-y-card-gap relative z-10">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-6">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Quản lý Chứng nhận &amp; Doanh nghiệp</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Giám sát hoạt động xác thực chứng chỉ và đối tác doanh nghiệp trên hệ thống NEXA.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Thêm Doanh Nghiệp
+                    </button>
+</div>
+<!-- Stats Bento Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-card-gap">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-employer-accent opacity-10 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Chứng chỉ đã xác thực</span>
+<div class="w-8 h-8 rounded-full bg-employer-accent/10 flex items-center justify-center text-employer-accent">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">14,259</span>
+<span class="font-label-sm text-label-sm text-employer-accent flex items-center pb-2">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12%
+                            </span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary opacity-10 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Doanh nghiệp đối tác</span>
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</div>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">342</span>
+<span class="font-label-sm text-label-sm text-employer-accent flex items-center pb-2">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +5 mới
+                            </span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-5 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-admin-accent opacity-10 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Yêu cầu chờ duyệt</span>
+<div class="w-8 h-8 rounded-full bg-admin-accent/10 flex items-center justify-center text-admin-accent">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+</div>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center pb-2">
+                                cần xử lý
+                            </span>
+</div>
+</div>
+</div>
+<!-- Main Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+<!-- Left Column: Enterprise List (Span 2) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-border-subtle rounded-xl shadow-sm flex flex-col">
+<div class="px-5 py-4 border-b border-border-subtle flex justify-between items-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Doanh nghiệp đã đăng ký</h2>
+<button class="text-primary hover:text-primary-fixed-variant font-label-md text-label-md transition-colors">Xem tất cả</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-muted/50 border-b border-border-subtle">
+<th class="px-5 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tên doanh nghiệp</th>
+<th class="px-5 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mã số thuế</th>
+<th class="px-5 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Trạng thái</th>
+<th class="px-5 py-3 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-border-subtle hover:bg-surface-container-low transition-colors">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">F</div>
+<span class="font-label-md text-label-md text-on-surface">FPT Software</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">0100778749</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-employer-accent/10 text-employer-accent font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Đã xác minh
+                                            </span>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-border-subtle hover:bg-surface-container-low transition-colors">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">V</div>
+<span class="font-label-md text-label-md text-on-surface">VNG Corporation</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">0303625026</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-employer-accent/10 text-employer-accent font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Đã xác minh
+                                            </span>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-border-subtle hover:bg-surface-container-low transition-colors">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">T</div>
+<span class="font-label-md text-label-md text-on-surface">Techcombank</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">0100230800</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-tertiary-fixed-dim/30 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Chờ duyệt
+                                            </span>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-primary hover:text-primary-fixed-variant font-label-sm text-label-sm transition-colors mr-2">Duyệt</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">M</div>
+<span class="font-label-md text-label-md text-on-surface">Momo</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">0305315582</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-employer-accent/10 text-employer-accent font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Đã xác minh
+                                            </span>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column: Verification Logs (Span 1) -->
+<div class="lg:col-span-1 glass-panel rounded-xl shadow-sm flex flex-col relative overflow-hidden">
+<div class="px-5 py-4 border-b border-border-subtle flex justify-between items-center bg-surface-container-lowest/80">
+<h2 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span> Log xác thực
+                            </h2>
+</div>
+<div class="p-4 space-y-4 overflow-y-auto flex-1 custom-scrollbar">
+<!-- Log Item 1 -->
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-border-subtle shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">CERT-2023-A8F9</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">10:42 AM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">domain</span>
+<span class="font-label-md text-label-md text-on-surface">FPT Software</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-2 h-2 rounded-full bg-employer-accent"></div>
+<span class="font-label-sm text-label-sm text-employer-accent">Hợp lệ</span>
+</div>
+</div>
+<!-- Log Item 2 -->
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-border-subtle shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">CERT-2023-B2C4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">09:15 AM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">domain</span>
+<span class="font-label-md text-label-md text-on-surface">VNG Corporation</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-2 h-2 rounded-full bg-employer-accent"></div>
+<span class="font-label-sm text-label-sm text-employer-accent">Hợp lệ</span>
+</div>
+</div>
+<!-- Log Item 3 -->
+<div class="bg-error-container/30 p-3 rounded-lg border border-error/20 shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-error bg-error-container px-2 py-0.5 rounded">CERT-XXXX-FAIL</span>
+<span class="font-label-sm text-label-sm text-error text-[11px]">Hôm qua</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error">domain</span>
+<span class="font-label-md text-label-md text-on-surface">Techcombank</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label-sm text-label-sm text-error">Không hợp lệ / Giả mạo</span>
+</div>
+</div>
+<!-- Log Item 4 -->
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-border-subtle shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">CERT-2022-D9E1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Hôm qua</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">domain</span>
+<span class="font-label-md text-label-md text-on-surface">Momo</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-2 h-2 rounded-full bg-employer-accent"></div>
+<span class="font-label-sm text-label-sm text-employer-accent">Hợp lệ</span>
+</div>
+</div>
+</div>
+<div class="p-3 border-t border-border-subtle bg-surface-container-lowest/80 text-center">
+<button class="text-primary font-label-sm text-label-sm hover:underline">Xem toàn bộ lịch sử</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

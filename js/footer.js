@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <ul class="space-y-2 text-slate-500 font-medium">
                     <li><a href="${rootPath}index.html#he-sinh-thai" class="hover:text-[#D4AF37] transition">Định vị năng lực số cá nhân</a></li>
                     <li><a href="${rootPath}index.html#he-sinh-thai" class="hover:text-[#D4AF37] transition">Khảo thí số hóa cho nhà trường</a></li>
-                    <li><a href="${rootPath}NEXA_Free_Test.html" class="hover:text-[#D4AF37] transition">Khảo thí nhanh phản xạ số (Free Test)</a></li>
+                    <li><a href="${rootPath}NEXA_Free_Test.html" class="hover:text-[#D4AF37] transition">Khảo thí nhanh phản xạ số (kiểm tra miễn phí)</a></li>
                     <li><a href="${rootPath}index.html#cho-nhiem-vu" class="hover:text-[#D4AF37] transition">Chợ nhiệm vụ thực hành số</a></li>
                     <li><a href="${rootPath}index.html#lo-trinh-dao-tao" class="hover:text-[#D4AF37] transition">Lộ trình rèn luyện kỹ năng số</a></li>
                 </ul>
